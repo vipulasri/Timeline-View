@@ -31,6 +31,23 @@ You can manually achieve this step with 3 steps:
  
  ### 2. Usage
  
+ * In XML Layout : 
+ 
+ ``` java
+    <com.vipul.hp_hp.timelineview.TimelineView
+        android:id="@+id/time_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:marker_size="25dp"
+        app:line_size="2dp"
+        app:line="@color/colorPrimary"/>
+```
+ 
+ 
  * RecyclerView Holder : 
    Your `RecyclerViewHolder` should have an extra paramenter in constructor i.e viewType from `onCreateViewHolder`. You would also have to call the method `initLine(viewType)` in constructor definition.
  
@@ -71,7 +88,8 @@ You can manually achieve this step with 3 steps:
 
 ```
 
-For information : checkout [sample app](https://github.com/vipulasri/Timeline-View/app/) in repository.
+
+For information : checkout [sample app](https://github.com/vipulasri/Timeline-View/tree/master/app) in repository.
 
 ## License
 
