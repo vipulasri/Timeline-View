@@ -1,6 +1,6 @@
 # Timeline-View 
 
-Android Timeline View Library (Using RecyclerView) is simple implementation of view used to display view like Tracking of shipment/order, steppers etc.  
+Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.  
 
 ### Screenshot of Sample Application
 
