@@ -4,6 +4,8 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 ### Screenshot of Sample Application
 
+[Sample Application Apk](https://github.com/vipulasri/Timeline-View/tree/master/apk)
+
 ![Screenshot](https://github.com/vipulasri/Timeline-View/blob/master/Screenshot1.png)
 
 ## Quick Setup
@@ -90,6 +92,7 @@ You can manually achieve this step with 3 steps:
 
 
 For information : checkout [sample app](https://github.com/vipulasri/Timeline-View/tree/master/app) in repository.
+
 
 ## License
 
