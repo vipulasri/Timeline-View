@@ -1,6 +1,8 @@
 # Timeline-View 
 
-Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.  
+Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.
+
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Timeline--View-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2923)
 
 ### Screenshot of Sample Application
 
@@ -36,17 +38,17 @@ You can manually achieve this step with 3 steps:
  * In XML Layout : 
  
  ``` java
-    <com.vipul.hp_hp.timelineview.TimelineView
-        android:id="@+id/time_marker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        app:marker_size="25dp"
-        app:line_size="2dp"
-        app:line="@color/colorPrimary"/>
+<com.vipul.hp_hp.timelineview.TimelineView
+    android:id="@+id/time_marker"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="30dp"
+    android:paddingBottom="30dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    app:marker_size="25dp"
+    app:line_size="2dp"
+    app:line="@color/colorPrimary"/>
 ```
  
  
