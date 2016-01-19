@@ -4,6 +4,8 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Timeline--View-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2923)
 
+[![Android Gems](http://www.android-gems.com/badge/vipulasri/Timeline-View.svg)
+
 ### Screenshot of Sample Application
 
 [Sample Application Apk](https://github.com/vipulasri/Timeline-View/tree/master/apk)
