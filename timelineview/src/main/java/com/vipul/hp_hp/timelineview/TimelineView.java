@@ -152,12 +152,12 @@ public class TimelineView extends View {
     }
 
     public static int getTimeLineViewType(int position, int total_size) {
-        if(position == 0) {
+        if(total_size == 1) {
+            return LineType.ONLYONE;
+        } else if(position == 0) {
             return LineType.BEGIN;
         } else if(position == total_size - 1) {
             return LineType.END;
-        } else if(total_size == 1) {
-            return LineType.ONLYONE;
         } else {
             return LineType.NORMAL;
         }
