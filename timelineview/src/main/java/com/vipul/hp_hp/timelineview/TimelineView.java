@@ -88,11 +88,11 @@ public class TimelineView extends View {
         int centerX = mBounds.centerX();
         int lineLeft = centerX - (mLineSize >> 1);
         if(mStartLine != null) {
-            mStartLine.setBounds(lineLeft, 0, mLineSize + lineLeft, mBounds.top);
+            mStartLine.setBounds(lineLeft, 0, mLineSize + lineLeft, mBounds.top + cHeight / 2);
         }
 
         if(mEndLine != null) {
-            mEndLine.setBounds(lineLeft, mBounds.bottom, mLineSize + lineLeft, height);
+            mEndLine.setBounds(lineLeft, mBounds.bottom - cHeight / 2, mLineSize + lineLeft, height);
         }
 
     }
@@ -100,15 +100,15 @@ public class TimelineView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if(mMarker != null) {
-            mMarker.draw(canvas);
-        }
-
         if(mStartLine != null) {
             mStartLine.draw(canvas);
         }
         if(mEndLine != null) {
             mEndLine.draw(canvas);
+        }
+
+        if(mMarker != null) {
+            mMarker.draw(canvas);
         }
     }
 
