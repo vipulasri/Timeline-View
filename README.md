@@ -20,7 +20,7 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 ``` gradle
 dependencies {
-    compile 'com.github.vipulasri:timelineview:1.0.0'
+    compile 'com.github.vipulasri:timelineview:1.0.1'
 }
 ```
 
