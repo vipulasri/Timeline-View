@@ -12,17 +12,31 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 ![Screenshot](https://github.com/vipulasri/Timeline-View/blob/master/Screenshot1.png)
 
+![Screenshot](https://github.com/vipulasri/Timeline-View/blob/master/Screenshot2.png)
+
 ## Quick Setup
 
 ### 1. Include library
 
-**Automatically with Gradle**
+**Using Gradle**
 
 ``` gradle
 dependencies {
-    compile 'com.github.vipulasri:timelineview:1.0.2'
+    compile 'com.github.vipulasri:timelineview:1.0.3'
 }
 ```
+
+** Using Maven**
+
+``` maven
+<dependency> 
+    <groupId>com.github.vipulasri</groupId> 
+    <artifactId>timelineview</artifactId> 
+    <version>1.0.3</version> 
+    <type>pom</type> 
+</dependency>
+```
+
 
 #### Manual:
 **Manual - Using [Android Studio](https://developer.android.com/sdk/installing/studio.html):**
@@ -35,7 +49,15 @@ You can manually achieve this step with 3 steps:
  * File → Project Structure → in Modules section click on "app" → Click on tab "Dependecies" → Click on the green plus → Module Dependecy → Select ":library"
  * Done 
  
- ### 2. Usage
+### What's New
+
+See the project's Releases page for a list of versions with their changelogs.
+
+ ### [View Releases](https://github.com/vipulasri/Timeline-View)
+
+If you Watch this repository, GitHub will send you an email every time I publish an update.
+ 
+### 2. Usage
  
  * In XML Layout : 
  
@@ -43,15 +65,49 @@ You can manually achieve this step with 3 steps:
 <com.vipul.hp_hp.timelineview.TimelineView
     android:id="@+id/time_marker"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:paddingTop="30dp"
-    android:paddingBottom="30dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
+    android:layout_height="match_parent"
     app:marker_size="25dp"
     app:line_size="2dp"
     app:line="@color/colorPrimary"/>
 ```
+
+* Configure using xml attributes or setters in code:
+
+    <table>
+    <th>Attribute Name</th>
+    <th>Default Value</th>
+    <th>Description</th>
+    <tr>
+        <td>app:marker="@drawable/marker"</td>
+        <td>Green Colored Oval Drawable</td>
+        <td>sets marker drawable</td>
+    </tr>
+    <tr>
+        <td>app:marker_size="25dp"</td>
+        <td>25px</td>
+        <td>sets marker size</td>
+    </tr>
+    <tr>
+        <td>app:markerInCenter="false"</td>
+        <td>true</td>
+        <td>sets the marker in center of line if `true`</td>
+    </tr>
+    <tr>
+        <td>app:line="@color/primarColor"</td>
+        <td>N/A</td>
+        <td>Compulsory Field - set line color</td>
+    </tr>
+     <tr>
+        <td>app:line_size="2dp"</td>
+        <td>2px</td>
+        <td>sets line width</td>
+    </tr>
+    <tr>
+        <td>app:line_orientation="horizontal"</td>
+        <td>vertical</td>
+        <td>sets orientation of line ie `horizontal` or `vertical`</td>
+    </tr>
+    </table>
  
  
  * RecyclerView Holder : 

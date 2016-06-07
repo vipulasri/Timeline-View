@@ -1,5 +1,6 @@
 package com.vipul.hp_hp.timeline;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -15,9 +16,12 @@ import java.util.List;
 public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
 
     private List<TimeLineModel> mFeedList;
+    private Context mContext;
+    private Orientation mOrientation;
 
-    public TimeLineAdapter(List<TimeLineModel> feedList) {
+    public TimeLineAdapter(List<TimeLineModel> feedList, Orientation orientation) {
         mFeedList = feedList;
+        mOrientation = orientation;
     }
 
     @Override
@@ -27,7 +31,17 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
 
     @Override
     public TimeLineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(parent.getContext(), R.layout.item_timeline, null);
+
+        mContext = parent.getContext();
+
+        View view;
+
+        if(mOrientation == Orientation.horizontal) {
+            view = View.inflate(parent.getContext(), R.layout.item_timeline_horizontal, null);
+        } else {
+            view = View.inflate(parent.getContext(), R.layout.item_timeline, null);
+        }
+
         return new TimeLineViewHolder(view, viewType);
     }
 

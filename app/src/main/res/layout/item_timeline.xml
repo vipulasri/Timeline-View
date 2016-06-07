@@ -9,18 +9,15 @@
     <com.vipul.hp_hp.timelineview.TimelineView
         android:id="@+id/time_marker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_height="match_parent"
         app:marker_size="25dp"
         app:line_size="2dp"
         app:line="@color/colorPrimary"/>
 
     <android.support.v7.widget.CardView
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
         android:layout_gravity="center_vertical">
 
         <TextView

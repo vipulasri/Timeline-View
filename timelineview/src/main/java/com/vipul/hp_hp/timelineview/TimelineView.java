@@ -18,6 +18,8 @@ public class TimelineView extends View {
     private Drawable mEndLine;
     private int mMarkerSize;
     private int mLineSize;
+    private int mLineOrientation;
+    private boolean mMarkerInCenter;
 
     private Rect mBounds;
     private Context mContext;
@@ -36,6 +38,8 @@ public class TimelineView extends View {
         mEndLine = typedArray.getDrawable(R.styleable.timeline_style_line);
         mMarkerSize = typedArray.getDimensionPixelSize(R.styleable.timeline_style_marker_size, 25);
         mLineSize = typedArray.getDimensionPixelSize(R.styleable.timeline_style_line_size, 2);
+        mLineOrientation = typedArray.getInt(R.styleable.timeline_style_line_orientation, 1);
+        mMarkerInCenter = typedArray.getBoolean(R.styleable.timeline_style_markerInCenter, true);
         typedArray.recycle();
 
         if(mMarker == null) {
@@ -80,19 +84,48 @@ public class TimelineView extends View {
 
         int markSize = Math.min(mMarkerSize, Math.min(cWidth, cHeight));
 
-        if(mMarker != null) {
-            mMarker.setBounds(pLeft,pTop,pLeft + markSize,pTop + markSize);
-            mBounds = mMarker.getBounds();
+        if(mMarkerInCenter) { //Marker in center is true
+
+            if(mMarker != null) {
+                mMarker.setBounds((width/2) - (markSize/2),(height/2) - (markSize/2), (width/2) + (markSize/2),(height/2) + (markSize/2));
+                mBounds = mMarker.getBounds();
+            }
+
+        } else { //Marker in center us false
+
+            if(mMarker != null) {
+                mMarker.setBounds(pLeft,pTop,pLeft + markSize,pTop + markSize);
+                mBounds = mMarker.getBounds();
+            }
         }
 
         int centerX = mBounds.centerX();
         int lineLeft = centerX - (mLineSize >> 1);
-        if(mStartLine != null) {
-            mStartLine.setBounds(lineLeft, 0, mLineSize + lineLeft, mBounds.top);
-        }
 
-        if(mEndLine != null) {
-            mEndLine.setBounds(lineLeft, mBounds.bottom, mLineSize + lineLeft, height);
+        if(mLineOrientation==0) {
+
+            //Horizontal Line
+
+            if(mStartLine != null) {
+                mStartLine.setBounds(0, pTop + (mBounds.height()/2), mBounds.left, (mBounds.height()/2) + pTop + mLineSize);
+            }
+
+            if(mEndLine != null) {
+                mEndLine.setBounds(mBounds.right, pTop + (mBounds.height()/2), width, (mBounds.height()/2) + pTop + mLineSize);
+            }
+
+        } else {
+
+            //Vertical Line
+
+            if(mStartLine != null) {
+                mStartLine.setBounds(lineLeft, 0, mLineSize + lineLeft, mBounds.top);
+            }
+
+            if(mEndLine != null) {
+                mEndLine.setBounds(lineLeft, mBounds.bottom, mLineSize + lineLeft, height);
+            }
+
         }
 
     }
@@ -107,6 +140,7 @@ public class TimelineView extends View {
         if(mStartLine != null) {
             mStartLine.draw(canvas);
         }
+
         if(mEndLine != null) {
             mEndLine.draw(canvas);
         }
@@ -152,6 +186,7 @@ public class TimelineView extends View {
     }
 
     public static int getTimeLineViewType(int position, int total_size) {
+
         if(total_size == 1) {
             return LineType.ONLYONE;
         } else if(position == 0) {

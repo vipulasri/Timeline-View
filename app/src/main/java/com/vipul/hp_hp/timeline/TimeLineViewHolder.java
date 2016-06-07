@@ -20,5 +20,4 @@ public class TimeLineViewHolder extends RecyclerView.ViewHolder {
         mTimelineView = (TimelineView) itemView.findViewById(R.id.time_marker);
         mTimelineView.initLine(viewType);
     }
-
 }
