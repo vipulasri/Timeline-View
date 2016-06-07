@@ -53,7 +53,7 @@ You can manually achieve this step with 3 steps:
 
 See the project's Releases page for a list of versions with their changelogs.
 
-### [View Releases](https://github.com/vipulasri/Timeline-View)
+### [View Releases](https://github.com/vipulasri/Timeline-View/releases)
 
 If you Watch this repository, GitHub will send you an email every time I publish an update.
  
