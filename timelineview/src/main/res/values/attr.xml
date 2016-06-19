@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="timeline_style" >
+        <attr name="markerInnerRadius" format="dimension"/>
+        <attr name="markerInnerColor" format="color|reference"/>
+        <attr name="markerOuterStrokeWidth" format="dimension"/>
+        <attr name="markerOuterColor" format="color|reference"/>
         <attr name="marker" format="color|reference"/>
         <attr name="line" format="color|reference"/>
         <attr name="marker_size" format="dimension"/>
