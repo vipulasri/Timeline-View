@@ -62,7 +62,7 @@ public class TimeLineActivity extends AppCompatActivity {
 
     private void setDataListItems(){
         mDataList.add(new TimeLineModel("Item successfully delivered", "", OrderStatus.INACTIVE));
-        mDataList.add(new TimeLineModel("Courier is out to delivery your order", "", OrderStatus.ACTIVE));
+        mDataList.add(new TimeLineModel("Courier is out to delivery your order", "2017-02-12 08:00", OrderStatus.ACTIVE));
         mDataList.add(new TimeLineModel("Item has reached courier facility at New Delhi", "2017-02-11 21:00", OrderStatus.COMPLETED));
         mDataList.add(new TimeLineModel("Item has been given to the courier", "2017-02-11 18:00", OrderStatus.COMPLETED));
         mDataList.add(new TimeLineModel("Item is packed and will dispatch soon", "2017-02-11 09:30", OrderStatus.COMPLETED));
