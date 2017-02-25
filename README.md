@@ -2,11 +2,13 @@
 
 Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Timeline--View-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2923)
+### Specs
+[ ![Download](https://api.bintray.com/packages/vipulasri/maven/TimelineView/images/download.svg) ](https://bintray.com/vipulasri/maven/TimelineView/_latestVersion) <a href="http://www.methodscount.com/?lib=com.github.vipulasri%3Atimelineview%3A1.0.4"><img src="https://img.shields.io/badge/Methods and size-49 | 6 KB-e91e63.svg"/></a>
 
-[![Android Gems](http://www.android-gems.com/badge/vipulasri/Timeline-View.svg)](http://www.android-gems.com/lib/vipulasri/Timeline-View?lib_id=773)
+### Badges/Featured In
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Timeline--View-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2923) [![Android Gems](http://www.android-gems.com/badge/vipulasri/Timeline-View.svg)](http://www.android-gems.com/lib/vipulasri/Timeline-View?lib_id=773)
 
-### Screenshot of Sample Application
+### Screenshots of Sample Application
 
 [Sample Application Apk](https://github.com/vipulasri/Timeline-View/tree/master/apk)
 
@@ -22,33 +24,33 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 ``` gradle
 dependencies {
-    compile 'com.github.vipulasri:timelineview:1.0.3'
+    compile 'com.github.vipulasri:timelineview:1.0.4'
 }
 ```
 
 **Using Maven**
 
 ``` maven
-<dependency> 
-    <groupId>com.github.vipulasri</groupId> 
-    <artifactId>timelineview</artifactId> 
-    <version>1.0.3</version> 
-    <type>pom</type> 
+<dependency>
+    <groupId>com.github.vipulasri</groupId>
+    <artifactId>timelineview</artifactId>
+    <version>1.0.4</version>
+    <type>pom</type>
 </dependency>
 ```
 
 
 #### Manual:
 **Manual - Using [Android Studio](https://developer.android.com/sdk/installing/studio.html):**
- * Download the library folder and import to your root application folder. 
-You can manually achieve this step with 3 steps: 
+ * Download the library folder and import to your root application folder.
+You can manually achieve this step with 3 steps:
     1. Paste the folder library into your application at the same level of your app, build and gradle folder
     2. Add to your settings.gradle file the following code line:
     "include ':app', ':timelineview'"
     3. Rebuild the project
  * File → Project Structure → in Modules section click on "app" → Click on tab "Dependecies" → Click on the green plus → Module Dependecy → Select ":library"
- * Done 
- 
+ * Done
+
 ### What's New
 
 See the project's Releases page for a list of versions with their changelogs.
@@ -56,17 +58,17 @@ See the project's Releases page for a list of versions with their changelogs.
 ### [View Releases](https://github.com/vipulasri/Timeline-View/releases)
 
 If you Watch this repository, GitHub will send you an email every time I publish an update.
- 
+
 ### 2. Usage
- 
- * In XML Layout : 
- 
+
+ * In XML Layout :
+
  ``` java
-<com.vipul.hp_hp.timelineview.TimelineView
+<com.github.vipulasri.timelineview.TimelineView
     android:id="@+id/time_marker"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    app:marker_size="25dp"
+    app:marker_size="20dp"
     app:line_size="2dp"
     app:line="@color/colorPrimary"/>
 ```
