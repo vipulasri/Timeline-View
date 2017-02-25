@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vipul.hp_hp.timelineview">
+    package="com.github.vipulasri.timelineview">
 
     <application
         android:allowBackup="true"

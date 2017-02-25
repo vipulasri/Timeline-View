@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TimeLine</string>
     <string name="action_settings">Settings</string>
+
+    <string name="horizontal_timeline">Horizontal Timeline</string>
+    <string name="vertical_timeline">Vertical Timeline</string>
 </resources>

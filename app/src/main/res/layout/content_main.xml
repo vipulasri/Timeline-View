@@ -6,9 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
+    tools:context="com.github.vipulasri.timeline.MainActivity"
     tools:showIn="@layout/activity_main">
-
 
     <Button
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Vertical TimeLine"
+        android:text="@string/vertical_timeline"
         android:textSize="16sp"
         android:textAllCaps="false" />
 
@@ -28,7 +27,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Horizontal TimeLine"
+        android:text="@string/horizontal_timeline"
         android:textSize="16sp"
         android:textAllCaps="false"/>
 
