@@ -155,6 +155,12 @@ If you Watch this repository, GitHub will send you an email every time I publish
 For information : checkout [sample app](https://github.com/vipulasri/Timeline-View/tree/master/app) in repository.
 
 
+## Apps that use this library
+
+If you're using this library in your app and you'd like to list it here,
+Please let me know via [email](mailto:vipulasri.2007@gmail.com) or [pull requests](https://github.com/vipulasri/Timeline-View/pulls) or [issues](https://github.com/vipulasri/Timeline-View/issues).
+
+
 ## License
 
 
