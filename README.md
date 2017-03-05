@@ -71,7 +71,6 @@ If you Watch this repository, GitHub will send you an email every time I publish
     app:lineSize="2dp"
     app:line="@color/colorPrimary"/>
 ```
-            ![timeline](https://github.com/vipulasri/Timeline-View/blob/master/art/timeline.png)
 
 ##### Line Padding around marker
 
@@ -85,8 +84,6 @@ If you Watch this repository, GitHub will send you an email every time I publish
     app:line="@color/colorPrimary"
     app:linePadding="5dp/>
 ```
-
-            ![timeline with line padding](https://github.com/vipulasri/Timeline-View/blob/master/art/timeline_padding.png)
 
 * Configure using xml attributes or setters in code:
 
