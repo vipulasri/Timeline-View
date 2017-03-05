@@ -3,18 +3,18 @@
 Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.
 
 ### Specs
-[ ![Download](https://api.bintray.com/packages/vipulasri/maven/TimelineView/images/download.svg) ](https://bintray.com/vipulasri/maven/TimelineView/_latestVersion) <a href="http://www.methodscount.com/?lib=com.github.vipulasri%3Atimelineview%3A1.0.4"><img src="https://img.shields.io/badge/Methods and size-49 | 6 KB-e91e63.svg"/></a>
+[ ![Download](https://api.bintray.com/packages/vipulasri/maven/TimelineView/images/download.svg) ](https://bintray.com/vipulasri/maven/TimelineView/_latestVersion) <a href="http://www.methodscount.com/?lib=com.github.vipulasri%3Atimelineview%3A1.0.5"><img src="https://img.shields.io/badge/Methods and size-56 | 7 KB-e91e63.svg"/></a>
 
 ### Badges/Featured In
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Timeline--View-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2923) [![Android Gems](http://www.android-gems.com/badge/vipulasri/Timeline-View.svg)](http://www.android-gems.com/lib/vipulasri/Timeline-View?lib_id=773) [![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23126-blue.svg)](https://www.androiddevdigest.com/digest-126/) 
 
-### Screenshots of Sample Application
+![showcase](https://github.com/vipulasri/Timeline-View/blob/master/showcase.png)
 
-[Sample Application Apk](https://github.com/vipulasri/Timeline-View/tree/master/apk)
+## Sample Project
 
-![Screenshot](https://github.com/vipulasri/Timeline-View/blob/master/Screenshot1.png)
+You can download the latest sample APK from this repo here: [https://github.com/vipulasri/Timeline-View/tree/master/apk](https://github.com/vipulasri/Timeline-View/tree/master/apk)
 
-![Screenshot](https://github.com/vipulasri/Timeline-View/blob/master/Screenshot2.png)
+For information : checkout [Sample App Code](https://github.com/vipulasri/Timeline-View/tree/master/app) in repository.
 
 ## Quick Setup
 
@@ -24,7 +24,7 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 ``` gradle
 dependencies {
-    compile 'com.github.vipulasri:timelineview:1.0.4'
+    compile 'com.github.vipulasri:timelineview:1.0.5'
 }
 ```
 
@@ -34,7 +34,7 @@ dependencies {
 <dependency>
     <groupId>com.github.vipulasri</groupId>
     <artifactId>timelineview</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <type>pom</type>
 </dependency>
 ```
@@ -68,9 +68,22 @@ If you Watch this repository, GitHub will send you an email every time I publish
     android:id="@+id/time_marker"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    app:marker_size="20dp"
-    app:line_size="2dp"
+    app:markerSize="20dp"
+    app:lineSize="2dp"
     app:line="@color/colorPrimary"/>
+```
+
+##### Line Padding around marker
+
+``` java
+<com.github.vipulasri.timelineview.TimelineView
+    android:id="@+id/time_marker"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    app:markerSize="20dp"
+    app:lineSize="2dp"
+    app:line="@color/colorPrimary"
+    app:linePadding="5dp/>
 ```
 
 * Configure using xml attributes or setters in code:
@@ -85,8 +98,8 @@ If you Watch this repository, GitHub will send you an email every time I publish
         <td>sets marker drawable</td>
     </tr>
     <tr>
-        <td>app:marker_size="25dp"</td>
-        <td>25px</td>
+        <td>app:markerSize="25dp"</td>
+        <td>25dp</td>
         <td>sets marker size</td>
     </tr>
     <tr>
@@ -96,19 +109,24 @@ If you Watch this repository, GitHub will send you an email every time I publish
     </tr>
     <tr>
         <td>app:line="@color/primarColor"</td>
-        <td>N/A</td>
-        <td>Compulsory Field - set line color</td>
+        <td>Dark Grey Line</td>
+        <td>sets line color</td>
     </tr>
      <tr>
-        <td>app:line_size="2dp"</td>
-        <td>2px</td>
+        <td>app:lineSize="2dp"</td>
+        <td>2dp</td>
         <td>sets line width</td>
     </tr>
     <tr>
-        <td>app:line_orientation="horizontal"</td>
+        <td>app:lineOrientation="horizontal"</td>
         <td>vertical</td>
         <td>sets orientation of line ie `horizontal` or `vertical`</td>
     </tr>
+    <tr>
+        <td>app:linePadding="5dp"</td>
+        <td>0dp</td>
+        <td>sets line padding around marker</td>
+        </tr>
     </table>
  
 * RecyclerView Holder : 
@@ -151,14 +169,10 @@ If you Watch this repository, GitHub will send you an email every time I publish
 
 ```
 
-
-For information : checkout [sample app](https://github.com/vipulasri/Timeline-View/tree/master/app) in repository.
-
-
 ## Apps that use this library
 
 If you're using this library in your app and you'd like to list it here,
-Please let me know via [email](mailto:vipulasri.2007@gmail.com) or [pull requests](https://github.com/vipulasri/Timeline-View/pulls) or [issues](https://github.com/vipulasri/Timeline-View/issues).
+Please let me know via [email](mailto:vipulasri.2007@gmail.com), [pull requests](https://github.com/vipulasri/Timeline-View/pulls) or [issues](https://github.com/vipulasri/Timeline-View/issues).
 
 
 ## License
