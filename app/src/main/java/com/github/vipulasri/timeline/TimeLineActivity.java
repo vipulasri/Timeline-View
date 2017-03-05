@@ -23,6 +23,7 @@ public class TimeLineActivity extends AppCompatActivity {
     private TimeLineAdapter mTimeLineAdapter;
     private List<TimeLineModel> mDataList = new ArrayList<>();
     private Orientation mOrientation;
+    private boolean mWithLinePadding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,8 @@ public class TimeLineActivity extends AppCompatActivity {
         if(getSupportActionBar()!=null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mOrientation = (Orientation) getIntent().getSerializableExtra(MainActivity.TAG_ORIENTATION);
+        mOrientation = (Orientation) getIntent().getSerializableExtra(MainActivity.EXTRA_ORIENTATION);
+        mWithLinePadding = getIntent().getBooleanExtra(MainActivity.EXTRA_WITH_LINE_PADDING, false);
 
         setTitle(mOrientation == Orientation.HORIZONTAL ? getResources().getString(R.string.horizontal_timeline) : getResources().getString(R.string.vertical_timeline));
 
@@ -56,7 +58,7 @@ public class TimeLineActivity extends AppCompatActivity {
 
     private void initView() {
         setDataListItems();
-        mTimeLineAdapter = new TimeLineAdapter(mDataList, mOrientation);
+        mTimeLineAdapter = new TimeLineAdapter(mDataList, mOrientation, mWithLinePadding);
         mRecyclerView.setAdapter(mTimeLineAdapter);
     }
 
@@ -87,16 +89,15 @@ public class TimeLineActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         if(mOrientation!=null)
-            savedInstanceState.putSerializable(MainActivity.TAG_ORIENTATION, mOrientation);
-
+            savedInstanceState.putSerializable(MainActivity.EXTRA_ORIENTATION, mOrientation);
         super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
-            if (savedInstanceState.containsKey(MainActivity.TAG_ORIENTATION)) {
-                mOrientation = (Orientation) savedInstanceState.getSerializable(MainActivity.TAG_ORIENTATION);
+            if (savedInstanceState.containsKey(MainActivity.EXTRA_ORIENTATION)) {
+                mOrientation = (Orientation) savedInstanceState.getSerializable(MainActivity.EXTRA_ORIENTATION);
             }
         }
         super.onRestoreInstanceState(savedInstanceState);

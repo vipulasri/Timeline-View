@@ -13,6 +13,7 @@ import com.github.vipulasri.timeline.model.TimeLineModel;
 import com.github.vipulasri.timeline.utils.DateTimeUtils;
 import com.github.vipulasri.timeline.utils.VectorDrawableUtils;
 import com.github.vipulasri.timelineview.TimelineView;
+import com.github.vipulasri.timelineview.Utils;
 
 import java.util.List;
 
@@ -24,11 +25,13 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
     private List<TimeLineModel> mFeedList;
     private Context mContext;
     private Orientation mOrientation;
+    private boolean mWithLinePadding;
     private LayoutInflater mLayoutInflater;
 
-    public TimeLineAdapter(List<TimeLineModel> feedList, Orientation orientation) {
+    public TimeLineAdapter(List<TimeLineModel> feedList, Orientation orientation, boolean withLinePadding) {
         mFeedList = feedList;
         mOrientation = orientation;
+        mWithLinePadding = withLinePadding;
     }
 
     @Override
@@ -43,9 +46,9 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
         View view;
 
         if(mOrientation == Orientation.HORIZONTAL) {
-            view = mLayoutInflater.inflate(R.layout.item_timeline_horizontal, parent, false);
+            view = mLayoutInflater.inflate(mWithLinePadding ? R.layout.item_timeline_horizontal_line_padding : R.layout.item_timeline_horizontal, parent, false);
         } else {
-            view = mLayoutInflater.inflate(R.layout.item_timeline, parent, false);
+            view = mLayoutInflater.inflate(mWithLinePadding ? R.layout.item_timeline_line_padding : R.layout.item_timeline, parent, false);
         }
 
         return new TimeLineViewHolder(view, viewType);

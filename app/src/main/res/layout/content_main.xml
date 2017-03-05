@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.github.vipulasri.timeline.MainActivity"
     tools:showIn="@layout/activity_main">
@@ -14,8 +16,6 @@
         android:layout_height="60dp"
         android:id="@+id/verticalTimeLineButton"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:text="@string/vertical_timeline"
         android:textSize="16sp"
         android:textAllCaps="false" />
@@ -25,9 +25,27 @@
         android:layout_height="60dp"
         android:id="@+id/horizontalTimeLineButton"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:text="@string/horizontal_timeline"
+        android:textSize="16sp"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/verticalTimeLineButtonWPadding"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/vertical_timeline_w_padding"
+        android:textSize="16sp"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/horizontalTimeLineButtonWPadding"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/horizontal_timeline_w_padding"
         android:textSize="16sp"
         android:textAllCaps="false"/>
 

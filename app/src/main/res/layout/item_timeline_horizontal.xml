@@ -8,7 +8,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_margin="10dp"
         app:contentPadding="10dp">
 
@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_timeline_date"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 tools:text="24 JAN"/>
 
             <android.support.v7.widget.AppCompatTextView
@@ -44,9 +44,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:marker_size="20dp"
-        app:line_size="3dp"
+        app:markerSize="20dp"
+        app:lineSize="2dp"
         app:line="@color/colorPrimary"
-        app:line_orientation="horizontal"/>
+        app:lineOrientation="horizontal"/>
 
 </LinearLayout>

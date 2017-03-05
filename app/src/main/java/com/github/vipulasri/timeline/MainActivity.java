@@ -9,45 +9,70 @@ import android.widget.Button;
 
 import com.github.vipulasri.timeline.model.Orientation;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by HP-HP on 07-06-2016.
  */
 public class MainActivity extends AppCompatActivity {
 
-    public final static String TAG_ORIENTATION = "orientation";
+    public final static String EXTRA_ORIENTATION = "EXTRA_ORIENTATION";
+    public final static String EXTRA_WITH_LINE_PADDING = "EXTRA_WITH_LINE_PADDING";
 
-    private Button mVerticalTimeLineButton, mHorizontalTimeLineButton;
+    @BindView(R.id.verticalTimeLineButton)
+    Button mVerticalTimeLineButton;
+    @BindView(R.id.verticalTimeLineButtonWPadding)
+    Button mVerticalTimeLineButtonWPadding;
+    @BindView(R.id.horizontalTimeLineButton)
+    Button mHorizontalTimeLineButton;
+    @BindView(R.id.horizontalTimeLineButtonWPadding)
+    Button mHorizontalTimeLineButtonWPadding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mVerticalTimeLineButton = (Button) findViewById(R.id.verticalTimeLineButton);
-        mHorizontalTimeLineButton = (Button) findViewById(R.id.horizontalTimeLineButton);
+        ButterKnife.bind(this);
 
         mVerticalTimeLineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onButtonClick(Orientation.VERTICAL);
+                onButtonClick(Orientation.VERTICAL, false);
             }
         });
 
         mHorizontalTimeLineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onButtonClick(Orientation.HORIZONTAL);
+                onButtonClick(Orientation.HORIZONTAL, false);
+            }
+        });
+
+        mVerticalTimeLineButtonWPadding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonClick(Orientation.VERTICAL, true);
+            }
+        });
+
+        mHorizontalTimeLineButtonWPadding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonClick(Orientation.HORIZONTAL, true);
             }
         });
 
     }
 
-    private void onButtonClick(Orientation orientation) {
-
+    private void onButtonClick(Orientation orientation, boolean withLinePadding) {
         Intent intent = new Intent(this, TimeLineActivity.class);
-        intent.putExtra(TAG_ORIENTATION, orientation);
+        intent.putExtra(EXTRA_ORIENTATION, orientation);
+        intent.putExtra(EXTRA_WITH_LINE_PADDING, withLinePadding);
         startActivity(intent);
     }
 

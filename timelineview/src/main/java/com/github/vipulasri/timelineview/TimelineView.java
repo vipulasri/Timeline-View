@@ -21,6 +21,7 @@ public class TimelineView extends View {
     private int mMarkerSize;
     private int mLineSize;
     private int mLineOrientation;
+    private int mLinePadding;
     private boolean mMarkerInCenter;
 
     private Rect mBounds;
@@ -37,14 +38,20 @@ public class TimelineView extends View {
         mMarker = typedArray.getDrawable(R.styleable.timeline_style_marker);
         mStartLine = typedArray.getDrawable(R.styleable.timeline_style_line);
         mEndLine = typedArray.getDrawable(R.styleable.timeline_style_line);
-        mMarkerSize = typedArray.getDimensionPixelSize(R.styleable.timeline_style_marker_size, 25);
-        mLineSize = typedArray.getDimensionPixelSize(R.styleable.timeline_style_line_size, 2);
-        mLineOrientation = typedArray.getInt(R.styleable.timeline_style_line_orientation, 1);
+        mMarkerSize = typedArray.getDimensionPixelSize(R.styleable.timeline_style_markerSize, Utils.dpToPx(20, mContext));
+        mLineSize = typedArray.getDimensionPixelSize(R.styleable.timeline_style_lineSize, Utils.dpToPx(2, mContext));
+        mLineOrientation = typedArray.getInt(R.styleable.timeline_style_lineOrientation, 1);
+        mLinePadding = typedArray.getDimensionPixelSize(R.styleable.timeline_style_linePadding, 0);
         mMarkerInCenter = typedArray.getBoolean(R.styleable.timeline_style_markerInCenter, true);
         typedArray.recycle();
 
         if(mMarker == null) {
             mMarker = mContext.getResources().getDrawable(R.drawable.marker);
+        }
+
+        if(mStartLine == null && mEndLine == null) {
+            mStartLine = new ColorDrawable(mContext.getResources().getColor(android.R.color.darker_gray));
+            mEndLine = new ColorDrawable(mContext.getResources().getColor(android.R.color.darker_gray));
         }
     }
 
@@ -107,21 +114,21 @@ public class TimelineView extends View {
 
             //Horizontal Line
             if(mStartLine != null) {
-                mStartLine.setBounds(0, pTop + (mBounds.height()/2), mBounds.left, (mBounds.height()/2) + pTop + mLineSize);
+                mStartLine.setBounds(0, pTop + (mBounds.height()/2), mBounds.left - mLinePadding, (mBounds.height()/2) + pTop + mLineSize);
             }
 
             if(mEndLine != null) {
-                mEndLine.setBounds(mBounds.right, pTop + (mBounds.height()/2), width, (mBounds.height()/2) + pTop + mLineSize);
+                mEndLine.setBounds(mBounds.right + mLinePadding, pTop + (mBounds.height()/2), width, (mBounds.height()/2) + pTop + mLineSize);
             }
         } else {
 
             //Vertical Line
             if(mStartLine != null) {
-                mStartLine.setBounds(lineLeft, 0, mLineSize + lineLeft, mBounds.top);
+                mStartLine.setBounds(lineLeft, 0, mLineSize + lineLeft, mBounds.top - mLinePadding);
             }
 
             if(mEndLine != null) {
-                mEndLine.setBounds(lineLeft, mBounds.bottom, mLineSize + lineLeft, height);
+                mEndLine.setBounds(lineLeft, mBounds.bottom + mLinePadding, mLineSize + lineLeft, height);
             }
         }
     }
@@ -213,6 +220,15 @@ public class TimelineView extends View {
      */
     public void setLineSize(int lineSize) {
         mLineSize = lineSize;
+        initDrawable();
+    }
+
+    /**
+     * Sets line padding
+     * @param padding the line padding
+     */
+    public void setLinePadding(int padding) {
+        mLinePadding = padding;
         initDrawable();
     }
 
