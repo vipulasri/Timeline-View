@@ -8,7 +8,7 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 ### Badges/Featured In
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Timeline--View-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2923) [![Android Gems](http://www.android-gems.com/badge/vipulasri/Timeline-View.svg)](http://www.android-gems.com/lib/vipulasri/Timeline-View?lib_id=773) [![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23126-blue.svg)](https://www.androiddevdigest.com/digest-126/) 
 
-![showcase](https://github.com/vipulasri/Timeline-View/blob/master/showcase.png)
+![showcase](https://github.com/vipulasri/Timeline-View/blob/master/art/showcase.png)
 
 ## Sample Project
 
@@ -60,7 +60,6 @@ See the project's Releases page for a list of versions with their changelogs.
 If you Watch this repository, GitHub will send you an email every time I publish an update.
 
 ### 2. Usage
-
  * In XML Layout :
 
 ``` java
@@ -72,6 +71,7 @@ If you Watch this repository, GitHub will send you an email every time I publish
     app:lineSize="2dp"
     app:line="@color/colorPrimary"/>
 ```
+![timeline](https://github.com/vipulasri/Timeline-View/blob/master/art/timeline.png)
 
 ##### Line Padding around marker
 
@@ -85,6 +85,8 @@ If you Watch this repository, GitHub will send you an email every time I publish
     app:line="@color/colorPrimary"
     app:linePadding="5dp/>
 ```
+
+![timeline with line padding](https://github.com/vipulasri/Timeline-View/blob/master/art/timeline_padding.png)
 
 * Configure using xml attributes or setters in code:
 
