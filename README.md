@@ -3,7 +3,8 @@
 Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.
 
 ### Specs
-[ ![Download](https://api.bintray.com/packages/vipulasri/maven/TimelineView/images/download.svg) ](https://bintray.com/vipulasri/maven/TimelineView/_latestVersion) <a href="http://www.methodscount.com/?lib=com.github.vipulasri%3Atimelineview%3A1.0.5"><img src="https://img.shields.io/badge/Methods and size-56 | 7 KB-e91e63.svg"/></a>
+[![Download](https://api.bintray.com/packages/vipulasri/maven/TimelineView/images/download.svg)](https://bintray.com/vipulasri/maven/TimelineView/_latestVersion)
+[![MethodsCount](https://img.shields.io/badge/Methods and size-56 | 7 KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.vipulasri%3Atimelineview%3A1.0.5)
 
 ### Badges/Featured In
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Timeline--View-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2923) [![Android Gems](http://www.android-gems.com/badge/vipulasri/Timeline-View.svg)](http://www.android-gems.com/lib/vipulasri/Timeline-View?lib_id=773) [![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23126-blue.svg)](https://www.androiddevdigest.com/digest-126/) 
