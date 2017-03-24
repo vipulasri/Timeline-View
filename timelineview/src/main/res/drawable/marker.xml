@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-
-    <solid android:color="@android:color/holo_green_dark"/>
-
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="?attr/markerInnerColor"/>
+            <size android:width="?attr/markerInnerRadius" android:height="?attr/markerInnerRadius"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="ring"
+            android:innerRadius="?attr/markerInnerRadius" android:thickness="?attr/markerOuterStrokeWidth">
+            <solid android:color="?attr/markerOuterColor"/>
+        </shape>
+    </item>
+</layer-list>
