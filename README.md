@@ -84,7 +84,7 @@ If you Watch this repository, GitHub will send you an email every time I publish
     app:markerSize="20dp"
     app:lineSize="2dp"
     app:line="@color/colorPrimary"
-    app:linePadding="5dp/>
+    app:linePadding="5dp"/>
 ```
 
 * Configure using xml attributes or setters in code:
