@@ -26,6 +26,7 @@ public class TimelineView extends View {
 
     private Rect mBounds;
     private Context mContext;
+    private int mActiveViewType = LineType.ONLYONE;
 
     public TimelineView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -140,11 +141,11 @@ public class TimelineView extends View {
             mMarker.draw(canvas);
         }
 
-        if(mStartLine != null) {
+        if(mStartLine != null && (mActiveViewType == LineType.NORMAL || mActiveViewType == LineType.END)) {
             mStartLine.draw(canvas);
         }
 
-        if(mEndLine != null) {
+        if(mEndLine != null&& (mActiveViewType == LineType.NORMAL || mActiveViewType == LineType.BEGIN)) {
             mEndLine.draw(canvas);
         }
     }
@@ -245,9 +246,12 @@ public class TimelineView extends View {
     /**
      * Init line.
      *
+     * This operation is permanent, you can use it just once.
+     *
      * @param viewType the view type
+     * @deprecated Use {@link #setViewType(int)}
      */
-    public void initLine(int viewType) {
+    public void initLine(@LineType.LineTypeOptions int viewType) {
         if(viewType == LineType.BEGIN) {
             setStartLine(null);
         } else if(viewType == LineType.END) {
@@ -257,6 +261,13 @@ public class TimelineView extends View {
             setEndLine(null);
         }
         initDrawable();
+    }
+
+    /**
+     * Change current render mode.
+     */
+    public void setViewType(@LineType.LineTypeOptions int viewType) {
+        mActiveViewType = viewType;
     }
 
     /**
