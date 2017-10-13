@@ -106,6 +106,8 @@ public class TimelineView extends View {
                 mBounds = mMarker.getBounds();
             }
         }
+        
+        mBounds = mMarker == null ? new Rect(pLeft, pTop, pLeft + markSize, -mLinePadding) : mBounds;
 
         int centerX = mBounds.centerX();
         int lineLeft = centerX - (mLineSize >> 1);
