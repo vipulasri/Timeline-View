@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
 
@@ -17,9 +17,19 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://maven.google.com" }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    compileSdkVersion = 26
+    buildToolsVersion = "26.0.2"
+    minSdkVersion = 14
+    targetSdkVersion = 26
+    supportLibrary = "26.1.0"
+    butterknife = "8.8.1"
 }
