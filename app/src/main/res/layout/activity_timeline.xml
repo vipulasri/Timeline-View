@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/colorBackground"
-    tools:context="com.github.vipulasri.timeline.TimeLineActivity">
+    tools:context="com.github.vipulasri.timelineview.sample.TimeLineActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

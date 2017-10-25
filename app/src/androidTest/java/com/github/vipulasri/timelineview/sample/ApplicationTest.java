@@ -1,4 +1,4 @@
-package com.github.vipulasri.timeline;
+package com.github.vipulasri.timelineview.sample;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

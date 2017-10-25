@@ -1,4 +1,4 @@
-package com.github.vipulasri.timeline.utils;
+package com.github.vipulasri.timelineview.sample.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -1,4 +1,4 @@
-package com.github.vipulasri.timeline;
+package com.github.vipulasri.timelineview.sample;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -7,13 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.vipulasri.timeline.model.OrderStatus;
-import com.github.vipulasri.timeline.model.Orientation;
-import com.github.vipulasri.timeline.model.TimeLineModel;
-import com.github.vipulasri.timeline.utils.DateTimeUtils;
-import com.github.vipulasri.timeline.utils.VectorDrawableUtils;
+import com.github.vipulasri.timelineview.sample.R;
+import com.github.vipulasri.timelineview.sample.model.OrderStatus;
+import com.github.vipulasri.timelineview.sample.model.Orientation;
+import com.github.vipulasri.timelineview.sample.model.TimeLineModel;
+import com.github.vipulasri.timelineview.sample.utils.DateTimeUtils;
+import com.github.vipulasri.timelineview.sample.utils.VectorDrawableUtils;
 import com.github.vipulasri.timelineview.TimelineView;
-import com.github.vipulasri.timelineview.Utils;
 
 import java.util.List;
 

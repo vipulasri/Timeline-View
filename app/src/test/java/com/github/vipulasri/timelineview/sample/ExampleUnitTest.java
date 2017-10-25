@@ -1,4 +1,4 @@
-package com.github.vipulasri.timeline;
+package com.github.vipulasri.timeline.sample;
 
 import org.junit.Test;
 

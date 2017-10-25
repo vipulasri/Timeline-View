@@ -1,4 +1,4 @@
-package com.github.vipulasri.timeline.model;
+package com.github.vipulasri.timelineview.sample.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

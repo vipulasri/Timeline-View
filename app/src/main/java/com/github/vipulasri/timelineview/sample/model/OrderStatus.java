@@ -1,4 +1,4 @@
-package com.github.vipulasri.timeline.model;
+package com.github.vipulasri.timelineview.sample.model;
 
 /**
  * Created by HP-HP on 07-06-2016.
