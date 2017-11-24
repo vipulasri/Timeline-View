@@ -27,6 +27,10 @@ public class TimelineView extends View {
     private Rect mBounds;
     private Context mContext;
 
+    private boolean mStartLineVisible = true;
+    private boolean mEndLineVisible = true;
+    private boolean mMarkerVisible = true;
+
     public TimelineView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
@@ -136,15 +140,15 @@ public class TimelineView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if(mMarker != null) {
+        if(mMarkerVisible && mMarker != null) {
             mMarker.draw(canvas);
         }
 
-        if(mStartLine != null) {
+        if(mStartLineVisible && mStartLine != null) {
             mStartLine.draw(canvas);
         }
 
-        if(mEndLine != null) {
+        if(mEndLineVisible && mEndLine != null) {
             mEndLine.draw(canvas);
         }
     }
@@ -259,6 +263,27 @@ public class TimelineView extends View {
         initDrawable();
     }
 
+    public void setLineType(int lineType) {
+        switch (lineType){
+            case LineType.ONLYONE:
+                mStartLineVisible = false;
+                mEndLineVisible = false;
+                break;
+            case LineType.BEGIN:
+                mStartLineVisible = false;
+                mEndLineVisible = true;
+                break;
+            case LineType.NORMAL:
+                mStartLineVisible = true;
+                mEndLineVisible = true;
+                break;
+            case LineType.END:
+                mStartLineVisible = true;
+                mEndLineVisible = false;
+                break;
+        }
+    }
+
     /**
      * Gets timeline view type.
      *
@@ -276,5 +301,17 @@ public class TimelineView extends View {
         } else {
             return LineType.NORMAL;
         }
+    }
+
+    public void setStartLineVisible(boolean startLineVisible) {
+        this.mStartLineVisible = startLineVisible;
+    }
+
+    public void setEndLineVisible(boolean endLineVisible) {
+        this.mEndLineVisible = endLineVisible;
+    }
+
+    public void setMarkerVisible(boolean markerVisible) {
+        this.mMarkerVisible = markerVisible;
     }
 }
