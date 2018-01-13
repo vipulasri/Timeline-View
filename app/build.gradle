@@ -8,7 +8,7 @@ android {
         applicationId "com.github.vipulasri.timelineview.sample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 2
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
     }
@@ -21,14 +21,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibrary}"
-    compile "com.android.support:design:${rootProject.ext.supportLibrary}"
-    compile "com.android.support:cardview-v7:${rootProject.ext.supportLibrary}"
-    compile "com.jakewharton:butterknife:${rootProject.ext.butterknife}"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibrary}"
+    implementation "com.android.support:design:${rootProject.ext.supportLibrary}"
+    implementation "com.android.support:cardview-v7:${rootProject.ext.supportLibrary}"
+    implementation "com.jakewharton:butterknife:${rootProject.ext.butterknife}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterknife}"
 
-    compile project (':timelineview')
-    //compile 'com.github.vipulasri:timelineview:1.0.5'
+    //compile project (':timelineview')
+    implementation 'com.github.vipulasri:timelineview:1.0.6'
 }
