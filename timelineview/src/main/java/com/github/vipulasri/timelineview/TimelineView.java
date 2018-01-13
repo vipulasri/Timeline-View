@@ -167,7 +167,7 @@ public class TimelineView extends View {
      */
     public void setMarker(Drawable marker, int color) {
         mMarker = marker;
-        mMarker.setColorFilter(color, PorterDuff.Mode.SRC);
+        mMarker.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
         initDrawable();
     }
 
@@ -177,7 +177,7 @@ public class TimelineView extends View {
      * @param color the color
      */
     public void setMarkerColor(int color) {
-        mMarker.setColorFilter(color, PorterDuff.Mode.SRC);
+        mMarker.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
         initDrawable();
     }
 
