@@ -4,7 +4,7 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 ### Specs
 [![Download](https://api.bintray.com/packages/vipulasri/maven/TimelineView/images/download.svg)](https://bintray.com/vipulasri/maven/TimelineView/_latestVersion)
-[![MethodsCount](https://img.shields.io/badge/Methods%20and%20size-56%20|%207%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.vipulasri%3Atimelineview%3A1.0.5)
+[![MethodsCount](https://img.shields.io/badge/Methods%20and%20size-56%20|%207%20KB-e91e63.svg)](http://www.methodscount.com/?lib=com.github.vipulasri%3Atimelineview%3A1.0.6)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/vipulasri/Timeline-View/blob/master/LICENSE)
 
 ### Badges/Featured In
@@ -30,7 +30,7 @@ For information : checkout [Sample App Code](https://github.com/vipulasri/Timeli
 
 ``` gradle
 dependencies {
-    compile 'com.github.vipulasri:timelineview:1.0.5'
+    compile 'com.github.vipulasri:timelineview:1.0.6'
 }
 ```
 
@@ -40,7 +40,7 @@ dependencies {
 <dependency>
     <groupId>com.github.vipulasri</groupId>
     <artifactId>timelineview</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <type>pom</type>
 </dependency>
 ```
