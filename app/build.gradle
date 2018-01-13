@@ -10,6 +10,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -28,6 +29,6 @@ dependencies {
     compile "com.jakewharton:butterknife:${rootProject.ext.butterknife}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterknife}"
 
-    //compile project (':timelineview')
-    compile 'com.github.vipulasri:timelineview:1.0.5'
+    compile project (':timelineview')
+    //compile 'com.github.vipulasri:timelineview:1.0.5'
 }

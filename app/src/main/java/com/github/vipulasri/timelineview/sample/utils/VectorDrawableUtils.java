@@ -16,15 +16,7 @@ import android.support.v4.content.ContextCompat;
 public class VectorDrawableUtils {
 
     public static Drawable getDrawable(Context context, int drawableResId) {
-        Drawable drawable;
-
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-            drawable = context.getResources().getDrawable(drawableResId, context.getTheme());
-        } else {
-            drawable = VectorDrawableCompat.create(context.getResources(), drawableResId, context.getTheme());
-        }
-
-        return drawable;
+        return VectorDrawableCompat.create(context.getResources(), drawableResId, context.getTheme());
     }
 
     public static Drawable getDrawable(Context context, int drawableResId, int colorFilter) {
