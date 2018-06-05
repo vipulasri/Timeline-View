@@ -138,40 +138,36 @@ If you Watch this repository, GitHub will send you an email every time I publish
    Your `RecyclerViewHolder` should have an extra paramenter in constructor i.e viewType from `onCreateViewHolder`. You would also have to call the method `initLine(viewType)` in constructor definition.
  
 ``` java
+public class TimeLineViewHolder extends RecyclerView.ViewHolder {
+ 
+    public TimelineView mTimelineView;
 
-    public class TimeLineViewHolder extends RecyclerView.ViewHolder {
-        public  TimelineView mTimelineView;
-
-        public TimeLineViewHolder(View itemView, int viewType) {
-            super(itemView);
-            mTimelineView = (TimelineView) itemView.findViewById(R.id.time_marker);
-            mTimelineView.initLine(viewType);
-        }
+    public TimeLineViewHolder(View itemView, int viewType) {
+        super(itemView);
+        mTimelineView = (TimelineView) itemView.findViewById(R.id.time_marker);
+        mTimelineView.initLine(viewType);
     }
-
+}
 ```
 
 * RecyclerView Adapter : 
    override `getItemViewType` method in Adapter
  
 ``` java
-
-    @Override
-    public int getItemViewType(int position) {
-        return TimelineView.getTimeLineViewType(position,getItemCount());
-    }
-
+@Override
+public int getItemViewType(int position) {
+    return TimelineView.getTimeLineViewType(position,getItemCount());
+}
 ```
    And pass the `viewType` from `onCreateViewHolder` to its Holder.
    
 ``` java
 
-    @Override
-    public TimeLineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(parent.getContext(), R.layout.item_timeline, null);
-        return new TimeLineViewHolder(view, viewType);
-    }
-
+@Override
+public TimeLineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    View view = View.inflate(parent.getContext(), R.layout.item_timeline, null);
+    return new TimeLineViewHolder(view, viewType);
+}
 ```
 
 ## Apps that use this library
