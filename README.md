@@ -30,7 +30,7 @@ For information : checkout [Sample App Code](https://github.com/vipulasri/Timeli
 
 ``` gradle
 dependencies {
-    compile 'com.github.vipulasri:timelineview:1.0.6'
+    implementation 'com.github.vipulasri:timelineview:1.0.6'
 }
 ```
 
