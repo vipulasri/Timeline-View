@@ -166,12 +166,12 @@ public class TimelineView extends View {
             if(mDrawStartLine) {
                 mStartLineStartX = pLeft;
                 mStartLineStartY = mBounds.centerY();
-                mStartLineStopX = mBounds.left;
+                mStartLineStopX = mBounds.left - mLinePadding;
                 mStartLineStopY = mBounds.centerY();
             }
 
             if(mDrawEndLine) {
-                mEndLineStartX = mBounds.right;
+                mEndLineStartX = mBounds.right + mLinePadding;
                 mEndLineStartY = mBounds.centerY();
                 mEndLineStopX = getWidth();
                 mEndLineStopY = mBounds.centerY();
@@ -188,12 +188,12 @@ public class TimelineView extends View {
                 }
 
                 mStartLineStopX = mBounds.centerX();
-                mStartLineStopY = mBounds.top;
+                mStartLineStopY = mBounds.top - mLinePadding;
             }
 
             if(mDrawEndLine) {
                 mEndLineStartX = mBounds.centerX();
-                mEndLineStartY = mBounds.bottom;
+                mEndLineStartY = mBounds.bottom + mLinePadding;
                 mEndLineStopX = mBounds.centerX();
                 mEndLineStopY = getHeight();
             }
