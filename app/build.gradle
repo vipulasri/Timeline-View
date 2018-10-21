@@ -1,15 +1,19 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     defaultConfig {
         applicationId "com.github.vipulasri.timelineview.sample"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 2
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -18,17 +22,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibrary}"
-    implementation "com.android.support:design:${rootProject.ext.supportLibrary}"
-    implementation "com.android.support:cardview-v7:${rootProject.ext.supportLibrary}"
-    implementation "com.jakewharton:butterknife:${rootProject.ext.butterknife}"
-    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterknife}"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    //compile project (':timelineview')
-    implementation 'com.github.vipulasri:timelineview:1.0.6'
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin.stdlib}"
+
+    //support
+    implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
+    implementation "com.android.support.constraint:constraint-layout:1.1.3"
+    implementation "com.android.support:design:$versions.supportLibrary"
+    implementation "com.android.support:cardview-v7:$versions.supportLibrary"
+
+    //misc
+    implementation project (':timelineview')
+    //implementation 'com.github.vipulasri:timelineview:1.0.6'
 }

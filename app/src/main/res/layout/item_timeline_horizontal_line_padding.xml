@@ -46,7 +46,8 @@
         android:layout_marginTop="10dp"
         app:markerSize="20dp"
         app:lineSize="2dp"
-        app:line="@color/colorPrimary"
+        app:startLineColor="@color/colorPrimary"
+        app:endLineColor="@color/colorPrimary"
         app:lineOrientation="horizontal"
         app:linePadding="5dp"/>
 

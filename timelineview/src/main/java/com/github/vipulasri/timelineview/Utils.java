@@ -2,8 +2,10 @@ package com.github.vipulasri.timelineview;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.RestrictTo;
 import android.util.TypedValue;
 
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 public class Utils {
 
     public static int dpToPx(float dp, Context context) {
