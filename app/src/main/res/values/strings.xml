@@ -6,4 +6,29 @@
     <string name="vertical_timeline">Vertical Timeline</string>
     <string name="horizontal_timeline_w_padding">Horizontal Timeline With Line Padding</string>
     <string name="vertical_timeline_w_padding">Vertical Timeline With Line Padding</string>
+    <string name="orientation">Orientation</string>
+    <string name="horizontal">Horizontal</string>
+    <string name="vertical">Vertical</string>
+    <string name="marker">Marker</string>
+    <string name="elevation">Size</string>
+    <string name="size">Size</string>
+    <string name="color">Color</string>
+    <string name="marker_drawable_message">You can also change the marker drawable in attributes.</string>
+    <string name="marker_in_center">In center</string>
+    <string name="line">Line</string>
+    <string name="start_line_color">Start Line Color</string>
+    <string name="end_line_color">End Line Color</string>
+    <string name="width">Width</string>
+    <string name="type">Type</string>
+    <string name="dash_length">Dash Length</string>
+    <string name="dash_gap">Dash Gap</string>
+    <string name="line_padding">Line Padding</string>
+    <string name="timeline_attributes">Timeline Attributes</string>
+    <string name="style">Style</string>
+
+    <string-array name="line_type">
+        <item>Normal</item>
+        <item>Dashed</item>
+    </string-array>
+
 </resources>

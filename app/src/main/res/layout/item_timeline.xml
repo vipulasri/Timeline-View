@@ -9,23 +9,24 @@
     android:layout_marginRight="10dp">
 
     <com.github.vipulasri.timelineview.TimelineView
-        android:id="@+id/time_marker"
+        android:id="@+id/timeline"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:markerSize="20dp"
-        app:lineSize="3dp"
-        app:startLineColor="@color/colorPrimary"
-        app:endLineColor="@color/colorPrimary"
+        app:lineWidth="3dp"
+        app:startLineColor="@color/colorAccent"
+        app:endLineColor="@color/colorAccent"
         app:lineStyle="dash"/>
 
-    <android.support.v7.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
         android:layout_gravity="center_vertical"
-        app:cardElevation="1dp"
+        app:cardBackgroundColor="@color/colorGrey50"
         app:contentPadding="15dp">
 
         <LinearLayout
@@ -35,14 +36,14 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_timeline_date"
                 android:textSize="12sp"
                 tools:text="24 JAN"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -52,6 +53,6 @@
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

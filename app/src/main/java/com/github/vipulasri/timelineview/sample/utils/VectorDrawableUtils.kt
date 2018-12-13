@@ -5,8 +5,8 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
-import android.support.graphics.drawable.VectorDrawableCompat
-import android.support.v4.content.ContextCompat
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+import androidx.core.content.ContextCompat
 
 /**
  * Created by Vipul Asri on 28/12/16.
@@ -20,7 +20,7 @@ object VectorDrawableUtils {
 
     fun getDrawable(context: Context, drawableResId: Int, colorFilter: Int): Drawable {
         val drawable = getDrawable(context, drawableResId)
-        drawable!!.setColorFilter(ContextCompat.getColor(context, colorFilter), PorterDuff.Mode.SRC_IN)
+        drawable!!.setColorFilter(colorFilter, PorterDuff.Mode.SRC_IN)
         return drawable
     }
 

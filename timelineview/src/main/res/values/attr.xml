@@ -6,7 +6,7 @@
         <attr name="markerInCenter" format="boolean"/>
         <attr name="startLineColor" format="color"/>
         <attr name="endLineColor" format="color"/>
-        <attr name="lineSize" format="dimension"/>
+        <attr name="lineWidth" format="dimension"/>
         <attr name="lineStyle" format="enum">
             <enum name="normal" value="0" />
             <enum name="dash" value="1" />
