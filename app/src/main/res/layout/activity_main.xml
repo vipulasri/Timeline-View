@@ -20,13 +20,12 @@
             android:background="@color/colorWhite">
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/TextAppearance.AppCompat.Body2"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/app_name"
-                android:textColor="@color/primaryText"
-                android:textSize="18sp"/>
+                android:textColor="@color/primaryText"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/TextAppearance.AppCompat.Body1"
