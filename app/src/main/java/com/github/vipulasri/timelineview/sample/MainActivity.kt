@@ -1,13 +1,14 @@
 package com.github.vipulasri.timelineview.sample
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.vipulasri.timelineview.TimelineView
+import com.github.vipulasri.timelineview.sample.example.ExampleActivity
 import com.github.vipulasri.timelineview.sample.model.OrderStatus
 import com.github.vipulasri.timelineview.sample.model.Orientation
 import com.github.vipulasri.timelineview.sample.model.TimeLineModel
@@ -19,7 +20,7 @@ import java.util.ArrayList
 /**
  * Created by Vipul Asri on 07-06-2016.
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var mAdapter: TimeLineAdapter
     private val mDataList = ArrayList<TimeLineModel>()
@@ -28,8 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        //setSupportActionBar(toolbar)
+        setContentViewWithoutInject(R.layout.activity_main)
 
         //default values
         mAttributes = TimelineAttributes(
@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
 
         setDataListItems()
         initRecyclerView()
+
+        action_example_activity.setOnClickListener { startActivity(Intent(this, ExampleActivity::class.java)) }
 
         fab_options.setOnClickListener {
             TimelineAttributesBottomSheet.showDialog(supportFragmentManager, mAttributes, object: TimelineAttributesBottomSheet.Callbacks {

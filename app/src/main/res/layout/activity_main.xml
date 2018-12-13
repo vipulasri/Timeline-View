@@ -13,14 +13,36 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:elevation="0dp">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/TextAppearance.AppCompat.Body2"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@color/primaryText"
-            android:textSize="18sp"/>
+            android:id="@+id/toolbar"
+            android:background="@color/colorWhite">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/primaryText"
+                android:textSize="18sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/action_example_activity"
+                android:layout_gravity="center|end"
+                android:gravity="center"
+                android:padding="@dimen/padding"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackground"
+                android:text="@string/example"
+                android:textColor="@color/primaryText"
+                android:textSize="14sp"/>
+
+        </FrameLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
