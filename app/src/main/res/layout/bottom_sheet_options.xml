@@ -4,10 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:id="@+id/view_bottom_sheet_attributes"
-    app:behavior_hideable="true"
-    app:layout_behavior="@string/bottom_sheet_behavior"
     tools:background="@color/colorWhite">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -42,17 +40,20 @@
         app:layout_constraintBottom_toBottomOf="@id/text_attributes_heading"/>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/nestedScrollView"
+        android:fillViewport="true"
         android:padding="@dimen/padding"
         android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/text_attributes_heading"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_apply">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -297,5 +298,27 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorDivider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nestedScrollView"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/button_apply"
+        android:layout_margin="@dimen/padding"
+        android:text="@string/apply"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="0dp"
+        app:layout_constraintTop_toBottomOf="@id/nestedScrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

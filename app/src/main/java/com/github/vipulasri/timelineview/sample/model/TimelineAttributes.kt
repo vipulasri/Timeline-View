@@ -31,5 +31,9 @@ class TimelineAttributes(
         return "TimelineAttributes(markerSize=$markerSize, markerColor=$markerColor, markerInCenter=$markerInCenter, linePadding=$linePadding, lineWidth=$lineWidth, startLineColor=$startLineColor, endLineColor=$endLineColor, lineStyle=$lineStyle, lineDashWidth=$lineDashWidth, lineDashGap=$lineDashGap, onOrientationChanged=$onOrientationChanged)"
     }
 
-
+    fun copy(): TimelineAttributes {
+        val attributes = TimelineAttributes(markerSize, markerColor, markerInCenter, linePadding, lineWidth, startLineColor, endLineColor, lineStyle, lineDashWidth, lineDashGap)
+        attributes.orientation = orientation
+        return attributes
+    }
 }

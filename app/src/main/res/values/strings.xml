@@ -27,6 +27,7 @@
     <string name="style">Style</string>
     <string name="example">Example</string>
     <string name="activity_example_label">Example Activity</string>
+    <string name="apply">Apply</string>
 
     <string-array name="line_type">
         <item>Normal</item>

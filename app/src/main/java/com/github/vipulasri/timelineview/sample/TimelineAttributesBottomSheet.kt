@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentManager
@@ -63,13 +64,15 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.bottom_sheet_options, container, false)
+        val contextThemeWrapper = ContextThemeWrapper(activity, R.style.AppTheme)
+        return inflater.cloneInContext(contextThemeWrapper).inflate(R.layout.bottom_sheet_options, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAttributes = arguments!!.getParcelable(EXTRA_ATTRIBUTES)
+        val attributes = (arguments!!.getParcelable(EXTRA_ATTRIBUTES) as TimelineAttributes)
+        mAttributes = attributes.copy()
 
         //orientation
         rg_orientation.setOnCheckedChangeListener { group, checkedId ->
@@ -81,7 +84,6 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
                     mAttributes.orientation = Orientation.VERTICAL
                 }
             }
-            updateAttributes()
         }
         rg_orientation.check(if(mAttributes.orientation == Orientation.VERTICAL) R.id.rb_vertical else R.id.rb_horizontal)
 
@@ -93,7 +95,6 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
 
         checkbox_marker_in_center.setOnCheckedChangeListener { buttonView, isChecked ->
             mAttributes.markerInCenter = isChecked
-            updateAttributes()
         }
 
         image_marker_color.setOnClickListener { showColorPicker(mAttributes.markerColor, image_marker_color) }
@@ -124,7 +125,6 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
                         mAttributes.lineStyle = TimelineView.LineStyle.NORMAL
                     }
                 }
-                updateAttributes()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -136,6 +136,11 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
         seek_line_dash_gap.progress = mAttributes.lineDashGap
         seek_line_dash_width.setOnProgressChangeListener(progressChangeListener)
         seek_line_dash_gap.setOnProgressChangeListener(progressChangeListener)
+
+        button_apply.setOnClickListener {
+            mCallbacks?.onAttributesChanged(mAttributes)
+            dismiss()
+        }
     }
 
     private fun showColorPicker(selectedColor : Int, colorView: BorderedCircle) {
@@ -149,18 +154,9 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
                         colorView.mFillColor = color
 
                         when(colorView.id) {
-                            R.id.image_marker_color ->  {
-                                mAttributes.markerColor = color
-                                updateAttributes()
-                            }
-                            R.id.image_start_line_color -> {
-                                mAttributes.startLineColor = color
-                                updateAttributes()
-                            }
-                            R.id.image_end_line_color -> {
-                                mAttributes.endLineColor = color
-                                updateAttributes()
-                            }
+                            R.id.image_marker_color ->  { mAttributes.markerColor = color }
+                            R.id.image_start_line_color -> { mAttributes.startLineColor = color }
+                            R.id.image_end_line_color -> { mAttributes.endLineColor = color }
                             else -> {
                                 //do nothing
                             }
@@ -176,26 +172,11 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
 
             Log.d("onProgressChanged", "value->$value")
             when(discreteSeekBar.id) {
-                R.id.seek_marker_size ->  {
-                    mAttributes.markerSize = value
-                    updateAttributes()
-                }
-                R.id.seek_marker_line_padding ->  {
-                    mAttributes.linePadding = value
-                    updateAttributes()
-                }
-                R.id.seek_line_width -> {
-                    mAttributes.lineWidth = value
-                    updateAttributes()
-                }
-                R.id.seek_line_dash_width -> {
-                    mAttributes.lineDashWidth = value
-                    updateAttributes()
-                }
-                R.id.seek_line_dash_gap -> {
-                    mAttributes.lineDashGap = value
-                    updateAttributes()
-                }
+                R.id.seek_marker_size ->  { mAttributes.markerSize = value }
+                R.id.seek_marker_line_padding ->  { mAttributes.linePadding = value }
+                R.id.seek_line_width -> { mAttributes.lineWidth = value }
+                R.id.seek_line_dash_width -> { mAttributes.lineDashWidth = value }
+                R.id.seek_line_dash_gap -> { mAttributes.lineDashGap = value }
             }
         }
 
@@ -206,10 +187,6 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
         override fun onStopTrackingTouch(discreteSeekBar: DiscreteSeekBar) {
 
         }
-    }
-
-    private fun updateAttributes() {
-        mCallbacks?.onAttributesChanged(mAttributes)
     }
 
     private fun setCallback(callbacks: Callbacks) {
