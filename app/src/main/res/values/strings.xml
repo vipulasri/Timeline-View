@@ -26,7 +26,7 @@
     <string name="timeline_attributes">Timeline Attributes</string>
     <string name="style">Style</string>
     <string name="example">Example</string>
-    <string name="activity_example_label">Example Activity</string>
+    <string name="activity_example_label">Example</string>
     <string name="apply">Apply</string>
 
     <string-array name="line_type">
