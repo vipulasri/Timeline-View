@@ -35,7 +35,6 @@ class TimeLineAdapter(private val mFeedList: List<TimeLineModel>, private var mA
         } else {
             layoutInflater.inflate(R.layout.item_timeline, parent, false)
         }
-        Log.e("TimeLineViewHolder", "->")
         return TimeLineViewHolder(view, viewType)
     }
 

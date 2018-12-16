@@ -79,13 +79,6 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initRecyclerView() {
-        mLayoutManager = if (mAttributes.orientation == Orientation.HORIZONTAL) {
-            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        } else {
-            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        }
-
-        recyclerView.layoutManager = mLayoutManager
         initAdapter()
         recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener() {
             @SuppressLint("LongLogTag")
@@ -97,6 +90,15 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initAdapter() {
+
+        mLayoutManager = if (mAttributes.orientation == Orientation.HORIZONTAL) {
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        } else {
+            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        }
+
+        recyclerView.layoutManager = mLayoutManager
+
         mAdapter = TimeLineAdapter(mDataList, mAttributes)
         recyclerView.adapter = mAdapter
     }

@@ -103,6 +103,9 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
         seek_marker_line_padding.setOnProgressChangeListener(progressChangeListener)
 
         //line
+
+        Log.e(" mAttributes.lineWidth", "${ mAttributes.lineWidth}")
+
         seek_line_width.progress = mAttributes.lineWidth
         image_start_line_color.mFillColor = mAttributes.startLineColor
         image_end_line_color.mFillColor = mAttributes.endLineColor
@@ -134,6 +137,8 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
 
         seek_line_dash_width.progress = mAttributes.lineDashWidth
         seek_line_dash_gap.progress = mAttributes.lineDashGap
+
+        seek_line_width.setOnProgressChangeListener(progressChangeListener)
         seek_line_dash_width.setOnProgressChangeListener(progressChangeListener)
         seek_line_dash_gap.setOnProgressChangeListener(progressChangeListener)
 
