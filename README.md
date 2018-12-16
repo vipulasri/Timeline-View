@@ -60,7 +60,7 @@ If you Watch this repository, GitHub will send you an email every time I publish
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     app:markerSize="20dp"
-    app:lineSize="2dp"
+    app:lineWidth="2dp"
     app:startLineColor="@color/colorPrimary"
     app:endLineColor="@color/colorPrimary"/>
 ```
