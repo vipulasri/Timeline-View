@@ -1,116 +1,49 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
 
-// This is the library version used when deploying the artifact
-version = "1.0.6"
+ext {
+    bintrayRepo = 'maven'
+    bintrayRepoName = 'TimelineView'
+
+    groupId = 'com.vipulasri'
+    libraryName = 'TimelineView'
+    artifact = 'timelineview'
+    libraryVersion = '1.1.0'
+    libraryDescription = 'Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.'
+
+    siteUrl = 'https://github.com/vipulasri/Timeline-View'
+    gitUrl = 'https://github.com/vipulasri/Timeline-View.git'
+
+    developerId = 'vipulasri'
+    developerName = 'Vipul Asri'
+    developerEmail = 'vipulasri.2007@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    licenses = ["Apache-2.0"]
+}
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 6
-        versionName "1.0.6"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 7
+        versionName "1.1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
+    implementation 'androidx.annotation:annotation:1.0.1'
 }
 
-def siteUrl = 'https://github.com/vipulasri/Timeline-View'      // Homepage URL of the library
-def gitUrl = 'https://github.com/vipulasri/Timeline-View.git'   // Git repository URL
-group = "com.github.vipulasri"                      // Maven Group ID for the artifact
-
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-
-                // Add your description here
-                name 'TimelineView'
-                description = 'The project aims to implement Timeline View.'
-                url siteUrl
-
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'vipulasri'
-                        name 'Vipul Asri'
-                        email 'vipulasri.2007@gmail.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-
-dependencies {
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-task findConventions << {
-    println project.getConvention()
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-
-    pkg {
-        repo = "maven"
-        // it is the name that appears in bintray when logged
-        name = "TimelineView"
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ['Apache-2.0']
-        publish = true
-    }
-}
-
+apply from: 'https://raw.githubusercontent.com/vipulasri/BintrayHelper/master/install.gradle'
+apply from: 'https://raw.githubusercontent.com/vipulasri/BintrayHelper/master/bintray.gradle'
