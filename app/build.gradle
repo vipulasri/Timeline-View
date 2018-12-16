@@ -11,8 +11,8 @@ android {
         applicationId "com.github.vipulasri.timelineview.sample"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
-        versionCode 2
-        versionName "1.0"
+        versionCode 3
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -55,6 +55,6 @@ dependencies {
         exclude module: 'support-v4'
     }
     implementation project (':timelineview')
-    //implementation 'com.github.vipulasri:timelineview:1.0.6'
+    //implementation 'com.github.vipulasri:timelineview:1.1.0'
 
 }
