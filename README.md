@@ -14,9 +14,7 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 ## Sample Project
 
-You can download the latest sample APK from this repo here: [https://github.com/vipulasri/Timeline-View/tree/master/apk](https://github.com/vipulasri/Timeline-View/tree/master/apk)
-
-For information : checkout [Sample App Code](https://github.com/vipulasri/Timeline-View/tree/master/app) in repository.
+For information : checkout [Example Screen Code](https://github.com/vipulasri/Timeline-View/tree/master/app/src/main/java/com/github/vipulasri/timelineview/sample/example) in repository.
 
 ### Download
 
@@ -30,7 +28,7 @@ For information : checkout [Sample App Code](https://github.com/vipulasri/Timeli
 
 ``` gradle
 dependencies {
-    compile 'com.github.vipulasri:timelineview:1.0.6'
+    implementation 'com.github.vipulasri:timelineview:1.1.0'
 }
 ```
 
@@ -40,26 +38,14 @@ dependencies {
 <dependency>
     <groupId>com.github.vipulasri</groupId>
     <artifactId>timelineview</artifactId>
-    <version>1.0.6</version>
+    <version>1.1.0</version>
     <type>pom</type>
 </dependency>
 ```
 
-
-#### Manual:
-**Manual - Using [Android Studio](https://developer.android.com/sdk/installing/studio.html):**
- * Download the library folder and import to your root application folder.
-You can manually achieve this step with 3 steps:
-    1. Paste the folder library into your application at the same level of your app, build and gradle folder
-    2. Add to your settings.gradle file the following code line:
-    "include ':app', ':timelineview'"
-    3. Rebuild the project
- * File → Project Structure → in Modules section click on "app" → Click on tab "Dependecies" → Click on the green plus → Module Dependecy → Select ":library"
- * Done
-
 ### What's New
 
-See the project's Releases page for a list of versions with their changelogs.
+See the project's Releases page for a list of versions with their change logs.
 
 ### [View Releases](https://github.com/vipulasri/Timeline-View/releases)
 
@@ -70,24 +56,26 @@ If you Watch this repository, GitHub will send you an email every time I publish
 
 ``` java
 <com.github.vipulasri.timelineview.TimelineView
-    android:id="@+id/time_marker"
+    android:id="@+id/timeline"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     app:markerSize="20dp"
     app:lineSize="2dp"
-    app:line="@color/colorPrimary"/>
+    app:startLineColor="@color/colorPrimary"
+    app:endLineColor="@color/colorPrimary"/>
 ```
 
 ##### Line Padding around marker
 
 ``` java
 <com.github.vipulasri.timelineview.TimelineView
-    android:id="@+id/time_marker"
+    android:id="@+id/timeline"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     app:markerSize="20dp"
-    app:lineSize="2dp"
-    app:line="@color/colorPrimary"
+    app:lineWidth="2dp"
+    app:startLineColor="@color/colorPrimary"
+    app:endLineColor="@color/colorPrimary"
     app:linePadding="5dp"/>
 ```
 
@@ -113,12 +101,17 @@ If you Watch this repository, GitHub will send you an email every time I publish
         <td>sets the marker in center of line if `true`</td>
     </tr>
     <tr>
-        <td>app:line="@color/primarColor"</td>
+        <td>app:startLineColor="@color/primarColor"</td>
         <td>Dark Grey Line</td>
-        <td>sets line color</td>
+        <td>sets start line color</td>
     </tr>
-     <tr>
-        <td>app:lineSize="2dp"</td>
+    <tr>
+        <td>app:endLineColor="@color/primarColor"</td>
+        <td>Dark Grey Line</td>
+        <td>sets end line color</td>
+    </tr>
+    <tr>
+        <td>app:lineWidth="2dp"</td>
         <td>2dp</td>
         <td>sets line width</td>
     </tr>
@@ -131,11 +124,26 @@ If you Watch this repository, GitHub will send you an email every time I publish
         <td>app:linePadding="5dp"</td>
         <td>0dp</td>
         <td>sets line padding around marker</td>
-        </tr>
+     </tr>
+     <tr>
+         <td>app:lineStyle="dash"</td>
+         <td>normal</td>
+         <td>sets line style ie `normal` or `dashed`</td>
+     </tr>
+     <tr>
+         <td>app:lineStyleDashGap="4dp"</td>
+         <td>4dp</td>
+         <td>sets line dash gap</td>
+     </tr>
+     <tr>
+         <td>app:lineStyleDashLength="8dp"</td>
+         <td>8dp</td>
+         <td>sets line dash length</td>
+     </tr>
     </table>
  
 * RecyclerView Holder : 
-   Your `RecyclerViewHolder` should have an extra paramenter in constructor i.e viewType from `onCreateViewHolder`. You would also have to call the method `initLine(viewType)` in constructor definition.
+   Your `RecyclerViewHolder` should have an extra parameter in constructor i.e viewType from `onCreateViewHolder`. You would also have to call the method `initLine(viewType)` in constructor definition.
  
 ``` java
 
@@ -144,7 +152,7 @@ If you Watch this repository, GitHub will send you an email every time I publish
 
         public TimeLineViewHolder(View itemView, int viewType) {
             super(itemView);
-            mTimelineView = (TimelineView) itemView.findViewById(R.id.time_marker);
+            mTimelineView = (TimelineView) itemView.findViewById(R.id.timeline);
             mTimelineView.initLine(viewType);
         }
     }
@@ -158,7 +166,7 @@ If you Watch this repository, GitHub will send you an email every time I publish
 
     @Override
     public int getItemViewType(int position) {
-        return TimelineView.getTimeLineViewType(position,getItemCount());
+        return TimelineView.getTimeLineViewType(position, getItemCount());
     }
 
 ```
@@ -184,7 +192,7 @@ Please let me know via [email](mailto:vipulasri.2007@gmail.com), [pull requests]
 ## License
 
 
-    Copyright 2017 Vipul Asri
+    Copyright 2018 Vipul Asri
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
