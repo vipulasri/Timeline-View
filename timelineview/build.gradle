@@ -4,7 +4,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayRepoName = 'TimelineView'
 
-    groupId = 'com.vipulasri'
+    groupId = 'com.github.vipulasri'
     libraryName = 'TimelineView'
     artifact = 'timelineview'
     libraryVersion = '1.1.0'
