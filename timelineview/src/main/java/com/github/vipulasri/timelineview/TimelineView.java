@@ -418,7 +418,7 @@ public class TimelineView extends View {
      * @param totalSize the total size of the items
      * @return the timeline view type
      */
-    public static int getTimeLineViewType(int position, int totalSize) {
+    public int getTimeLineViewType(int position, int totalSize) {
         if(totalSize == 1) {
             return LineType.ONLYONE;
         } else if(position == 0) {
