@@ -17,7 +17,7 @@ class TimelineAttributes(
         var lineStyle: Int,
         var lineDashWidth: Int,
         var lineDashGap: Int
-): Parcelable {
+) : Parcelable {
 
     @IgnoredOnParcel
     var orientation by observable(Orientation.VERTICAL) { _, oldValue, newValue ->

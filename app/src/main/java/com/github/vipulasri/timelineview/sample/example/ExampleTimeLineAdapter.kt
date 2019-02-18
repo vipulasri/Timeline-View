@@ -1,17 +1,16 @@
 package com.github.vipulasri.timelineview.sample.example
 
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
+import com.github.vipulasri.timelineview.TimelineView
+import com.github.vipulasri.timelineview.sample.R
 import com.github.vipulasri.timelineview.sample.model.OrderStatus
 import com.github.vipulasri.timelineview.sample.model.TimeLineModel
 import com.github.vipulasri.timelineview.sample.utils.DateTimeUtils
 import com.github.vipulasri.timelineview.sample.utils.VectorDrawableUtils
-import com.github.vipulasri.timelineview.TimelineView
-import com.github.vipulasri.timelineview.sample.R
 import kotlinx.android.synthetic.main.item_timeline.view.*
 
 /**
@@ -25,7 +24,7 @@ class ExampleTimeLineAdapter(private val mFeedList: List<TimeLineModel>) : Recyc
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeLineViewHolder {
-        val  layoutInflater = LayoutInflater.from(parent.context)
+        val layoutInflater = LayoutInflater.from(parent.context)
         return TimeLineViewHolder(layoutInflater.inflate(R.layout.item_timeline, parent, false), viewType)
     }
 
@@ -33,11 +32,11 @@ class ExampleTimeLineAdapter(private val mFeedList: List<TimeLineModel>) : Recyc
 
         val timeLineModel = mFeedList[position]
 
-        when {
-            timeLineModel.status == OrderStatus.INACTIVE -> {
+        when (timeLineModel.status) {
+            OrderStatus.INACTIVE -> {
                 setMarker(holder, R.drawable.ic_marker_inactive, R.color.material_grey_500)
             }
-            timeLineModel.status == OrderStatus.ACTIVE -> {
+            OrderStatus.ACTIVE -> {
                 setMarker(holder, R.drawable.ic_marker_active, R.color.material_grey_500)
             }
             else -> {
@@ -62,9 +61,9 @@ class ExampleTimeLineAdapter(private val mFeedList: List<TimeLineModel>) : Recyc
 
     inner class TimeLineViewHolder(itemView: View, viewType: Int) : RecyclerView.ViewHolder(itemView) {
 
-        val date = itemView.text_timeline_date
-        val message = itemView.text_timeline_title
-        val timeline = itemView.timeline
+        val date = itemView.text_timeline_date!!
+        val message = itemView.text_timeline_title!!
+        val timeline = itemView.timeline!!
 
         init {
             timeline.initLine(viewType)

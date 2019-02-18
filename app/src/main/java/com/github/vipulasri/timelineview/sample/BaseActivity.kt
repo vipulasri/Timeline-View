@@ -1,11 +1,13 @@
 package com.github.vipulasri.timelineview.sample
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.github.vipulasri.timelineview.sample.example.whenNotNull
 
+@SuppressLint("Registered")
 open class BaseActivity : AppCompatActivity() {
 
     var toolbar: Toolbar? = null
@@ -63,7 +65,7 @@ open class BaseActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //Menu
         when (item.itemId) {
-        //When home is clicked
+            //When home is clicked
             android.R.id.home -> {
                 onActionBarHomeIconClicked()
                 return true

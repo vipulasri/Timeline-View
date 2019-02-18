@@ -1,11 +1,9 @@
 package com.github.vipulasri.timelineview.sample.utils
 
 import android.text.format.DateUtils
-
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+import java.util.*
 
 /**
  * Created by Vipul Asri on 19-07-2016.

@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.vipulasri.timelineview.TimelineView
 import com.github.vipulasri.timelineview.sample.example.ExampleActivity
+import com.github.vipulasri.timelineview.sample.example.toPx
 import com.github.vipulasri.timelineview.sample.model.OrderStatus
 import com.github.vipulasri.timelineview.sample.model.Orientation
 import com.github.vipulasri.timelineview.sample.model.TimeLineModel
 import com.github.vipulasri.timelineview.sample.model.TimelineAttributes
-import com.github.vipulasri.timelineview.sample.utils.Utils
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by Vipul Asri on 07-06-2016.
@@ -33,16 +33,16 @@ class MainActivity : BaseActivity() {
 
         //default values
         mAttributes = TimelineAttributes(
-                markerSize = Utils.dpToPx(20f, this),
+                markerSize = 20.toPx,
                 markerColor = ContextCompat.getColor(this, R.color.material_grey_500),
                 markerInCenter = true,
-                linePadding = Utils.dpToPx(2f, this),
+                linePadding = 2.toPx,
                 startLineColor = ContextCompat.getColor(this, R.color.colorAccent),
                 endLineColor = ContextCompat.getColor(this, R.color.colorAccent),
                 lineStyle = TimelineView.LineStyle.NORMAL,
-                lineWidth = Utils.dpToPx(2f, this),
-                lineDashWidth = Utils.dpToPx(4f, this),
-                lineDashGap = Utils.dpToPx(2f, this)
+                lineWidth = 2.toPx,
+                lineDashWidth = 4.toPx,
+                lineDashGap = 2.toPx
         )
 
         setDataListItems()

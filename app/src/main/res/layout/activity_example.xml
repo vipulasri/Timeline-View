@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:padding="@dimen/padding"
         android:clipToPadding="false"
         tools:listitem="@layout/item_timeline"

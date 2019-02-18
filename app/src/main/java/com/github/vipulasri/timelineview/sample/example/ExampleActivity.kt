@@ -1,14 +1,12 @@
 package com.github.vipulasri.timelineview.sample.example
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.github.vipulasri.timelineview.sample.BaseActivity
 import com.github.vipulasri.timelineview.sample.R
 import com.github.vipulasri.timelineview.sample.model.OrderStatus
 import com.github.vipulasri.timelineview.sample.model.TimeLineModel
 import kotlinx.android.synthetic.main.activity_example.*
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by Vipul Asri on 13-12-2018.
@@ -17,7 +15,6 @@ class ExampleActivity : BaseActivity() {
 
     private lateinit var mAdapter: ExampleTimeLineAdapter
     private val mDataList = ArrayList<TimeLineModel>()
-    private lateinit var mLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +40,6 @@ class ExampleActivity : BaseActivity() {
     }
 
     private fun initRecyclerView() {
-        mLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        recyclerView.layoutManager = mLayoutManager
         mAdapter = ExampleTimeLineAdapter(mDataList)
         recyclerView.adapter = mAdapter
     }
