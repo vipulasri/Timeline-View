@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.TypedValue;
 
+@SuppressWarnings("WeakerAccess")
 class Utils {
 
     public static int dpToPx(float dp, Context context) {
