@@ -28,6 +28,7 @@
     <string name="example">Example</string>
     <string name="activity_example_label">Example</string>
     <string name="apply">Apply</string>
+    <string name="options">Options</string>
 
     <string-array name="line_type">
         <item>Normal</item>

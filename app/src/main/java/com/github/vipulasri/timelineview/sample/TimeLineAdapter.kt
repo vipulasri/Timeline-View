@@ -65,9 +65,9 @@ class TimeLineAdapter(private val mFeedList: List<TimeLineModel>, private var mA
 
     inner class TimeLineViewHolder(itemView: View, viewType: Int) : RecyclerView.ViewHolder(itemView) {
 
-        val date = itemView.text_timeline_date
-        val message = itemView.text_timeline_title
-        val timeline = itemView.timeline
+        val date = itemView.text_timeline_date!!
+        val message = itemView.text_timeline_title!!
+        val timeline = itemView.timeline!!
 
         init {
             timeline.initLine(viewType)

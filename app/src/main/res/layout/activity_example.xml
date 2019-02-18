@@ -7,15 +7,15 @@
     tools:context="com.github.vipulasri.timelineview.sample.example.ExampleActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/appbarLayout"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
             android:background="@color/colorWhite"
             app:title="@string/activity_example_label" />
 
@@ -26,10 +26,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:padding="@dimen/padding"
         android:clipToPadding="false"
-        tools:listitem="@layout/item_timeline"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:padding="@dimen/padding"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/item_timeline" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

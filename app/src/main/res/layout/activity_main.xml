@@ -7,16 +7,16 @@
     tools:context="com.github.vipulasri.timelineview.sample.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarLayout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:id="@+id/appbarLayout"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:elevation="0dp">
 
         <FrameLayout
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/toolbar"
             android:background="@color/colorWhite">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -25,21 +25,22 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/app_name"
-                android:textColor="@color/primaryText"/>
+                android:textColor="@color/primaryText" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/action_example_activity"
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/action_example_activity"
                 android:layout_gravity="center|end"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
                 android:gravity="center"
                 android:padding="@dimen/padding"
-                android:clickable="true"
-                android:background="?attr/selectableItemBackground"
                 android:text="@string/example"
                 android:textColor="@color/primaryText"
-                android:textSize="14sp"/>
+                android:focusable="true"
+                android:textSize="14sp" />
 
         </FrameLayout>
 
@@ -50,43 +51,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
+        android:clipToPadding="false"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="@dimen/bottom_padding_recycler_view"
-        android:clipToPadding="false"
-        tools:listitem="@layout/item_timeline"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/item_timeline" />
 
     <View
+        android:id="@+id/dropshadow"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:id="@+id/dropshadow"
         android:layout_marginTop="?actionBarSize"
-        android:background="@drawable/dropshadow"/>
+        android:background="@drawable/dropshadow" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/fab_options"
         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:elevation="4dp"
-        android:paddingStart="18sp"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp"
-        android:paddingEnd="18dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:text="Options"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingStart="18sp"
+        android:paddingLeft="18dp"
+        android:paddingEnd="18dp"
+        android:paddingRight="18dp"
+        android:text="@string/options"
         android:textColor="@android:color/white"
         android:textSize="12sp"
-        android:fontFamily="sans-serif-condensed"
-        app:fontFamily="sans-serif-condensed"
         app:backgroundTint="?attr/colorAccent"
-        app:rippleColor="@color/tertiaryText"
         app:cornerRadius="32dp"
+        app:fontFamily="sans-serif-condensed"
         app:icon="@drawable/ic_settings"
         app:iconPadding="8dp"
         app:iconSize="18dp"
-        app:iconTint="@android:color/white"/>
+        app:iconTint="@android:color/white"
+        app:rippleColor="@color/tertiaryText"
+        tools:ignore="UnusedAttribute" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
