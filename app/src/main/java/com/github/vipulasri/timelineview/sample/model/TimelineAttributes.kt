@@ -10,6 +10,8 @@ class TimelineAttributes(
         var markerSize: Int,
         var markerColor: Int,
         var markerInCenter: Boolean,
+        var markerTopPadding: Int,
+        var markerBottomPadding: Int,
         var linePadding: Int,
         var lineWidth: Int,
         var startLineColor: Int,
@@ -27,13 +29,18 @@ class TimelineAttributes(
     @IgnoredOnParcel
     var onOrientationChanged: ((Orientation, Orientation) -> Unit)? = null
 
-    override fun toString(): String {
-        return "TimelineAttributes(markerSize=$markerSize, markerColor=$markerColor, markerInCenter=$markerInCenter, linePadding=$linePadding, lineWidth=$lineWidth, startLineColor=$startLineColor, endLineColor=$endLineColor, lineStyle=$lineStyle, lineDashWidth=$lineDashWidth, lineDashGap=$lineDashGap, onOrientationChanged=$onOrientationChanged)"
-    }
-
     fun copy(): TimelineAttributes {
-        val attributes = TimelineAttributes(markerSize, markerColor, markerInCenter, linePadding, lineWidth, startLineColor, endLineColor, lineStyle, lineDashWidth, lineDashGap)
+        val attributes = TimelineAttributes(markerSize, markerColor, markerInCenter, markerTopPadding,
+                markerBottomPadding, linePadding, lineWidth, startLineColor, endLineColor, lineStyle, lineDashWidth,
+                lineDashGap)
         attributes.orientation = orientation
         return attributes
+    }
+
+    override fun toString(): String {
+        return "TimelineAttributes(markerSize=$markerSize, markerColor=$markerColor, markerInCenter=$markerInCenter, " +
+                "markerTopPadding=$markerTopPadding, markerBottomPadding=$markerBottomPadding, linePadding=$linePadding, " +
+                "lineWidth=$lineWidth, startLineColor=$startLineColor, endLineColor=$endLineColor, lineStyle=$lineStyle, " +
+                "lineDashWidth=$lineDashWidth, lineDashGap=$lineDashGap, onOrientationChanged=$onOrientationChanged)"
     }
 }

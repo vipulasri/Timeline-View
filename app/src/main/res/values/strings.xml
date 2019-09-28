@@ -28,6 +28,8 @@
     <string name="example">Example</string>
     <string name="activity_example_label">Example</string>
     <string name="apply">Apply</string>
+    <string name="top_padding">Top Padding</string>
+    <string name="bottom_padding">Bottom Padding</string>
 
     <string-array name="line_type">
         <item>Normal</item>

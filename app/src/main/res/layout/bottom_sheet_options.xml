@@ -154,6 +154,42 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/Label"
+                android:id="@+id/text_marker_top_padding"
+                android:text="@string/top_padding"
+                app:layout_constraintBottom_toBottomOf="@id/seek_marker_top_padding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/seek_marker_top_padding" />
+
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                android:id="@+id/seek_marker_top_padding"
+                style="@style/DiscreteSeekBar"
+                app:dsb_max="30"
+                app:dsb_min="0"
+                app:dsb_value="0"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_marker_in_center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_marker_top_padding"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Label"
+                android:id="@+id/text_marker_bottom_padding"
+                android:text="@string/bottom_padding"
+                app:layout_constraintBottom_toBottomOf="@id/seek_marker_bottom_padding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/seek_marker_bottom_padding" />
+
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                android:id="@+id/seek_marker_bottom_padding"
+                style="@style/DiscreteSeekBar"
+                app:dsb_max="30"
+                app:dsb_min="0"
+                app:dsb_value="0"
+                app:layout_constraintTop_toBottomOf="@id/seek_marker_top_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_marker_top_padding"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Label"
                 android:id="@+id/text_marker_line_padding"
                 android:text="@string/line_padding"
                 app:layout_constraintBottom_toBottomOf="@id/seek_marker_line_padding"
@@ -166,7 +202,7 @@
                 app:dsb_max="30"
                 app:dsb_min="0"
                 app:dsb_value="2"
-                app:layout_constraintTop_toBottomOf="@id/checkbox_marker_in_center"
+                app:layout_constraintTop_toBottomOf="@id/seek_marker_bottom_padding"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/text_marker_line_padding"/>
 
@@ -315,10 +351,12 @@
         android:text="@string/apply"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        app:cornerRadius="0dp"
+        android:stateListAnimator="@null"
+        app:cornerRadius="5dp"
         app:layout_constraintTop_toBottomOf="@id/nestedScrollView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:targetApi="lollipop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

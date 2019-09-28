@@ -36,6 +36,8 @@ class MainActivity : BaseActivity() {
                 markerSize = Utils.dpToPx(20f, this),
                 markerColor = ContextCompat.getColor(this, R.color.material_grey_500),
                 markerInCenter = true,
+                markerTopPadding = Utils.dpToPx(0f, this),
+                markerBottomPadding = Utils.dpToPx(0f, this),
                 linePadding = Utils.dpToPx(2f, this),
                 startLineColor = ContextCompat.getColor(this, R.color.colorAccent),
                 endLineColor = ContextCompat.getColor(this, R.color.colorAccent),
