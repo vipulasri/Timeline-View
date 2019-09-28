@@ -48,6 +48,8 @@ public class TimelineView extends View {
 
     private Drawable mMarker;
     private int mMarkerSize;
+    private int mMarkerPaddingTop;
+    private int mMarkerPaddingBottom;
     private boolean mMarkerInCenter;
     private Paint mLinePaint = new Paint();
     private boolean mDrawStartLine = false;
@@ -74,6 +76,8 @@ public class TimelineView extends View {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs,R.styleable.TimelineView);
         mMarker = typedArray.getDrawable(R.styleable.TimelineView_marker);
         mMarkerSize = typedArray.getDimensionPixelSize(R.styleable.TimelineView_markerSize, Utils.dpToPx(20, getContext()));
+        mMarkerPaddingTop = typedArray.getDimensionPixelSize(R.styleable.TimelineView_markerPaddingTop, 0);
+        mMarkerPaddingBottom = typedArray.getDimensionPixelSize(R.styleable.TimelineView_markerPaddingBottom, 0);
         mMarkerInCenter = typedArray.getBoolean(R.styleable.TimelineView_markerInCenter, true);
         mStartLineColor = typedArray.getColor(R.styleable.TimelineView_startLineColor, getResources().getColor(android.R.color.darker_gray));
         mEndLineColor = typedArray.getColor(R.styleable.TimelineView_endLineColor, getResources().getColor(android.R.color.darker_gray));
@@ -139,14 +143,14 @@ public class TimelineView extends View {
         if(mMarkerInCenter) { //Marker in center is true
 
             if(mMarker != null) {
-                mMarker.setBounds((width/2) - (markSize/2),(height/2) - (markSize/2), (width/2) + (markSize/2),(height/2) + (markSize/2));
+                mMarker.setBounds((width/2) - (markSize/2),(height/2) - (markSize/2) + mMarkerPaddingTop - mMarkerPaddingBottom, (width/2) + (markSize/2),(height/2) + (markSize/2) + mMarkerPaddingTop - mMarkerPaddingBottom);
                 mBounds = mMarker.getBounds();
             }
 
         } else { //Marker in center is false
 
             if(mMarker != null) {
-                mMarker.setBounds(pLeft, pTop,pLeft + markSize,pTop + markSize);
+                mMarker.setBounds(pLeft, pTop + mMarkerPaddingTop - mMarkerPaddingBottom, pLeft + markSize, pTop + markSize + mMarkerPaddingTop - mMarkerPaddingBottom);
                 mBounds = mMarker.getBounds();
             }
         }
@@ -305,6 +309,24 @@ public class TimelineView extends View {
 
     public int getMarkerSize() {
         return mMarkerSize;
+    }
+
+    public void setMarkerPaddingTop(int markerPaddingTop) {
+        mMarkerPaddingTop = markerPaddingTop;
+        initTimeline();
+    }
+
+    public int getMarkerPaddingTop() {
+        return mMarkerPaddingTop;
+    }
+
+    public void setMarkerPaddingBottom(int markerPaddingBottom) {
+        mMarkerPaddingBottom = markerPaddingBottom;
+        initTimeline();
+    }
+
+    public int getMarkerPaddingBottom() {
+        return mMarkerPaddingBottom;
     }
 
     public boolean isMarkerInCenter() {
