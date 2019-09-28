@@ -74,6 +74,8 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
         val attributes = (arguments!!.getParcelable(EXTRA_ATTRIBUTES) as TimelineAttributes)
         mAttributes = attributes.copy()
 
+        text_attributes_heading.setOnClickListener { dismiss() }
+
         //orientation
         rg_orientation.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId) {

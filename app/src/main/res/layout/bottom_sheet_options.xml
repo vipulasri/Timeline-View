@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/image_toggle"
         android:layout_marginRight="@dimen/padding"
-        app:srcCompat="@drawable/ic_expand_less_black_24dp"
+        app:srcCompat="@drawable/ic_expand_more_black_24dp"
         app:layout_constraintTop_toTopOf="@id/text_attributes_heading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/text_attributes_heading"/>
