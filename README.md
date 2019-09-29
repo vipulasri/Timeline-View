@@ -28,7 +28,7 @@ For information : checkout [Example Screen Code](https://github.com/vipulasri/Ti
 
 ``` gradle
 dependencies {
-    implementation 'com.github.vipulasri:timelineview:1.1.0'
+    implementation 'com.github.vipulasri:timelineview:1.1.1'
 }
 ```
 
@@ -38,7 +38,7 @@ dependencies {
 <dependency>
     <groupId>com.github.vipulasri</groupId>
     <artifactId>timelineview</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <type>pom</type>
 </dependency>
 ```
@@ -99,6 +99,26 @@ If you Watch this repository, GitHub will send you an email every time I publish
         <td>app:markerInCenter="false"</td>
         <td>true</td>
         <td>sets the marker in center of line if `true`</td>
+    </tr>
+    <tr>
+        <td>app:markerPaddingLeft="0dp"</td>
+        <td>0dp</td>
+        <td>sets the marker left padding, applicable only with horizontal orientation</td>
+    </tr>
+    <tr>
+        <td>app:markerPaddingTop="0dp"</td>
+        <td>0dp</td>
+        <td>sets the marker top padding, applicable only with vertical orientation</td>
+    </tr>
+    <tr>
+        <td>app:markerPaddingRight="0dp"</td>
+        <td>0dp</td>
+        <td>sets the marker right padding, applicable only with horizontal orientation</td>
+    </tr>
+    <tr>
+        <td>app:markerPaddingBottom="0dp"</td>
+        <td>0dp</td>
+        <td>sets the marker bottom padding, applicable only with vertical orientation</td>
     </tr>
     <tr>
         <td>app:startLineColor="@color/primarColor"</td>
