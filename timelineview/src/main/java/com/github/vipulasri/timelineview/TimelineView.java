@@ -351,6 +351,10 @@ public class TimelineView extends View {
         return mMarkerSize;
     }
 
+    /**
+     * Sets marker left padding
+     * @param markerPaddingLeft the left padding to marker, works only in vertical orientation
+     */
     public void setMarkerPaddingLeft(int markerPaddingLeft) {
         mMarkerPaddingLeft = markerPaddingLeft;
         initTimeline();
@@ -360,6 +364,10 @@ public class TimelineView extends View {
         return mMarkerPaddingLeft;
     }
 
+    /**
+     * Sets marker top padding
+     * @param markerPaddingTop the top padding to marker, works only in horizontal orientation
+     */
     public void setMarkerPaddingTop(int markerPaddingTop) {
         mMarkerPaddingTop = markerPaddingTop;
         initTimeline();
@@ -369,6 +377,10 @@ public class TimelineView extends View {
         return mMarkerPaddingTop;
     }
 
+    /**
+     * Sets marker right padding
+     * @param markerPaddingRight the right padding to marker, works only in vertical orientation
+     */
     public void setMarkerPaddingRight(int markerPaddingRight) {
         mMarkerPaddingRight = markerPaddingRight;
         initTimeline();
@@ -378,6 +390,10 @@ public class TimelineView extends View {
         return mMarkerPaddingRight;
     }
 
+    /**
+     * Sets marker bottom padding
+     * @param markerPaddingBottom the bottom padding to marker, works only in horizontal orientation
+     */
     public void setMarkerPaddingBottom(int markerPaddingBottom) {
         mMarkerPaddingBottom = markerPaddingBottom;
         initTimeline();
@@ -391,6 +407,10 @@ public class TimelineView extends View {
         return mMarkerInCenter;
     }
 
+    /**
+     * Sets marker in center
+     * @param markerInCenter the marker position
+     */
     public void setMarkerInCenter(boolean markerInCenter) {
         this.mMarkerInCenter = markerInCenter;
         initTimeline();
@@ -423,6 +443,10 @@ public class TimelineView extends View {
         return mLineOrientation;
     }
 
+    /**
+     * Sets line orientation
+     * @param lineOrientation the line orientation i.e horizontal or vertical
+     */
     public void setLineOrientation(int lineOrientation) {
         this.mLineOrientation = lineOrientation;
     }
@@ -431,6 +455,10 @@ public class TimelineView extends View {
         return mLineStyle;
     }
 
+    /**
+     * Sets line style
+     * @param lineStyle the line style i.e normal or dashed
+     */
     public void setLineStyle(int lineStyle) {
         this.mLineStyle = lineStyle;
         initLinePaint();
@@ -440,6 +468,10 @@ public class TimelineView extends View {
         return mLineStyleDashLength;
     }
 
+    /**
+     * Sets dashed line length
+     * @param lineStyleDashLength the dashed line length
+     */
     public void setLineStyleDashLength(int lineStyleDashLength) {
         this.mLineStyleDashLength = lineStyleDashLength;
         initLinePaint();
@@ -449,6 +481,10 @@ public class TimelineView extends View {
         return mLineStyleDashGap;
     }
 
+    /**
+     * Sets dashed line gap
+     * @param lineStyleDashGap the dashed line gap
+     */
     public void setLineStyleDashGap(int lineStyleDashGap) {
         this.mLineStyleDashGap = lineStyleDashGap;
         initLinePaint();
@@ -494,7 +530,7 @@ public class TimelineView extends View {
     /**
      * Gets timeline view type.
      *
-     * @param position   the position of current item view
+     * @param position the position of current item view
      * @param totalSize the total size of the items
      * @return the timeline view type
      */
