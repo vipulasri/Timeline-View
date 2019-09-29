@@ -23,18 +23,22 @@ import kotlinx.android.synthetic.main.item_timeline.view.*
 
 class TimeLineAdapter(private val mFeedList: List<TimeLineModel>, private var mAttributes: TimelineAttributes) : RecyclerView.Adapter<TimeLineAdapter.TimeLineViewHolder>() {
 
+    private lateinit var mLayoutInflater: LayoutInflater
+
     override fun getItemViewType(position: Int): Int {
         return TimelineView.getTimeLineViewType(position, itemCount)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeLineViewHolder {
-        val  layoutInflater = LayoutInflater.from(parent.context)
-        val view: View
 
-        view = if (mAttributes.orientation == Orientation.HORIZONTAL) {
-            layoutInflater.inflate(R.layout.item_timeline_horizontal, parent, false)
+        if(!::mLayoutInflater.isInitialized) {
+            mLayoutInflater = LayoutInflater.from(parent.context)
+        }
+
+        val view = if (mAttributes.orientation == Orientation.HORIZONTAL) {
+            mLayoutInflater.inflate(R.layout.item_timeline_horizontal, parent, false)
         } else {
-            layoutInflater.inflate(R.layout.item_timeline, parent, false)
+            mLayoutInflater.inflate(R.layout.item_timeline, parent, false)
         }
         return TimeLineViewHolder(view, viewType)
     }
