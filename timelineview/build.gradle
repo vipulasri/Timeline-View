@@ -42,7 +42,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.1.0'
+    api 'androidx.annotation:annotation:1.1.0'
 }
 
 apply from: 'https://raw.githubusercontent.com/vipulasri/BintrayHelper/master/install.gradle'
