@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.vipulasri.timelineview.TimelineView
 import com.github.vipulasri.timelineview.sample.example.ExampleActivity
+import com.github.vipulasri.timelineview.sample.extentions.dpToPx
+import com.github.vipulasri.timelineview.sample.extentions.getColorCompat
+import com.github.vipulasri.timelineview.sample.extentions.setGone
+import com.github.vipulasri.timelineview.sample.extentions.setVisible
 import com.github.vipulasri.timelineview.sample.model.OrderStatus
 import com.github.vipulasri.timelineview.sample.model.Orientation
 import com.github.vipulasri.timelineview.sample.model.TimeLineModel
 import com.github.vipulasri.timelineview.sample.model.TimelineAttributes
-import com.github.vipulasri.timelineview.sample.utils.Utils
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList
 
@@ -22,7 +25,6 @@ import java.util.ArrayList
  */
 class MainActivity : BaseActivity() {
 
-    private lateinit var mAdapter: TimeLineAdapter
     private val mDataList = ArrayList<TimeLineModel>()
     private lateinit var mLayoutManager: LinearLayoutManager
     private lateinit var mAttributes: TimelineAttributes
@@ -33,20 +35,20 @@ class MainActivity : BaseActivity() {
 
         //default values
         mAttributes = TimelineAttributes(
-                markerSize = Utils.dpToPx(20f, this),
-                markerColor = ContextCompat.getColor(this, R.color.material_grey_500),
+                markerSize = dpToPx(20f),
+                markerColor = getColorCompat( R.color.material_grey_500),
                 markerInCenter = true,
-                markerLeftPadding = Utils.dpToPx(0f, this),
-                markerTopPadding = Utils.dpToPx(0f, this),
-                markerRightPadding = Utils.dpToPx(0f, this),
-                markerBottomPadding = Utils.dpToPx(0f, this),
-                linePadding = Utils.dpToPx(2f, this),
-                startLineColor = ContextCompat.getColor(this, R.color.colorAccent),
-                endLineColor = ContextCompat.getColor(this, R.color.colorAccent),
+                markerLeftPadding = dpToPx(0f),
+                markerTopPadding = dpToPx(0f),
+                markerRightPadding = dpToPx(0f),
+                markerBottomPadding = dpToPx(0f),
+                linePadding = dpToPx(2f),
+                startLineColor = getColorCompat(R.color.colorAccent),
+                endLineColor = getColorCompat(R.color.colorAccent),
                 lineStyle = TimelineView.LineStyle.NORMAL,
-                lineWidth = Utils.dpToPx(2f, this),
-                lineDashWidth = Utils.dpToPx(4f, this),
-                lineDashGap = Utils.dpToPx(2f, this)
+                lineWidth = dpToPx(2f),
+                lineDashWidth = dpToPx(4f),
+                lineDashGap = dpToPx(2f)
         )
 
         setDataListItems()
@@ -88,23 +90,22 @@ class MainActivity : BaseActivity() {
             @SuppressLint("LongLogTag")
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                dropshadow.visibility = if(recyclerView.getChildAt(0).top < 0) View.VISIBLE else View.GONE
+                if(recyclerView.getChildAt(0).top < 0) dropshadow.setVisible() else dropshadow.setGone()
             }
         })
     }
 
     private fun initAdapter() {
-
         mLayoutManager = if (mAttributes.orientation == Orientation.HORIZONTAL) {
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         } else {
             LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         }
 
-        recyclerView.layoutManager = mLayoutManager
-
-        mAdapter = TimeLineAdapter(mDataList, mAttributes)
-        recyclerView.adapter = mAdapter
+        recyclerView.apply {
+            layoutManager = mLayoutManager
+            adapter =  TimeLineAdapter(mDataList, mAttributes)
+        }
     }
 
 }

@@ -8,10 +8,12 @@ import android.view.ViewGroup
 
 import com.github.vipulasri.timelineview.sample.model.OrderStatus
 import com.github.vipulasri.timelineview.sample.model.TimeLineModel
-import com.github.vipulasri.timelineview.sample.utils.DateTimeUtils
 import com.github.vipulasri.timelineview.sample.utils.VectorDrawableUtils
 import com.github.vipulasri.timelineview.TimelineView
 import com.github.vipulasri.timelineview.sample.R
+import com.github.vipulasri.timelineview.sample.extentions.formatDateTime
+import com.github.vipulasri.timelineview.sample.extentions.setGone
+import com.github.vipulasri.timelineview.sample.extentions.setVisible
 import kotlinx.android.synthetic.main.item_timeline.view.*
 
 /**
@@ -46,10 +48,10 @@ class ExampleTimeLineAdapter(private val mFeedList: List<TimeLineModel>) : Recyc
         }
 
         if (timeLineModel.date.isNotEmpty()) {
-            holder.date.visibility = View.VISIBLE
-            holder.date.text = DateTimeUtils.parseDateTime(timeLineModel.date, "yyyy-MM-dd HH:mm", "hh:mm a, dd-MMM-yyyy")
+            holder.date.setVisible()
+            holder.date.text = timeLineModel.date.formatDateTime("yyyy-MM-dd HH:mm", "hh:mm a, dd-MMM-yyyy")
         } else
-            holder.date.visibility = View.GONE
+            holder.date.setGone()
 
         holder.message.text = timeLineModel.message
     }

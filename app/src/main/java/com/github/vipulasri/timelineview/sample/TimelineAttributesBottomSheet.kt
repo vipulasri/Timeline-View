@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager
 import com.github.vipulasri.timelineview.TimelineView
 import com.github.vipulasri.timelineview.sample.model.Orientation
 import com.github.vipulasri.timelineview.sample.model.TimelineAttributes
-import com.github.vipulasri.timelineview.sample.utils.Utils
 import com.github.vipulasri.timelineview.sample.widgets.BorderedCircle
 import com.github.vipulasri.timelineview.sample.widgets.RoundedCornerBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior

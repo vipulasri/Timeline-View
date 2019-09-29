@@ -54,6 +54,7 @@ dependencies {
         exclude module: 'appcompat-v7'
         exclude module: 'support-v4'
     }
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
     implementation project (':timelineview')
     //implementation 'com.github.vipulasri:timelineview:1.1.0'
 
