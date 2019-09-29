@@ -8,7 +8,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="100dp"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:layout_margin="10dp"
         app:contentPadding="10dp"
         app:cardBackgroundColor="@color/colorGrey50">
