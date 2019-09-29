@@ -186,7 +186,52 @@
                 app:dsb_value="0"
                 app:layout_constraintTop_toBottomOf="@id/seek_marker_top_padding"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/text_marker_top_padding"/>
+                app:layout_constraintStart_toEndOf="@id/text_marker_bottom_padding"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Label"
+                android:id="@+id/text_marker_left_padding"
+                android:text="@string/left_padding"
+                app:layout_constraintBottom_toBottomOf="@id/seek_marker_left_padding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/seek_marker_left_padding" />
+
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                android:id="@+id/seek_marker_left_padding"
+                style="@style/DiscreteSeekBar"
+                app:dsb_max="30"
+                app:dsb_min="0"
+                app:dsb_value="0"
+                app:layout_constraintTop_toBottomOf="@id/seek_marker_bottom_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_marker_left_padding"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Label"
+                android:id="@+id/text_marker_right_padding"
+                android:text="@string/right_padding"
+                app:layout_constraintBottom_toBottomOf="@id/seek_marker_right_padding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/seek_marker_right_padding" />
+
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                android:id="@+id/seek_marker_right_padding"
+                style="@style/DiscreteSeekBar"
+                app:dsb_max="30"
+                app:dsb_min="0"
+                app:dsb_value="0"
+                app:layout_constraintTop_toBottomOf="@id/seek_marker_left_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_marker_right_padding"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Label"
+                android:layout_width="0dp"
+                android:id="@+id/text_marker_padding_note"
+                android:layout_marginTop="3dp"
+                android:text="@string/marker_padding_message"
+                app:layout_constraintTop_toBottomOf="@id/seek_marker_right_padding"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/Label"
@@ -202,7 +247,7 @@
                 app:dsb_max="30"
                 app:dsb_min="0"
                 app:dsb_value="2"
-                app:layout_constraintTop_toBottomOf="@id/seek_marker_bottom_padding"
+                app:layout_constraintTop_toBottomOf="@id/text_marker_padding_note"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/text_marker_line_padding"/>
 

@@ -10,7 +10,9 @@ class TimelineAttributes(
         var markerSize: Int,
         var markerColor: Int,
         var markerInCenter: Boolean,
+        var markerLeftPadding: Int,
         var markerTopPadding: Int,
+        var markerRightPadding: Int,
         var markerBottomPadding: Int,
         var linePadding: Int,
         var lineWidth: Int,
@@ -30,8 +32,8 @@ class TimelineAttributes(
     var onOrientationChanged: ((Orientation, Orientation) -> Unit)? = null
 
     fun copy(): TimelineAttributes {
-        val attributes = TimelineAttributes(markerSize, markerColor, markerInCenter, markerTopPadding,
-                markerBottomPadding, linePadding, lineWidth, startLineColor, endLineColor, lineStyle, lineDashWidth,
+        val attributes = TimelineAttributes(markerSize, markerColor, markerInCenter, markerLeftPadding, markerTopPadding,
+                markerRightPadding, markerBottomPadding, linePadding, lineWidth, startLineColor, endLineColor, lineStyle, lineDashWidth,
                 lineDashGap)
         attributes.orientation = orientation
         return attributes

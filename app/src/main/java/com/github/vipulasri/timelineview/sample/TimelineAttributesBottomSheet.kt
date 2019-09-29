@@ -93,7 +93,9 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
         seek_marker_size.progress = mAttributes.markerSize
         image_marker_color.mFillColor = mAttributes.markerColor
         checkbox_marker_in_center.isChecked = mAttributes.markerInCenter
+        seek_marker_left_padding.progress = mAttributes.markerLeftPadding
         seek_marker_top_padding.progress = mAttributes.markerTopPadding
+        seek_marker_right_padding.progress = mAttributes.markerRightPadding
         seek_marker_bottom_padding.progress = mAttributes.markerBottomPadding
         seek_marker_line_padding.progress = mAttributes.linePadding
 
@@ -104,7 +106,9 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
         image_marker_color.setOnClickListener { showColorPicker(mAttributes.markerColor, image_marker_color) }
 
         seek_marker_size.setOnProgressChangeListener(progressChangeListener)
+        seek_marker_left_padding.setOnProgressChangeListener(progressChangeListener)
         seek_marker_top_padding.setOnProgressChangeListener(progressChangeListener)
+        seek_marker_right_padding.setOnProgressChangeListener(progressChangeListener)
         seek_marker_bottom_padding.setOnProgressChangeListener(progressChangeListener)
         seek_marker_line_padding.setOnProgressChangeListener(progressChangeListener)
 
@@ -183,7 +187,9 @@ class TimelineAttributesBottomSheet: RoundedCornerBottomSheet() {
             Log.d("onProgressChanged", "value->$value")
             when(discreteSeekBar.id) {
                 R.id.seek_marker_size ->  { mAttributes.markerSize = value }
+                R.id.seek_marker_left_padding ->  { mAttributes.markerLeftPadding = value }
                 R.id.seek_marker_top_padding ->  { mAttributes.markerTopPadding = value }
+                R.id.seek_marker_right_padding ->  { mAttributes.markerRightPadding = value }
                 R.id.seek_marker_bottom_padding ->  { mAttributes.markerBottomPadding = value }
                 R.id.seek_marker_line_padding ->  { mAttributes.linePadding = value }
                 R.id.seek_line_width -> { mAttributes.lineWidth = value }

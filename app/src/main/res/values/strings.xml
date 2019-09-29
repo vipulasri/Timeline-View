@@ -30,6 +30,9 @@
     <string name="apply">Apply</string>
     <string name="top_padding">Top Padding</string>
     <string name="bottom_padding">Bottom Padding</string>
+    <string name="left_padding">Left Padding</string>
+    <string name="right_padding">Right Padding</string>
+    <string name="marker_padding_message">When orientation is vertical then only top and bottom padding is applied, orientation is horizontal then only left and right padding is applied.</string>
 
     <string-array name="line_type">
         <item>Normal</item>

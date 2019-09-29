@@ -76,7 +76,9 @@ class TimeLineAdapter(private val mFeedList: List<TimeLineModel>, private var mA
             timeline.markerSize = mAttributes.markerSize
             timeline.setMarkerColor(mAttributes.markerColor)
             timeline.isMarkerInCenter = mAttributes.markerInCenter
+            timeline.markerPaddingLeft = mAttributes.markerLeftPadding
             timeline.markerPaddingTop = mAttributes.markerTopPadding
+            timeline.markerPaddingRight = mAttributes.markerRightPadding
             timeline.markerPaddingBottom = mAttributes.markerBottomPadding
             timeline.linePadding = mAttributes.linePadding
 
