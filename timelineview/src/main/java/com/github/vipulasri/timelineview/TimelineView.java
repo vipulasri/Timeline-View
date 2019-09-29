@@ -11,6 +11,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.IntDef;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.lang.annotation.Retention;
@@ -48,7 +49,9 @@ public class TimelineView extends View {
 
     private Drawable mMarker;
     private int mMarkerSize;
+    private int mMarkerPaddingLeft;
     private int mMarkerPaddingTop;
+    private int mMarkerPaddingRight;
     private int mMarkerPaddingBottom;
     private boolean mMarkerInCenter;
     private Paint mLinePaint = new Paint();
@@ -76,7 +79,9 @@ public class TimelineView extends View {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs,R.styleable.TimelineView);
         mMarker = typedArray.getDrawable(R.styleable.TimelineView_marker);
         mMarkerSize = typedArray.getDimensionPixelSize(R.styleable.TimelineView_markerSize, Utils.dpToPx(20, getContext()));
+        mMarkerPaddingLeft = typedArray.getDimensionPixelSize(R.styleable.TimelineView_markerPaddingLeft, 0);
         mMarkerPaddingTop = typedArray.getDimensionPixelSize(R.styleable.TimelineView_markerPaddingTop, 0);
+        mMarkerPaddingRight = typedArray.getDimensionPixelSize(R.styleable.TimelineView_markerPaddingRight, 0);
         mMarkerPaddingBottom = typedArray.getDimensionPixelSize(R.styleable.TimelineView_markerPaddingBottom, 0);
         mMarkerInCenter = typedArray.getBoolean(R.styleable.TimelineView_markerInCenter, true);
         mStartLineColor = typedArray.getColor(R.styleable.TimelineView_startLineColor, getResources().getColor(android.R.color.darker_gray));
@@ -141,16 +146,51 @@ public class TimelineView extends View {
         int markSize = Math.min(mMarkerSize, Math.min(cWidth, cHeight));
 
         if(mMarkerInCenter) { //Marker in center is true
+            int left = (width/2) - (markSize/2);
+            int top = (height/2) - (markSize/2);
+            int right = (width/2) + (markSize/2);
+            int bottom = (height/2) + (markSize/2);
+
+            switch (mLineOrientation) {
+                case LineOrientation.HORIZONTAL: {
+                    left += mMarkerPaddingLeft - mMarkerPaddingRight;
+                    right += mMarkerPaddingLeft - mMarkerPaddingRight;
+                    break;
+                }
+                case LineOrientation.VERTICAL: {
+                    top += mMarkerPaddingTop - mMarkerPaddingBottom;
+                    bottom += mMarkerPaddingTop - mMarkerPaddingBottom;
+                    break;
+                }
+            }
 
             if(mMarker != null) {
-                mMarker.setBounds((width/2) - (markSize/2),(height/2) - (markSize/2) + mMarkerPaddingTop - mMarkerPaddingBottom, (width/2) + (markSize/2),(height/2) + (markSize/2) + mMarkerPaddingTop - mMarkerPaddingBottom);
+                mMarker.setBounds(left, top, right, bottom);
                 mBounds = mMarker.getBounds();
             }
 
         } else { //Marker in center is false
 
+            int left = pLeft;
+            int top = pTop;
+            int right = pLeft + markSize;
+            int bottom = pTop;
+
+            switch (mLineOrientation) {
+                case LineOrientation.HORIZONTAL: {
+                    left += mMarkerPaddingLeft - mMarkerPaddingRight;
+                    right += mMarkerPaddingLeft - mMarkerPaddingRight;
+                    break;
+                }
+                case LineOrientation.VERTICAL: {
+                    top += mMarkerPaddingTop - mMarkerPaddingBottom;
+                    bottom += markSize + mMarkerPaddingTop - mMarkerPaddingBottom;
+                    break;
+                }
+            }
+
             if(mMarker != null) {
-                mMarker.setBounds(pLeft, pTop + mMarkerPaddingTop - mMarkerPaddingBottom, pLeft + markSize, pTop + markSize + mMarkerPaddingTop - mMarkerPaddingBottom);
+                mMarker.setBounds(left, top, right, bottom);
                 mBounds = mMarker.getBounds();
             }
         }
@@ -311,6 +351,15 @@ public class TimelineView extends View {
         return mMarkerSize;
     }
 
+    public void setMarkerPaddingLeft(int markerPaddingLeft) {
+        mMarkerPaddingLeft = markerPaddingLeft;
+        initTimeline();
+    }
+
+    public int getMarkerPaddingLeft() {
+        return mMarkerPaddingLeft;
+    }
+
     public void setMarkerPaddingTop(int markerPaddingTop) {
         mMarkerPaddingTop = markerPaddingTop;
         initTimeline();
@@ -318,6 +367,15 @@ public class TimelineView extends View {
 
     public int getMarkerPaddingTop() {
         return mMarkerPaddingTop;
+    }
+
+    public void setMarkerPaddingRight(int markerPaddingRight) {
+        mMarkerPaddingRight = markerPaddingRight;
+        initTimeline();
+    }
+
+    public int getMarkerPaddingRight() {
+        return mMarkerPaddingRight;
     }
 
     public void setMarkerPaddingBottom(int markerPaddingBottom) {
