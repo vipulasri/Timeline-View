@@ -28,19 +28,8 @@ For information : checkout [Example Screen Code](https://github.com/vipulasri/Ti
 
 ``` gradle
 dependencies {
-    implementation 'com.github.vipulasri:timelineview:1.1.1'
+    implementation 'com.github.vipulasri:timelineview:1.1.2'
 }
-```
-
-**Using Maven**
-
-``` maven
-<dependency>
-    <groupId>com.github.vipulasri</groupId>
-    <artifactId>timelineview</artifactId>
-    <version>1.1.1</version>
-    <type>pom</type>
-</dependency>
 ```
 
 ### What's New
