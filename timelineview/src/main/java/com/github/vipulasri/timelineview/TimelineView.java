@@ -195,41 +195,49 @@ public class TimelineView extends View {
             }
         }
 
-        if(mLineOrientation == LineOrientation.HORIZONTAL) {
+        if (mLineOrientation == LineOrientation.HORIZONTAL) {
 
-            if(mDrawStartLine) {
+            if (mDrawStartLine) {
                 mStartLineStartX = pLeft;
                 mStartLineStartY = mBounds.centerY();
                 mStartLineStopX = mBounds.left - mLinePadding;
                 mStartLineStopY = mBounds.centerY();
             }
 
-            if(mDrawEndLine) {
-                mEndLineStartX = mBounds.right + mLinePadding;
-                mEndLineStartY = mBounds.centerY();
-                mEndLineStopX = getWidth();
-                mEndLineStopY = mBounds.centerY();
+            if (mDrawEndLine) {
+                if (mLineStyle == LineStyle.DASHED) {
+                    mEndLineStartX = getWidth() - mLineStyleDashGap;
+                    mEndLineStartY = mBounds.centerY();
+                    mEndLineStopX = mBounds.right + mLinePadding;
+                    mEndLineStopY = mBounds.centerY();
+                } else {
+                    mEndLineStartX = mBounds.right + mLinePadding;
+                    mEndLineStartY = mBounds.centerY();
+                    mEndLineStopX = getWidth();
+                    mEndLineStopY = mBounds.centerY();
+                }
             }
         } else {
 
-            if(mDrawStartLine) {
+            if (mDrawStartLine) {
                 mStartLineStartX = mBounds.centerX();
-
-                if(mLineStyle == LineStyle.DASHED) {
-                    mStartLineStartY = pTop - mLineStyleDashLength;
-                } else {
-                    mStartLineStartY = pTop;
-                }
-
+                mStartLineStartY = pTop;
                 mStartLineStopX = mBounds.centerX();
                 mStartLineStopY = mBounds.top - mLinePadding;
             }
 
-            if(mDrawEndLine) {
-                mEndLineStartX = mBounds.centerX();
-                mEndLineStartY = mBounds.bottom + mLinePadding;
-                mEndLineStopX = mBounds.centerX();
-                mEndLineStopY = getHeight();
+            if (mDrawEndLine) {
+                if (mLineStyle == LineStyle.DASHED) {
+                    mEndLineStartX = mBounds.centerX();
+                    mEndLineStartY = getHeight() - mLineStyleDashGap;
+                    mEndLineStopX = mBounds.centerX();
+                    mEndLineStopY = mBounds.bottom + mLinePadding;
+                } else {
+                    mEndLineStartX = mBounds.centerX();
+                    mEndLineStartY = mBounds.bottom + mLinePadding;
+                    mEndLineStopX = mBounds.centerX();
+                    mEndLineStopY = getHeight();
+                }
             }
         }
 
