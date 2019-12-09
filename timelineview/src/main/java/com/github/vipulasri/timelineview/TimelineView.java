@@ -260,13 +260,11 @@ public class TimelineView extends View {
 
         if(mDrawStartLine) {
             mLinePaint.setColor(mStartLineColor);
-            invalidate();
             canvas.drawLine(mStartLineStartX, mStartLineStartY, mStartLineStopX, mStartLineStopY, mLinePaint);
         }
 
         if(mDrawEndLine) {
             mLinePaint.setColor(mEndLineColor);
-            invalidate();
             canvas.drawLine(mEndLineStartX, mEndLineStartY, mEndLineStopX, mEndLineStopY, mLinePaint);
         }
     }
@@ -496,12 +494,10 @@ public class TimelineView extends View {
 
     private void showStartLine(boolean show) {
         mDrawStartLine = show;
-        initTimeline();
     }
 
     private void showEndLine(boolean show) {
         mDrawEndLine = show;
-        initTimeline();
     }
 
     /**
