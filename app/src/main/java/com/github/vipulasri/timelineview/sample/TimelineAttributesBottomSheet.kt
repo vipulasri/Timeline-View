@@ -18,6 +18,8 @@ import com.github.vipulasri.timelineview.sample.widgets.RoundedCornerBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.thebluealliance.spectrum.SpectrumDialog
 import kotlinx.android.synthetic.main.bottom_sheet_options.*
+import kotlinx.android.synthetic.main.item_bottom_sheet_line.*
+import kotlinx.android.synthetic.main.item_bottom_sheet_marker.*
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")

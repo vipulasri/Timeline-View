@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_line_heading"
+        style="@style/Heading"
+        android:text="@string/line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_line_width"
+        style="@style/Label"
+        android:text="@string/width"
+        app:layout_constraintBottom_toBottomOf="@id/seek_line_width"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/seek_line_width" />
+
+    <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+        android:id="@+id/seek_line_width"
+        style="@style/DiscreteSeekBar"
+        android:layout_marginTop="@dimen/padding"
+        app:dsb_max="30"
+        app:dsb_min="0"
+        app:dsb_value="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_line_width"
+        app:layout_constraintTop_toBottomOf="@id/text_line_heading" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_start_line_color"
+        style="@style/Label"
+        android:text="@string/start_line_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_start_line_color"
+        app:layout_constraintBottom_toBottomOf="@id/image_start_line_color" />
+
+    <com.github.vipulasri.timelineview.sample.widgets.BorderedCircle
+        android:id="@+id/image_start_line_color"
+        style="@style/BorderImageView"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/padding"
+        app:layout_constraintStart_toEndOf="@id/text_start_line_color"
+        app:layout_constraintTop_toBottomOf="@id/seek_line_width" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_end_line_color"
+        style="@style/Label"
+        android:text="@string/end_line_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_end_line_color"
+        app:layout_constraintBottom_toBottomOf="@id/image_end_line_color"/>
+
+    <com.github.vipulasri.timelineview.sample.widgets.BorderedCircle
+        android:id="@+id/image_end_line_color"
+        style="@style/BorderImageView"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/padding"
+        app:layout_constraintStart_toEndOf="@id/text_end_line_color"
+        app:layout_constraintTop_toBottomOf="@id/image_start_line_color" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_line_type"
+        style="@style/Label"
+        android:text="@string/style"
+        app:layout_constraintBottom_toBottomOf="@id/spinner_line_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/spinner_line_type" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_line_type"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding"
+        android:entries="@array/line_type"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toEndOf="@id/text_line_type"
+        app:layout_constraintTop_toBottomOf="@id/image_end_line_color" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_line_dash_width"
+        style="@style/Label"
+        android:layout_marginTop="5dp"
+        android:text="@string/dash_length"
+        app:layout_constraintBottom_toBottomOf="@id/seek_line_dash_width"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/seek_line_dash_width" />
+
+    <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+        android:id="@+id/seek_line_dash_width"
+        style="@style/DiscreteSeekBar"
+        android:layout_marginTop="@dimen/padding"
+        app:dsb_max="30"
+        app:dsb_min="0"
+        app:dsb_value="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_line_dash_width"
+        app:layout_constraintTop_toBottomOf="@id/spinner_line_type" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_line_dash_gap"
+        style="@style/Label"
+        android:layout_marginTop="5dp"
+        android:text="@string/dash_gap"
+        app:layout_constraintBottom_toBottomOf="@id/seek_line_dash_gap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/seek_line_dash_gap" />
+
+    <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+        android:id="@+id/seek_line_dash_gap"
+        style="@style/DiscreteSeekBar"
+        android:layout_marginTop="@dimen/padding"
+        app:dsb_max="30"
+        app:dsb_min="0"
+        app:dsb_value="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_line_dash_gap"
+        app:layout_constraintTop_toBottomOf="@id/seek_line_dash_width" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

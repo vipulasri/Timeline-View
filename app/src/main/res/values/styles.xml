@@ -30,6 +30,13 @@
         <item name="android:paddingRight">@dimen/padding</item>
     </style>
 
+    <style name="Label.Subtitle" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
     <style name="DiscreteSeekBar">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
