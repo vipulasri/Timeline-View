@@ -178,6 +178,8 @@ public class TimelineView extends View {
 
             switch (mLineOrientation) {
                 case LineOrientation.HORIZONTAL: {
+                    top = (height/2) - (markSize/2);
+                    bottom = (height/2) + (markSize/2);
                     left += mMarkerPaddingLeft - mMarkerPaddingRight;
                     right += mMarkerPaddingLeft - mMarkerPaddingRight;
                     break;
