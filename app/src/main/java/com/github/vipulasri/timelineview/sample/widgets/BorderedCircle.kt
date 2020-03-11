@@ -3,6 +3,7 @@ package com.github.vipulasri.timelineview.sample.widgets
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
@@ -30,8 +31,13 @@ class BorderedCircle : View {
             invalidate()
         }
 
-    private var mCirclePaint = Paint()
-    private var mBorderPaint = Paint()
+    private var mCirclePaint = Paint(ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+    }
+
+    private var mBorderPaint = Paint(ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.STROKE
+    }
 
     constructor(context: Context) : super(context) {
         init(null)
@@ -58,25 +64,24 @@ class BorderedCircle : View {
     }
 
     private fun initPaint() {
-        mCirclePaint.isAntiAlias = true
         mCirclePaint.color = mFillColor
-        mCirclePaint.style = Paint.Style.FILL
 
         if(mBorderWidth>0) {
-            mBorderPaint.isAntiAlias = true
-            mBorderPaint.color = mBorderColor
-            mBorderPaint.strokeWidth = mBorderWidth
-            mBorderPaint.style = Paint.Style.STROKE
+            mBorderPaint.apply {
+                color = mBorderColor
+                strokeWidth = mBorderWidth
+            }
         }
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
+        val space = dpToPx(3f)
         val cx = (width/2).toFloat()
         val cy = (height/2).toFloat()
 
-        val circleRadius = (width/2).toFloat()
+        val circleRadius = (width/2).toFloat() - space
         val borderRadius = (width/2).toFloat() - (mBorderWidth/2)
 
         // draw circle

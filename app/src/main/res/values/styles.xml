@@ -49,7 +49,8 @@
     <style name="BorderImageView">
         <item name="android:layout_width">25dp</item>
         <item name="android:layout_height">25dp</item>
-        <item name="borderWidth">1dp</item>
+        <item name="borderWidth">0.8dp</item>
+        <item name="borderColor">@color/colorGrey500</item>
     </style>
 
 </resources>
