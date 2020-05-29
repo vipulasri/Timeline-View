@@ -7,7 +7,7 @@ ext {
     groupId = 'com.github.vipulasri'
     libraryName = 'TimelineView'
     artifact = 'timelineview'
-    libraryVersion = '1.1.4'
+    libraryVersion = '1.1.5'
     libraryDescription = 'Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.'
 
     siteUrl = 'https://github.com/vipulasri/Timeline-View'
@@ -28,8 +28,8 @@ android {
     defaultConfig {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
-        versionCode 11
-        versionName "1.1.4"
+        versionCode 12
+        versionName libraryVersion
     }
 
     buildTypes {
