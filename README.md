@@ -31,7 +31,7 @@ For information : checkout [Example Screen Code](https://github.com/vipulasri/Ti
 
 ``` gradle
 dependencies {
-    implementation 'com.github.vipulasri:timelineview:1.1.4'
+    implementation 'com.github.vipulasri:timelineview:1.1.5'
 }
 ```
 
