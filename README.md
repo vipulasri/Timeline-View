@@ -199,7 +199,7 @@ If you Watch this repository, GitHub will send you an email every time I publish
 * [ALL IPO News](https://play.google.com/store/apps/details?id=com.appbootup.ipo.news)
 
 If you're using this library in your app and you'd like to list it here,
-Please let me know via [email](mailto:vipulasri.2007@gmail.com), [pull requests](https://github.com/vipulasri/Timeline-View/pulls) or [issues](https://github.com/vipulasri/Timeline-View/issues).
+Please let me know via [email](mailto:me@vipulasri.com), [pull requests](https://github.com/vipulasri/Timeline-View/pulls) or [issues](https://github.com/vipulasri/Timeline-View/issues).
 
 [Apps using Timeline-View, via AppBrain Stats](https://www.appbrain.com/stats/libraries/details/timeline_view/timeline-view)
 
