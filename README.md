@@ -1,4 +1,4 @@
-# Timeline-View 
+# Timeline-View (Updated for Android 15, API Level 35 and Java 17)
 
 Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.
 
