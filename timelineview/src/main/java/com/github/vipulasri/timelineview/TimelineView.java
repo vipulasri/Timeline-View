@@ -16,7 +16,6 @@ import android.view.View;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
 /**
  * Created by Vipul Asri on 05-12-2015.
  */

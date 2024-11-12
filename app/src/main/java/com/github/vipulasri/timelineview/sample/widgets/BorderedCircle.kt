@@ -74,7 +74,7 @@ class BorderedCircle : View {
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         val space = dpToPx(3f)
@@ -85,10 +85,10 @@ class BorderedCircle : View {
         val borderRadius = (width/2).toFloat() - (mBorderWidth/2)
 
         // draw circle
-        canvas?.drawCircle(cx, cy, circleRadius, mCirclePaint)
+        canvas.drawCircle(cx, cy, circleRadius, mCirclePaint)
 
         //draw border
-        canvas?.drawCircle(cx, cy, borderRadius, mBorderPaint)
+        canvas.drawCircle(cx, cy, borderRadius, mBorderPaint)
     }
 
     private fun dpToPx(dp: Float): Int {

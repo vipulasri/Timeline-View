@@ -1,35 +1,15 @@
-apply plugin: 'com.android.library'
-
-ext {
-    bintrayRepo = 'maven'
-    bintrayRepoName = 'TimelineView'
-
-    groupId = 'com.github.vipulasri'
-    libraryName = 'TimelineView'
-    artifact = 'timelineview'
-    libraryVersion = '1.1.5'
-    libraryDescription = 'Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.'
-
-    siteUrl = 'https://github.com/vipulasri/Timeline-View'
-    gitUrl = 'https://github.com/vipulasri/Timeline-View.git'
-
-    developerId = 'vipulasri'
-    developerName = 'Vipul Asri'
-    developerEmail = 'vipulasri.2007@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    licenses = ["Apache-2.0"]
+plugins {
+    id 'com.android.library'
 }
 
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
+    namespace "com.github.vipulasri.timelineview"
+    compileSdk 35
+
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
-        versionCode 12
-        versionName libraryVersion
+        minSdk 21
+        targetSdk 35
+        versionName '1.1.5'
     }
 
     buildTypes {
@@ -38,12 +18,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
-    api 'androidx.annotation:annotation:1.1.0'
+    api 'androidx.annotation:annotation:1.9.0'
 }
-
-apply from: 'https://raw.githubusercontent.com/vipulasri/BintrayHelper/master/install.gradle'
-apply from: 'https://raw.githubusercontent.com/vipulasri/BintrayHelper/master/bintray.gradle'
