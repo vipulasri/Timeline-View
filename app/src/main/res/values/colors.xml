@@ -22,6 +22,28 @@
 
     <color name="colorBackground">#eeeeee</color>
 
+    <!-- Material Design Colors -->
+    <color name="material_red_500">#F44336</color>
+    <color name="material_pink_500">#E91E63</color>
+    <color name="material_purple_500">#9C27B0</color>
+    <color name="material_deep_purple_500">#673AB7</color>
+    <color name="material_indigo_500">#3F51B5</color>
+    <color name="material_blue_500">#2196F3</color>
+    <color name="material_light_blue_500">#03A9F4</color>
+    <color name="material_cyan_500">#00BCD4</color>
+    <color name="material_teal_500">#009688</color>
+    <color name="material_green_500">#4CAF50</color>
+    <color name="material_light_green_500">#8BC34A</color>
+    <color name="material_lime_500">#CDDC39</color>
+    <color name="material_yellow_500">#FFEB3B</color>
+    <color name="material_amber_500">#FFC107</color>
+    <color name="material_orange_500">#FF9800</color>
+    <color name="material_deep_orange_500">#FF5722</color>
+    <color name="material_brown_500">#795548</color>
+    <color name="material_grey_500">#9E9E9E</color>
+    <color name="material_blue_grey_500">#607D8B</color>
+    <color name="material_light_white">#FAFAFA</color>
+
     <array name="colors">
         <item>@color/material_red_500</item>
         <item>@color/material_pink_500</item>
