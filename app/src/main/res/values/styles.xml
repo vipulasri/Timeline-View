@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+    <style name="AppTheme" parent="Theme.Material3.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -14,9 +14,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.Material3.Light" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.Material3.Dark" />
 
     <style name="Heading" parent="Base.TextAppearance.AppCompat.Body2">
         <item name="android:layout_width">0dp</item>
@@ -37,13 +37,15 @@
         <item name="android:textStyle">italic</item>
     </style>
 
-    <style name="DiscreteSeekBar">
+    <style name="DiscreteSeekBar" parent="Widget.Material3.Slider">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">-5dp</item>
-        <item name="dsb_scrubberHeight">3dp</item>
-        <item name="dsb_progressColor">@color/colorAccent</item>
-        <item name="dsb_indicatorColor">@color/colorAccent</item>
+        <item name="trackColorActive">@color/colorAccent</item>
+        <item name="trackColorInactive">#D3E4FD</item>
+        <item name="thumbColor">@color/colorAccent</item>
+        <item name="tickColorActive">@color/white</item>
+        <item name="tickColorInactive">@color/colorAccent</item>
     </style>
 
     <style name="BorderImageView">
@@ -51,6 +53,24 @@
         <item name="android:layout_height">25dp</item>
         <item name="borderWidth">0.8dp</item>
         <item name="borderColor">@color/colorGrey500</item>
+    </style>
+
+    <style name="Button" parent="Widget.Material3.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Button" parent="ThemeOverlay.Material3.Button">
+        <item name="colorContainer">@color/colorAccent</item>
+        <item name="colorOnContainer">@color/white</item>
+    </style>
+
+    <style name="RadioButton" parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.RadioButton</item>
+    </style>
+
+    <style name="ThemeOverlay.App.RadioButton" parent="">
+        <item name="colorOnSurface">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorAccent</item>
     </style>
 
 </resources>

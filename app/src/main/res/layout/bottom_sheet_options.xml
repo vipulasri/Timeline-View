@@ -78,6 +78,7 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <RadioButton
+                    style="@style/RadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/rb_horizontal"
@@ -85,6 +86,7 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"/>
 
                 <RadioButton
+                    style="@style/RadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/padding"
@@ -125,6 +127,7 @@
         app:layout_constraintTop_toBottomOf="@id/nestedScrollView"/>
 
     <com.google.android.material.button.MaterialButton
+        style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:id="@+id/button_apply"
@@ -137,7 +140,6 @@
         app:layout_constraintTop_toBottomOf="@id/nestedScrollView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

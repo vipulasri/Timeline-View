@@ -1,99 +1,149 @@
 package com.github.vipulasri.timelineview.sample
 
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
+import com.github.vipulasri.timelineview.TimelineView
+import com.github.vipulasri.timelineview.sample.databinding.ItemTimelineBinding
+import com.github.vipulasri.timelineview.sample.databinding.ItemTimelineHorizontalBinding
+import com.github.vipulasri.timelineview.sample.extentions.formatDateTime
 import com.github.vipulasri.timelineview.sample.model.OrderStatus
 import com.github.vipulasri.timelineview.sample.model.Orientation
 import com.github.vipulasri.timelineview.sample.model.TimeLineModel
-import com.github.vipulasri.timelineview.sample.utils.VectorDrawableUtils
-import com.github.vipulasri.timelineview.TimelineView
-import com.github.vipulasri.timelineview.sample.extentions.formatDateTime
-import com.github.vipulasri.timelineview.sample.extentions.setGone
-import com.github.vipulasri.timelineview.sample.extentions.setVisible
 import com.github.vipulasri.timelineview.sample.model.TimelineAttributes
-import kotlinx.android.synthetic.main.item_timeline.view.*
+import com.github.vipulasri.timelineview.sample.utils.VectorDrawableUtils
 
 /**
  * Created by Vipul Asri on 05-12-2015.
  */
 
-class TimeLineAdapter(private val mFeedList: List<TimeLineModel>, private var mAttributes: TimelineAttributes) : RecyclerView.Adapter<TimeLineAdapter.TimeLineViewHolder>() {
+class TimeLineAdapter(
+    private val feedList: List<TimeLineModel>,
+    private var attributes: TimelineAttributes
+) : RecyclerView.Adapter<TimeLineAdapter.BaseTimeLineViewHolder>() {
 
-    private lateinit var mLayoutInflater: LayoutInflater
+    private lateinit var layoutInflater: LayoutInflater
 
     override fun getItemViewType(position: Int): Int {
         return TimelineView.getTimeLineViewType(position, itemCount)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeLineViewHolder {
-
-        if(!::mLayoutInflater.isInitialized) {
-            mLayoutInflater = LayoutInflater.from(parent.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseTimeLineViewHolder {
+        if (!::layoutInflater.isInitialized) {
+            layoutInflater = LayoutInflater.from(parent.context)
         }
 
-        val view = if (mAttributes.orientation == Orientation.HORIZONTAL) {
-            mLayoutInflater.inflate(R.layout.item_timeline_horizontal, parent, false)
-        } else {
-            mLayoutInflater.inflate(R.layout.item_timeline, parent, false)
-        }
-        return TimeLineViewHolder(view, viewType)
-    }
-
-    override fun onBindViewHolder(holder: TimeLineViewHolder, position: Int) {
-
-        val timeLineModel = mFeedList[position]
-
-        when {
-            timeLineModel.status == OrderStatus.INACTIVE -> {
-                holder.timeline.marker = VectorDrawableUtils.getDrawable(holder.itemView.context, R.drawable.ic_marker_inactive, mAttributes.markerColor)
+        return when (attributes.orientation) {
+            Orientation.HORIZONTAL -> HorizontalTimeLineViewHolder(
+                ItemTimelineHorizontalBinding.inflate(layoutInflater, parent, false),
+                viewType
+            ).apply {
+                initializeTimeline()
             }
-            timeLineModel.status == OrderStatus.ACTIVE -> {
-                holder.timeline.marker = VectorDrawableUtils.getDrawable(holder.itemView.context, R.drawable.ic_marker_active,  mAttributes.markerColor)
+
+            Orientation.VERTICAL -> VerticalTimeLineViewHolder(
+                ItemTimelineBinding.inflate(layoutInflater, parent, false),
+                viewType
+            ).apply {
+                initializeTimeline()
             }
-            else -> {
-                holder.timeline.setMarker(ContextCompat.getDrawable(holder.itemView.context, R.drawable.ic_marker), mAttributes.markerColor)
-            }
-        }
-
-        if (timeLineModel.date.isNotEmpty()) {
-            holder.date.setVisible()
-            holder.date.text = timeLineModel.date.formatDateTime("yyyy-MM-dd HH:mm", "hh:mm a, dd-MMM-yyyy")
-        } else
-            holder.date.setGone()
-
-        holder.message.text = timeLineModel.message
-    }
-
-    override fun getItemCount() = mFeedList.size
-
-    inner class TimeLineViewHolder(itemView: View, viewType: Int) : RecyclerView.ViewHolder(itemView) {
-
-        val date = itemView.text_timeline_date
-        val message = itemView.text_timeline_title
-        val timeline = itemView.timeline
-
-        init {
-            timeline.initLine(viewType)
-            timeline.markerSize = mAttributes.markerSize
-            timeline.setMarkerColor(mAttributes.markerColor)
-            timeline.isMarkerInCenter = mAttributes.markerInCenter
-            timeline.markerPaddingLeft = mAttributes.markerLeftPadding
-            timeline.markerPaddingTop = mAttributes.markerTopPadding
-            timeline.markerPaddingRight = mAttributes.markerRightPadding
-            timeline.markerPaddingBottom = mAttributes.markerBottomPadding
-            timeline.linePadding = mAttributes.linePadding
-
-            timeline.lineWidth = mAttributes.lineWidth
-            timeline.setStartLineColor(mAttributes.startLineColor, viewType)
-            timeline.setEndLineColor(mAttributes.endLineColor, viewType)
-            timeline.lineStyle = mAttributes.lineStyle
-            timeline.lineStyleDashLength = mAttributes.lineDashWidth
-            timeline.lineStyleDashGap = mAttributes.lineDashGap
         }
     }
 
+    override fun onBindViewHolder(holder: BaseTimeLineViewHolder, position: Int) {
+        holder.bind(feedList[position])
+    }
+
+    override fun getItemCount() = feedList.size
+
+    abstract inner class BaseTimeLineViewHolder(
+        private val binding: ViewBinding,
+        private val viewType: Int
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        abstract val timeline: TimelineView
+        abstract val textTimelineDate: TextView
+        abstract val textTimelineTitle: TextView
+
+        fun initializeTimeline() {
+            timeline.apply {
+                initLine(viewType)
+                markerSize = attributes.markerSize
+                setMarkerColor(attributes.markerColor)
+                isMarkerInCenter = attributes.markerInCenter
+                markerPaddingLeft = attributes.markerLeftPadding
+                markerPaddingTop = attributes.markerTopPadding
+                markerPaddingRight = attributes.markerRightPadding
+                markerPaddingBottom = attributes.markerBottomPadding
+                linePadding = attributes.linePadding
+                lineWidth = attributes.lineWidth
+                setStartLineColor(attributes.startLineColor, viewType)
+                setEndLineColor(attributes.endLineColor, viewType)
+                lineStyle = attributes.lineStyle
+                lineStyleDashLength = attributes.lineDashWidth
+                lineStyleDashGap = attributes.lineDashGap
+            }
+        }
+
+        fun bind(model: TimeLineModel) {
+            val marker = when (model.status) {
+                OrderStatus.INACTIVE -> {
+                    VectorDrawableUtils.getDrawable(
+                        timeline.context,
+                        R.drawable.ic_marker_inactive,
+                        attributes.markerColor
+                    )
+                }
+
+                OrderStatus.ACTIVE -> {
+                    VectorDrawableUtils.getDrawable(
+                        timeline.context,
+                        R.drawable.ic_marker_active,
+                        attributes.markerColor
+                    )
+                }
+
+                else -> {
+                    ContextCompat.getDrawable(
+                        timeline.context,
+                        R.drawable.ic_marker
+                    )
+                }
+            }
+
+            timeline.setMarker(marker)
+
+            if (model.date.isNotEmpty()) {
+                textTimelineDate.apply {
+                    isVisible = true
+                    text = model.date.formatDateTime("yyyy-MM-dd HH:mm", "hh:mm a, dd-MMM-yyyy")
+                }
+            } else {
+                textTimelineDate.isVisible = false
+            }
+            textTimelineTitle.text = model.message
+        }
+    }
+
+    inner class VerticalTimeLineViewHolder(
+        private val binding: ItemTimelineBinding,
+        viewType: Int
+    ) : BaseTimeLineViewHolder(binding, viewType) {
+        override val timeline: TimelineView = binding.timeline
+        override val textTimelineDate: TextView = binding.textTimelineDate
+        override val textTimelineTitle: TextView = binding.textTimelineTitle
+    }
+
+    inner class HorizontalTimeLineViewHolder(
+        private val binding: ItemTimelineHorizontalBinding,
+        viewType: Int
+    ) : BaseTimeLineViewHolder(binding, viewType) {
+        override val timeline: TimelineView = binding.timeline
+        override val textTimelineDate: TextView = binding.textTimelineDate
+        override val textTimelineTitle: TextView = binding.textTimelineTitle
+    }
 }

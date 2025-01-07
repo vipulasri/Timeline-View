@@ -12,30 +12,32 @@ import com.github.vipulasri.timelineview.sample.R
 
 class BorderedCircle : View {
 
-    var mFillColor: Int = 0
+    var fillColor: Int = 0
         set(fillColor) {
             field = fillColor
             initPaint()
             invalidate()
         }
-    var mBorderColor: Int = 0
+
+    var borderColor: Int = 0
         set(borderColor) {
             field = borderColor
             initPaint()
             invalidate()
         }
-    var mBorderWidth: Float = 0f
+
+    var borderWidth: Float = 0f
         set(borderWidth) {
             field = borderWidth
             initPaint()
             invalidate()
         }
 
-    private var mCirclePaint = Paint(ANTI_ALIAS_FLAG).apply {
+    private var circlePaint = Paint(ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
     }
 
-    private var mBorderPaint = Paint(ANTI_ALIAS_FLAG).apply {
+    private var borderPaint = Paint(ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
     }
 
@@ -47,16 +49,28 @@ class BorderedCircle : View {
         init(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(attrs)
     }
 
     private fun init(attrs: AttributeSet?) {
-        if(attrs != null) {
+        if (attrs != null) {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.BorderedCircle)
-            mFillColor = typedArray.getColor(R.styleable.BorderedCircle_fillColor, ContextCompat.getColor(context, android.R.color.white))
-            mBorderColor = typedArray.getColor(R.styleable.BorderedCircle_borderColor, ContextCompat.getColor(context, android.R.color.black))
-            mBorderWidth = typedArray.getDimensionPixelSize(R.styleable.BorderedCircle_borderWidth, dpToPx(2f)).toFloat()
+            fillColor = typedArray.getColor(
+                R.styleable.BorderedCircle_fillColor,
+                ContextCompat.getColor(context, android.R.color.white)
+            )
+            borderColor = typedArray.getColor(
+                R.styleable.BorderedCircle_borderColor,
+                ContextCompat.getColor(context, android.R.color.black)
+            )
+            borderWidth =
+                typedArray.getDimensionPixelSize(R.styleable.BorderedCircle_borderWidth, dpToPx(2f))
+                    .toFloat()
             typedArray.recycle()
         }
 
@@ -64,31 +78,31 @@ class BorderedCircle : View {
     }
 
     private fun initPaint() {
-        mCirclePaint.color = mFillColor
+        circlePaint.color = fillColor
 
-        if(mBorderWidth>0) {
-            mBorderPaint.apply {
-                color = mBorderColor
-                strokeWidth = mBorderWidth
+        if (borderWidth > 0) {
+            borderPaint.apply {
+                color = borderColor
+                strokeWidth = borderWidth
             }
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         val space = dpToPx(3f)
-        val cx = (width/2).toFloat()
-        val cy = (height/2).toFloat()
+        val cx = (width / 2).toFloat()
+        val cy = (height / 2).toFloat()
 
-        val circleRadius = (width/2).toFloat() - space
-        val borderRadius = (width/2).toFloat() - (mBorderWidth/2)
+        val circleRadius = (width / 2).toFloat() - space
+        val borderRadius = (width / 2).toFloat() - (borderWidth / 2)
 
         // draw circle
-        canvas?.drawCircle(cx, cy, circleRadius, mCirclePaint)
+        canvas.drawCircle(cx, cy, circleRadius, circlePaint)
 
         //draw border
-        canvas?.drawCircle(cx, cy, borderRadius, mBorderPaint)
+        canvas.drawCircle(cx, cy, borderRadius, borderPaint)
     }
 
     private fun dpToPx(dp: Float): Int {

@@ -23,8 +23,8 @@ ext {
 }
 
 android {
+    namespace "com.github.vipulasri.timelineview"
     compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
     defaultConfig {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
@@ -44,6 +44,3 @@ android {
 dependencies {
     api 'androidx.annotation:annotation:1.1.0'
 }
-
-apply from: 'https://raw.githubusercontent.com/vipulasri/BintrayHelper/master/install.gradle'
-apply from: 'https://raw.githubusercontent.com/vipulasri/BintrayHelper/master/bintray.gradle'
