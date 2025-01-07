@@ -1,25 +1,6 @@
-apply plugin: 'com.android.library'
-
-ext {
-    bintrayRepo = 'maven'
-    bintrayRepoName = 'TimelineView'
-
-    groupId = 'com.github.vipulasri'
-    libraryName = 'TimelineView'
-    artifact = 'timelineview'
-    libraryVersion = '1.1.5'
-    libraryDescription = 'Android Timeline View Library (Using RecyclerView) is simple implementation used to display view like Tracking of shipment/order, steppers etc.'
-
-    siteUrl = 'https://github.com/vipulasri/Timeline-View'
-    gitUrl = 'https://github.com/vipulasri/Timeline-View.git'
-
-    developerId = 'vipulasri'
-    developerName = 'Vipul Asri'
-    developerEmail = 'vipulasri.2007@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    licenses = ["Apache-2.0"]
+plugins {
+    id 'com.android.library'
+    id 'com.vanniktech.maven.publish' version "0.30.0"
 }
 
 android {
@@ -29,8 +10,6 @@ android {
     defaultConfig {
         minSdk 15
         targetSdk libs.versions.targetSdk.get().toInteger()
-        versionCode 12
-        versionName libraryVersion
     }
 
     buildTypes {
