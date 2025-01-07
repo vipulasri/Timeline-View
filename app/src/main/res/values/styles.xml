@@ -44,7 +44,7 @@
         <item name="trackColorActive">@color/colorAccent</item>
         <item name="trackColorInactive">#D3E4FD</item>
         <item name="thumbColor">@color/colorAccent</item>
-        <item name="tickColorActive">@color/white</item>
+        <item name="tickColorActive">@color/colorWhite</item>
         <item name="tickColorInactive">@color/colorAccent</item>
     </style>
 
@@ -61,7 +61,7 @@
 
     <style name="ThemeOverlay.App.Button" parent="ThemeOverlay.Material3.Button">
         <item name="colorContainer">@color/colorAccent</item>
-        <item name="colorOnContainer">@color/white</item>
+        <item name="colorOnContainer">@color/colorWhite</item>
     </style>
 
     <style name="RadioButton" parent="Widget.Material3.CompoundButton.RadioButton">

@@ -1,29 +1,33 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-parcelize'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+}
 
 android {
-    namespace "com.github.vipulasri.timelineview.sample"
-    compileSdkVersion versions.compileSdk
+    namespace 'com.github.vipulasri.timelineview.sample'
+    compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
         applicationId "com.github.vipulasri.timelineview.sample"
-        minSdkVersion 21
-        targetSdkVersion versions.targetSdk
+        minSdk 21
+        targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode 5
         versionName "1.1"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    viewBinding {
-        enabled = true
+
+    buildFeatures {
+        viewBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -35,28 +39,14 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation(project(':timelineview'))
 
-    //kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    implementation libs.androidx.core
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.recyclerview
 
-    //androidx
-    implementation "androidx.core:core-ktx:${versions.androidx.ktx.core}"
-
-    implementation "androidx.appcompat:appcompat:${versions.androidx.appCompat}"
-    implementation "androidx.constraintlayout:constraintlayout:${versions.androidx.constraintLayout}"
-    implementation "com.google.android.material:material:${versions.android.material}"
-
-    //misc
-    implementation ('com.thebluealliance:spectrum:0.7.1') {
-        exclude group: 'com.android.support'
-        exclude module: 'appcompat-v7'
-        exclude module: 'support-v4'
-    }
-    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
-    implementation project (':timelineview')
-    //implementation 'com.github.vipulasri:timelineview:1.1.0'
-
+    implementation libs.threeTen
+    implementation libs.spectrum
 }

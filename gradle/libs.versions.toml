@@ -1,0 +1,34 @@
+[versions]
+# Kotlin and Build versions
+kotlin = "2.0.21"
+agp = "8.7.3"
+compileSdk = "35"
+targetSdk = "34"
+
+# AndroidX versions
+core-ktx = "1.15.0"
+appcompat = "1.7.0"
+material = "1.12.0"
+constraintlayout = "2.2.0"
+recyclerview = "1.3.2"
+
+[libraries]
+# Kotlin and Build
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+
+# AndroidX and Google Libraries
+androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+
+threeTen = { group = "com.jakewharton.threetenabp", name = "threetenabp", version = "1.4.8" }
+spectrum = "com.thebluealliance:spectrum:0.7.1"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" } 

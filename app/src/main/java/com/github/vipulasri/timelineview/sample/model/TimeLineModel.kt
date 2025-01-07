@@ -1,7 +1,7 @@
 package com.github.vipulasri.timelineview.sample.model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * Created by Vipul Asri on 05-12-2015.

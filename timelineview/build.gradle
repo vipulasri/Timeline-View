@@ -24,10 +24,11 @@ ext {
 
 android {
     namespace "com.github.vipulasri.timelineview"
-    compileSdkVersion versions.compileSdk
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdk 15
+        targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode 12
         versionName libraryVersion
     }
@@ -38,7 +39,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
