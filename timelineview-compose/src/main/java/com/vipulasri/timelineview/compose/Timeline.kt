@@ -1,19 +1,28 @@
 package com.vipulasri.timelineview.compose
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -22,42 +31,39 @@ import androidx.compose.ui.unit.dp
 fun Timeline(
     modifier: Modifier = Modifier,
     type: TimelineType = TimelineType.MIDDLE,
-    markerSize: Dp = TimelineDefaults.MarkerSize,
-    markerColor: Color = TimelineDefaults.MarkerColor,
     lineStyle: LineStyle = LineStyle.Normal(),
-    orientation: TimelineOrientation = TimelineOrientation.Vertical
+    orientation: TimelineOrientation = TimelineOrientation.Vertical,
+    marker: @Composable () -> Unit,
 ) {
     Box(
         modifier = modifier
-            .defaultMinSize(minWidth = markerSize, minHeight = markerSize)
             .drawTimeline(
                 type = type,
-                markerSize = markerSize,
-                markerColor = markerColor,
                 lineStyle = lineStyle,
                 orientation = orientation
-            )
-    )
+            ),
+        contentAlignment = Alignment.Center
+    ) {
+        marker()
+    }
 }
 
 private fun Modifier.drawTimeline(
     type: TimelineType,
-    markerSize: Dp,
-    markerColor: Color,
     lineStyle: LineStyle,
     orientation: TimelineOrientation
-) = drawBehind {
-    // Draw marker
-    drawCircle(
-        color = markerColor,
-        radius = markerSize.toPx() / 2f,
-        center = center
-    )
+) = drawWithCache {
+    // Get the marker size from the layout size
+    val markerSize = minOf(size.width, size.height).toDp()
 
-    if (type != TimelineType.SINGLE) {
-        when (orientation) {
-            TimelineOrientation.Vertical -> drawVerticalLines(type, markerSize, lineStyle)
-            TimelineOrientation.Horizontal -> drawHorizontalLines(type, markerSize, lineStyle)
+    onDrawWithContent {
+        drawContent()
+
+        if (type != TimelineType.SINGLE) {
+            when (orientation) {
+                TimelineOrientation.Vertical -> drawVerticalLines(type, markerSize, lineStyle)
+                TimelineOrientation.Horizontal -> drawHorizontalLines(type, markerSize, lineStyle)
+            }
         }
     }
 }
@@ -166,12 +172,19 @@ private fun TimelineVerticalPreview() {
             Timeline(
                 modifier = Modifier.height(100.dp),
                 type = getTimelineType(position, totalItems),
-                markerColor = Color(0xFF2196F3),
                 lineStyle = LineStyle.Dashed(
                     color = Color(0xFF2196F3),
+                    width = 3.dp,
                     dashLength = 8.dp,
-                    dashGap = 4.dp
-                )
+                    dashGap = 10.dp
+                ),
+                marker = {
+                    Box(
+                        modifier = Modifier
+                            .size(24.dp)
+                            .background(Color(0xFF2196F3), CircleShape)
+                    )
+                }
             )
         }
     }
@@ -189,11 +202,17 @@ private fun TimelineHorizontalPreview() {
                 modifier = Modifier.width(80.dp),
                 type = getTimelineType(position, totalItems),
                 orientation = TimelineOrientation.Horizontal,
-                markerColor = Color(0xFF4CAF50),
                 lineStyle = LineStyle.Normal(
                     color = Color(0xFF4CAF50),
                     width = 2.dp
-                )
+                ),
+                marker = {
+                    Box(
+                        modifier = Modifier
+                            .size(24.dp)
+                            .background(Color(0xFF2196F3), CircleShape)
+                    )
+                }
             )
         }
     }
@@ -205,12 +224,74 @@ private fun TimelineSingleItemPreview() {
     Column(Modifier.padding(16.dp)) {
         Timeline(
             type = TimelineType.START,
-            markerColor = Color(0xFF2196F3),
             lineStyle = LineStyle.Dashed(
                 color = Color(0xFF2196F3),
                 dashLength = 4.dp,
                 dashGap = 2.dp
-            )
+            ),
+            marker = {
+                Box(
+                    modifier = Modifier
+                        .size(24.dp)
+                        .background(Color(0xFF2196F3), CircleShape)
+                )
+            }
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun TimelineCustomMarkersPreview() {
+    Column(Modifier.padding(16.dp)) {
+        val totalItems = 4
+        repeat(totalItems) { position ->
+            Timeline(
+                modifier = Modifier.height(100.dp),
+                type = getTimelineType(position, totalItems),
+                lineStyle = LineStyle.Dashed(
+                    color = Color(0xFF2196F3),
+                    dashLength = 8.dp,
+                    dashGap = 4.dp
+                )
+            ) {
+                // Custom marker examples
+                when (position) {
+                    0 -> Icon(
+                        imageVector = Icons.Default.Star,
+                        contentDescription = null,
+                        tint = Color(0xFF2196F3),
+                        modifier = Modifier.size(24.dp)
+                    )
+
+                    1 -> Box(
+                        modifier = Modifier
+                            .size(50.dp)
+                            .background(Color(0xFF2196F3), RoundedCornerShape(4.dp))
+                    )
+
+                    2 -> Box(
+                        Modifier
+                            .size(24.dp)
+                            .background(Color(0xFF2196F3), CircleShape)
+                    ) {
+                        Text(
+                            modifier = Modifier.align(Alignment.Center),
+                            text = "3",
+                            color = Color.White,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+
+                    else -> {
+                        Box(
+                            modifier = Modifier
+                                .size(24.dp)
+                                .background(Color(0xFF2196F3), CircleShape)
+                        )
+                    }
+                }
+            }
+        }
     }
 }

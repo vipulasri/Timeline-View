@@ -8,8 +8,6 @@ import androidx.compose.ui.unit.dp
  */
 
 internal object TimelineDefaults {
-    val MarkerSize = 40.dp
-    val MarkerColor = Color.Gray
     val LineColor = Color.Blue
     val LineWidth = 6.dp
     val LineDashLength = 4.dp
