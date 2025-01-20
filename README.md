@@ -18,10 +18,6 @@ Android Timeline View Library (Using RecyclerView) is simple implementation used
 
 For information : checkout [Example Screen Code](https://github.com/vipulasri/Timeline-View/tree/master/app/src/main/java/com/github/vipulasri/timelineview/sample/example) in repository.
 
-### Download
-
-[![TimelineView on Google Play](https://github.com/vipulasri/Timeline-View/blob/master/art/google_play.png)](https://play.google.com/store/apps/details?id=com.github.vipulasri.timelineview.sample)
-
 ## Quick Setup
 
 ### 1. Include library
