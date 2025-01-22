@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Timeline(
     modifier: Modifier = Modifier,
-    type: TimelineType = TimelineType.MIDDLE,
+    lineType: LineType = LineType.MIDDLE,
     lineStyle: LineStyle = LineStyle.Normal(),
     orientation: TimelineOrientation = TimelineOrientation.Vertical,
     marker: @Composable () -> Unit,
@@ -38,7 +38,7 @@ fun Timeline(
     Box(
         modifier = modifier
             .drawTimeline(
-                type = type,
+                lineType = lineType,
                 lineStyle = lineStyle,
                 orientation = orientation
             ),
@@ -49,7 +49,7 @@ fun Timeline(
 }
 
 private fun Modifier.drawTimeline(
-    type: TimelineType,
+    lineType: LineType,
     lineStyle: LineStyle,
     orientation: TimelineOrientation
 ) = drawWithCache {
@@ -59,47 +59,47 @@ private fun Modifier.drawTimeline(
     onDrawWithContent {
         drawContent()
 
-        if (type != TimelineType.SINGLE) {
+        if (lineType != LineType.SINGLE) {
             when (orientation) {
-                TimelineOrientation.Vertical -> drawVerticalLines(type, markerSize, lineStyle)
-                TimelineOrientation.Horizontal -> drawHorizontalLines(type, markerSize, lineStyle)
+                TimelineOrientation.Vertical -> drawVerticalLines(lineType, markerSize, lineStyle)
+                TimelineOrientation.Horizontal -> drawHorizontalLines(lineType, markerSize, lineStyle)
             }
         }
     }
 }
 
 private fun DrawScope.drawVerticalLines(
-    type: TimelineType,
+    lineType: LineType,
     markerSize: Dp,
     lineStyle: LineStyle
 ) {
-    when (type) {
-        TimelineType.START -> drawEndLine(markerSize, lineStyle)
-        TimelineType.END -> drawStartLine(markerSize, lineStyle)
-        TimelineType.MIDDLE -> {
+    when (lineType) {
+        LineType.START -> drawEndLine(markerSize, lineStyle)
+        LineType.END -> drawStartLine(markerSize, lineStyle)
+        LineType.MIDDLE -> {
             drawStartLine(markerSize, lineStyle)
             drawEndLine(markerSize, lineStyle)
         }
 
-        TimelineType.SINGLE -> { /* No lines */
+        LineType.SINGLE -> { /* No lines */
         }
     }
 }
 
 private fun DrawScope.drawHorizontalLines(
-    type: TimelineType,
+    lineType: LineType,
     markerSize: Dp,
     lineStyle: LineStyle
 ) {
-    when (type) {
-        TimelineType.START -> drawEndLineHorizontal(markerSize, lineStyle)
-        TimelineType.END -> drawStartLineHorizontal(markerSize, lineStyle)
-        TimelineType.MIDDLE -> {
+    when (lineType) {
+        LineType.START -> drawEndLineHorizontal(markerSize, lineStyle)
+        LineType.END -> drawStartLineHorizontal(markerSize, lineStyle)
+        LineType.MIDDLE -> {
             drawStartLineHorizontal(markerSize, lineStyle)
             drawEndLineHorizontal(markerSize, lineStyle)
         }
 
-        TimelineType.SINGLE -> { /* No lines for single item */
+        LineType.SINGLE -> { /* No lines for single item */
         }
     }
 }
@@ -171,7 +171,7 @@ private fun TimelineVerticalPreview() {
         repeat(totalItems) { position ->
             Timeline(
                 modifier = Modifier.height(100.dp),
-                type = getTimelineType(position, totalItems),
+                lineType = getLineType(position, totalItems),
                 lineStyle = LineStyle.Dashed(
                     color = Color(0xFF2196F3),
                     width = 3.dp,
@@ -200,7 +200,7 @@ private fun TimelineHorizontalPreview() {
         repeat(totalItems) { position ->
             Timeline(
                 modifier = Modifier.width(80.dp),
-                type = getTimelineType(position, totalItems),
+                lineType = getLineType(position, totalItems),
                 orientation = TimelineOrientation.Horizontal,
                 lineStyle = LineStyle.Normal(
                     color = Color(0xFF4CAF50),
@@ -223,7 +223,7 @@ private fun TimelineHorizontalPreview() {
 private fun TimelineSingleItemPreview() {
     Column(Modifier.padding(16.dp)) {
         Timeline(
-            type = TimelineType.START,
+            lineType = LineType.START,
             lineStyle = LineStyle.Dashed(
                 color = Color(0xFF2196F3),
                 dashLength = 4.dp,
@@ -248,7 +248,7 @@ private fun TimelineCustomMarkersPreview() {
         repeat(totalItems) { position ->
             Timeline(
                 modifier = Modifier.height(100.dp),
-                type = getTimelineType(position, totalItems),
+                lineType = getLineType(position, totalItems),
                 lineStyle = LineStyle.Dashed(
                     color = Color(0xFF2196F3),
                     dashLength = 8.dp,
