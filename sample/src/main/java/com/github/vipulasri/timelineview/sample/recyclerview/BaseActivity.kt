@@ -1,10 +1,10 @@
-package com.github.vipulasri.timelineview.sample
+package com.github.vipulasri.timelineview.sample.recyclerview
 
 import android.graphics.drawable.Drawable
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.github.vipulasri.timelineview.sample.example.whenNotNull
+import com.github.vipulasri.timelineview.sample.R
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -14,10 +14,7 @@ open class BaseActivity : AppCompatActivity() {
     protected var isDisplayHomeAsUpEnabled: Boolean
         get() = false
         set(value) {
-            whenNotNull(supportActionBar) {
-                it.setDisplayHomeAsUpEnabled(value)
-            }
-
+            supportActionBar?.setDisplayHomeAsUpEnabled(value)
         }
 
     override fun setContentView(layoutResID: Int) {
@@ -27,9 +24,7 @@ open class BaseActivity : AppCompatActivity() {
 
         //Displaying the back button in the action bar
         if (isDisplayHomeAsUpEnabled) {
-            whenNotNull(supportActionBar) {
-                it.setDisplayHomeAsUpEnabled(true)
-            }
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
     }
 
@@ -43,27 +38,23 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     protected fun setupToolbar() {
-        whenNotNull(toolbar) {
-            setSupportActionBar(it)
+        toolbar?.let { toolbar ->
+            setSupportActionBar(toolbar)
         }
     }
 
     fun setActivityTitle(title: Int) {
-        whenNotNull(supportActionBar) {
-            it.setTitle(title)
-        }
+        supportActionBar?.setTitle(title)
     }
 
     fun setActivityTitle(title: String) {
-        whenNotNull(supportActionBar) {
-            it.setTitle(title)
-        }
+        supportActionBar?.setTitle(title)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //Menu
         when (item.itemId) {
-        //When home is clicked
+            //When home is clicked
             android.R.id.home -> {
                 onActionBarHomeIconClicked()
                 return true
@@ -73,9 +64,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun setHomeAsUpIndicator(drawable: Drawable) {
-        whenNotNull(supportActionBar) {
-            it.setHomeAsUpIndicator(drawable)
-        }
+        supportActionBar?.setHomeAsUpIndicator(drawable)
     }
 
     //Method for when home button is clicked

@@ -1,4 +1,4 @@
-package com.github.vipulasri.timelineview.sample
+package com.github.vipulasri.timelineview.sample.recyclerview.customization
 
 import android.os.Bundle
 import android.util.Log
@@ -11,11 +11,12 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentManager
 import com.github.vipulasri.timelineview.TimelineView
+import com.github.vipulasri.timelineview.sample.R
 import com.github.vipulasri.timelineview.sample.databinding.BottomSheetOptionsBinding
 import com.github.vipulasri.timelineview.sample.model.Orientation
 import com.github.vipulasri.timelineview.sample.model.TimelineAttributes
-import com.github.vipulasri.timelineview.sample.widgets.BorderedCircle
-import com.github.vipulasri.timelineview.sample.widgets.RoundedCornerBottomSheet
+import com.github.vipulasri.timelineview.sample.recyclerview.widgets.BorderedCircle
+import com.github.vipulasri.timelineview.sample.recyclerview.widgets.RoundedCornerBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.slider.Slider
 import com.thebluealliance.spectrum.SpectrumDialog

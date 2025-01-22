@@ -1,4 +1,4 @@
-package com.github.vipulasri.timelineview.sample.widgets
+package com.github.vipulasri.timelineview.sample.recyclerview.widgets
 
 import android.view.View
 import androidx.core.content.ContextCompat

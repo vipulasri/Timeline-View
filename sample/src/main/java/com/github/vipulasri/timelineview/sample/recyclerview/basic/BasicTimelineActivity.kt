@@ -1,11 +1,11 @@
-package com.github.vipulasri.timelineview.sample.example
+package com.github.vipulasri.timelineview.sample.recyclerview.basic
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.github.vipulasri.timelineview.sample.BaseActivity
+import com.github.vipulasri.timelineview.sample.recyclerview.BaseActivity
 import com.github.vipulasri.timelineview.sample.R
-import com.github.vipulasri.timelineview.sample.databinding.ActivityExampleBinding
+import com.github.vipulasri.timelineview.sample.databinding.ActivityBasicTimelineBinding
 import com.github.vipulasri.timelineview.sample.model.OrderStatus
 import com.github.vipulasri.timelineview.sample.model.TimeLineModel
 import java.util.ArrayList
@@ -13,17 +13,17 @@ import java.util.ArrayList
 /**
  * Created by Vipul Asri on 13-12-2018.
  */
-class ExampleActivity : BaseActivity() {
+class BasicTimelineActivity : BaseActivity() {
 
-    private lateinit var binding: ActivityExampleBinding
+    private lateinit var binding: ActivityBasicTimelineBinding
 
-    private lateinit var adapter: ExampleTimeLineAdapter
+    private lateinit var adapter: BasicTimeLineAdapter
     private val dataList = ArrayList<TimeLineModel>()
     private lateinit var layoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityExampleBinding.inflate(layoutInflater)
+        binding = ActivityBasicTimelineBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setActivityTitle(getString(R.string.activity_example_label))
@@ -48,7 +48,7 @@ class ExampleActivity : BaseActivity() {
     private fun initRecyclerView() {
         layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         binding.recyclerView.layoutManager = layoutManager
-        adapter = ExampleTimeLineAdapter(dataList)
+        adapter = BasicTimeLineAdapter(dataList)
         binding.recyclerView.adapter = adapter
     }
 

@@ -1,4 +1,4 @@
-package com.github.vipulasri.timelineview.sample
+package com.github.vipulasri.timelineview.sample.recyclerview.customization
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.github.vipulasri.timelineview.TimelineView
+import com.github.vipulasri.timelineview.sample.R
 import com.github.vipulasri.timelineview.sample.databinding.ItemTimelineBinding
 import com.github.vipulasri.timelineview.sample.databinding.ItemTimelineHorizontalBinding
 import com.github.vipulasri.timelineview.sample.extentions.formatDateTime

@@ -1,4 +1,4 @@
-package com.github.vipulasri.timelineview.sample.example
+package com.github.vipulasri.timelineview.sample.recyclerview.basic
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,8 +18,8 @@ import com.github.vipulasri.timelineview.sample.utils.VectorDrawableUtils
  * Created by Vipul Asri on 13-12-2018.
  */
 
-class ExampleTimeLineAdapter(private val feedList: List<TimeLineModel>) :
-    RecyclerView.Adapter<ExampleTimeLineAdapter.TimeLineViewHolder>() {
+class BasicTimeLineAdapter(private val feedList: List<TimeLineModel>) :
+    RecyclerView.Adapter<BasicTimeLineAdapter.TimeLineViewHolder>() {
 
     private lateinit var layoutInflater: LayoutInflater
 

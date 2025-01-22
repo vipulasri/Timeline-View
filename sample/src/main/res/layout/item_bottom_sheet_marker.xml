@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/image_marker_color" />
 
-    <com.github.vipulasri.timelineview.sample.widgets.BorderedCircle
+    <com.github.vipulasri.timelineview.sample.recyclerview.widgets.BorderedCircle
         android:id="@+id/image_marker_color"
         style="@style/BorderImageView"
         android:layout_marginLeft="5dp"

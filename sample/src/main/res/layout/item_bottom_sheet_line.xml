@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="@id/image_start_line_color"
         app:layout_constraintBottom_toBottomOf="@id/image_start_line_color" />
 
-    <com.github.vipulasri.timelineview.sample.widgets.BorderedCircle
+    <com.github.vipulasri.timelineview.sample.recyclerview.widgets.BorderedCircle
         android:id="@+id/image_start_line_color"
         style="@style/BorderImageView"
         android:layout_marginLeft="5dp"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="@id/image_end_line_color"
         app:layout_constraintBottom_toBottomOf="@id/image_end_line_color"/>
 
-    <com.github.vipulasri.timelineview.sample.widgets.BorderedCircle
+    <com.github.vipulasri.timelineview.sample.recyclerview.widgets.BorderedCircle
         android:id="@+id/image_end_line_color"
         style="@style/BorderImageView"
         android:layout_marginLeft="5dp"

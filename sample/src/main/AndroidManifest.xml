@@ -24,7 +24,11 @@
         </activity>
 
         <activity
-            android:name=".example.ExampleActivity"
+            android:name=".recyclerview.customization.CustomizationRecyclerViewActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".recyclerview.basic.BasicTimelineActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
