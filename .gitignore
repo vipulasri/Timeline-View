@@ -52,3 +52,5 @@ projectFilesBackup/
 **/.DS_Store
 **/._.DS_Store
 
+*.hprof
+.kotlin/

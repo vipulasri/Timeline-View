@@ -1,5 +1,7 @@
 package com.github.vipulasri.timelineview.sample.recyclerview.basic
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,9 +27,7 @@ class BasicTimelineActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBasicTimelineBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setActivityTitle(getString(R.string.activity_example_label))
-        isDisplayHomeAsUpEnabled = true
+        setupToolbar(binding.toolbar, true)
 
         setDataListItems()
         initRecyclerView()
@@ -50,6 +50,12 @@ class BasicTimelineActivity : BaseActivity() {
         binding.recyclerView.layoutManager = layoutManager
         adapter = BasicTimeLineAdapter(dataList)
         binding.recyclerView.adapter = adapter
+    }
+
+    companion object {
+        fun launch(context: Activity) {
+            context.startActivity(Intent(context, BasicTimelineActivity::class.java))
+        }
     }
 
 }

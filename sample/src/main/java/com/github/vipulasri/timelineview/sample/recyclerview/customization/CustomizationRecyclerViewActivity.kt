@@ -1,6 +1,7 @@
 package com.github.vipulasri.timelineview.sample.recyclerview.customization
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.vipulasri.timelineview.TimelineView
 import com.github.vipulasri.timelineview.sample.R
 import com.github.vipulasri.timelineview.sample.databinding.ActivityCustomizationRecyclerviewBinding
-import com.github.vipulasri.timelineview.sample.recyclerview.basic.BasicTimelineActivity
 import com.github.vipulasri.timelineview.sample.extentions.dpToPx
 import com.github.vipulasri.timelineview.sample.extentions.getColorCompat
 import com.github.vipulasri.timelineview.sample.extentions.setGone
@@ -34,6 +34,7 @@ class CustomizationRecyclerViewActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCustomizationRecyclerviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupToolbar(binding.toolbar, true)
 
         //default values
         mAttributes = TimelineAttributes(
@@ -55,15 +56,6 @@ class CustomizationRecyclerViewActivity : BaseActivity() {
 
         setDataListItems()
         initRecyclerView()
-
-        binding.actionExampleActivity.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    BasicTimelineActivity::class.java
-                )
-            )
-        }
 
         binding.fabOptions.setOnClickListener {
             TimelineAttributesBottomSheet.showDialog(
@@ -165,6 +157,12 @@ class CustomizationRecyclerViewActivity : BaseActivity() {
         binding.recyclerView.apply {
             layoutManager = mLayoutManager
             adapter = TimeLineAdapter(mDataList, mAttributes)
+        }
+    }
+
+    companion object {
+        fun launch(context: Activity) {
+            context.startActivity(Intent(context, CustomizationRecyclerViewActivity::class.java))
         }
     }
 

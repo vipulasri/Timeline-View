@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             android:background="@color/colorWhite"
-            app:title="@string/activity_example_label" />
+            app:title="Basic Timeline: RecyclerView " />
 
     </com.google.android.material.appbar.AppBarLayout>
 
