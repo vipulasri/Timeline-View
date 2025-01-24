@@ -1,8 +1,9 @@
 package com.github.vipulasri.timelineview.sample
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
+import com.github.vipulasri.timelineview.sample.compose.ComposeSampleActivity
 import com.github.vipulasri.timelineview.sample.recyclerview.basic.BasicTimelineActivity
 import com.github.vipulasri.timelineview.sample.recyclerview.customization.CustomizationRecyclerViewActivity
 
@@ -10,7 +11,7 @@ import com.github.vipulasri.timelineview.sample.recyclerview.customization.Custo
  * Created by Vipul Asri on 21/01/25.
  */
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private fun handleUiEvent(uiEvent: MainScreenUiEvents) {
         when (uiEvent) {
             ComposeSampleClicked -> {
-
+                ComposeSampleActivity.launch(this)
             }
 
             RecyclerViewSampleClicked -> {

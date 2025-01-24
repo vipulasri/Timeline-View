@@ -25,11 +25,15 @@
 
         <activity
             android:name=".recyclerview.customization.CustomizationRecyclerViewActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".recyclerview.basic.BasicTimelineActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".compose.ComposeSampleActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
