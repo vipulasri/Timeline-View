@@ -1,27 +1,31 @@
 package com.vipulasri.timelineview.compose
 
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.unit.Dp
 
-sealed class LineStyle {
-    abstract fun color(): Color
-    abstract fun width(): Dp
+@Immutable
+data class LineStyle internal constructor(
+    val color: Color = TimelineDefaults.LineColor,
+    val width: Dp = TimelineDefaults.LineWidth,
+    val pathEffect: PathEffect? = null
+) {
+    companion object {
+        fun solid(
+            color: Color = TimelineDefaults.LineColor,
+            width: Dp = TimelineDefaults.LineWidth
+        ) = LineStyle(color, width)
 
-    data class Normal(
-        private val color: Color = TimelineDefaults.LineColor,
-        private val width: Dp = TimelineDefaults.LineWidth
-    ) : LineStyle() {
-        override fun color() = color
-        override fun width() = width
+        fun dashed(
+            color: Color = TimelineDefaults.LineColor,
+            width: Dp = TimelineDefaults.LineWidth,
+            dashLength: Dp = TimelineDefaults.LineDashLength,
+            dashGap: Dp = TimelineDefaults.LineDashGap
+        ) = LineStyle(
+            color, width, PathEffect.dashPathEffect(
+                floatArrayOf(dashLength.value, dashGap.value)
+            )
+        )
     }
-
-    data class Dashed(
-        private val color: Color = TimelineDefaults.LineColor,
-        private val width: Dp = TimelineDefaults.LineWidth,
-        val dashLength: Dp = TimelineDefaults.LineDashLength,
-        val dashGap: Dp = TimelineDefaults.LineDashGap
-    ) : LineStyle() {
-        override fun color() = color
-        override fun width() = width
-    }
-} 
+}

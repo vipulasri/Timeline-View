@@ -84,7 +84,7 @@ fun ComposeSampleScreen(
                             modifier = Modifier.fillMaxHeight(),
                             lineType = getLineType(index, items.size),
                             orientation = TimelineOrientation.Vertical,
-                            lineStyle = LineStyle.Normal(
+                            lineStyle = LineStyle.solid(
                                 color = Color(0xFF4CAF50),
                                 width = 2.dp
                             ),
