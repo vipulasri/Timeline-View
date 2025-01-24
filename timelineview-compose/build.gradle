@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-    implementation libs.bundles.compose
     implementation libs.androidx.compose.compiler
+    implementation libs.androidx.compose.ui
+    implementation libs.androidx.compose.foundation
 }
