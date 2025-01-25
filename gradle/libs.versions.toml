@@ -5,6 +5,7 @@ targetSdk = "34"
 kotlin = "2.0.21"
 agp = "8.7.3"
 compose-compiler = "1.5.15"
+maven-publish = "0.30.0"
 
 # AndroidX versions
 core-ktx = "1.15.0"
@@ -48,4 +49,5 @@ compose-debug = ["androidx-compose-tooling"]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" } 
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" } 
