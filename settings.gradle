@@ -1,1 +1,3 @@
-include ':app', ':timelineview'
+include ':sample'
+include ':timelineview'
+include ':timelineview-compose'

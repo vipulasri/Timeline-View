@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    alias(libs.plugins.kotlin.compose)
+}
+
+android {
+    namespace 'com.github.vipulasri.timelineview.sample'
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        applicationId "com.github.vipulasri.timelineview.sample"
+        minSdk 21
+        targetSdk libs.versions.targetSdk.get().toInteger()
+        versionCode 5
+        versionName "1.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+}
+
+dependencies {
+    implementation(project(':timelineview'))
+    implementation(project(':timelineview-compose'))
+
+    implementation libs.androidx.core
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.recyclerview
+
+    implementation libs.threeTen
+    implementation libs.spectrum
+
+    // compose
+    implementation platform(libs.androidx.compose.bom)
+    implementation libs.bundles.compose
+    implementation libs.androidx.compose.material3
+    implementation libs.androidx.compose.compiler
+    debugImplementation libs.bundles.compose.debug
+}
