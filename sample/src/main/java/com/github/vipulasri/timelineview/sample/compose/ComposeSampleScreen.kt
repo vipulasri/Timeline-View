@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.github.vipulasri.timelineview.sample.ui.theme.TimelineTheme
 import com.vipulasri.timelineview.compose.LineStyle
 import com.vipulasri.timelineview.compose.LineType
 import com.vipulasri.timelineview.compose.Timeline
@@ -49,7 +50,7 @@ import com.vipulasri.timelineview.compose.getLineType
 fun ComposeSampleScreen(
     onBackClick: () -> Unit
 ) {
-    MaterialTheme {
+    TimelineTheme {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = {
