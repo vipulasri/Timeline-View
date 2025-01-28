@@ -1,0 +1,50 @@
+site_name: Timeline View
+site_url: 'https://vipulasri.github.io/timelineview'
+site_description: Android Timeline View Library
+site_author: 'Vipul Asri'
+copyright: 'Copyright &copy; 2018 Vipul Asri'
+edit_uri: 'tree/main/docs/'
+remote_branch: gh-pages
+
+repo_name: Timeline-View
+repo_url: https://github.com/vipulasri/Timeline-View
+
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+  logo: assets/logo.png
+  font:
+    text: 'Roboto'
+    code: 'JetBrains Mono'
+  features:
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - navigation.instant # Instant loading of pages. Behave like a Single Page Application.
+    - toc.integrate
+
+nav:
+  - Overview: index.md
+  - Android Views:
+      - Getting Started: timelineview/overview.md
+      - RecyclerView: timelineview/recyclerview.md
+  - Compose: timelineview-compose/overview.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
