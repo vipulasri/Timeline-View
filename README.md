@@ -3,7 +3,7 @@
 
 # Timeline-View
 
-Timeline View is a powerful library for creating visually appealing timeline-based UIs. It is perfect for use cases such as shipment/order tracking, step progress indicators, and more.
+Timeline View is a powerful library for creating visually appealing timeline-based UIs. It is perfect for use cases such as shipment/order tracking, step progress indicators, etc.
 
 #### Available for :
 * **Android View** (XML-based layouts)
@@ -13,7 +13,7 @@ Timeline View is a powerful library for creating visually appealing timeline-bas
 
 ## Documentation
 
-For comprehensive information about Timeline View, please look at the **[official documentation](https://vipulasri.github.io/timelineview)**.
+For comprehensive information about Timeline View, please look at the **[official documentation](https://vipulasri.github.io/Timeline-View)**.
 
 ## Who's using Timeline View?
 
