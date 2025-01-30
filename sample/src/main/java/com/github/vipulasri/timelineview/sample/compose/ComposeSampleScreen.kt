@@ -22,7 +22,6 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -35,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.vipulasri.timelineview.sample.ui.theme.TimelineTheme
+import com.vipulasri.timelineview.compose.Line
 import com.vipulasri.timelineview.compose.LineStyle
 import com.vipulasri.timelineview.compose.LineType
 import com.vipulasri.timelineview.compose.Timeline
@@ -132,12 +132,36 @@ private fun TimelineVerticalPreview() {
             Timeline(
                 modifier = Modifier.height(100.dp),
                 lineType = getLineType(position, totalItems),
-                lineStyle = LineStyle.dashed(
-                    color = Color(0xFF2196F3),
-                    width = 3.dp,
-                    dashLength = 8.dp,
-                    dashGap = 10.dp
-                ),
+                lineStyle = when (position) {
+                    0 -> {
+                        LineStyle.dashed(
+                            color = Color(0xFF2196F3),
+                            width = 3.dp,
+                            dashLength = 6.dp,
+                            dashGap = 6.dp
+                        )
+                    }
+                    1 -> {
+                        LineStyle(
+                            startLine = Line.dashed(
+                                color = Color(0xFF2196F3),
+                                width = 3.dp,
+                                dashLength = 6.dp,
+                                dashGap = 6.dp
+                            ),
+                            endLine = Line.solid(
+                                color = Color(0xFF4CAF50),
+                                width = 2.dp
+                            ),
+                        )
+                    }
+                    else -> {
+                        LineStyle.solid(
+                            color = Color(0xFF4CAF50),
+                            width = 2.dp
+                        )
+                    }
+                },
                 marker = {
                     Box(
                         modifier = Modifier
