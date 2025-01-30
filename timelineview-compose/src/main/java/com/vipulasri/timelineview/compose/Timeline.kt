@@ -91,26 +91,28 @@ private fun DrawScope.drawHorizontalLines(
 }
 
 private fun DrawScope.drawStartLine(markerSize: Dp, lineStyle: LineStyle) {
+    val line = lineStyle.startLine
     val startOffset = this.center - Offset(0f, markerSize.div(2).toPx())
     val endOffset = Offset(this.center.x, 0f)
     drawLine(
-        color = lineStyle.color,
+        color = line.color,
         start = startOffset,
         end = endOffset,
-        strokeWidth = lineStyle.width.toPx(),
-        pathEffect = lineStyle.pathEffect
+        strokeWidth = line.width.toPx(),
+        pathEffect = line.pathEffect
     )
 }
 
 private fun DrawScope.drawEndLine(markerSize: Dp, lineStyle: LineStyle) {
+    val line = lineStyle.endLine
     val startOffset = this.center + Offset(0f, markerSize.div(2).toPx())
     val endOffset = Offset(this.center.x, this.size.height)
     drawLine(
-        color = lineStyle.color,
+        color = line.color,
         start = startOffset,
         end = endOffset,
-        strokeWidth = lineStyle.width.toPx(),
-        pathEffect = lineStyle.pathEffect
+        strokeWidth = line.width.toPx(),
+        pathEffect = line.pathEffect
     )
 }
 
@@ -118,11 +120,11 @@ private fun DrawScope.drawStartLineHorizontal(markerSize: Dp, lineStyle: LineSty
     val startOffset = this.center - Offset(markerSize.div(2).toPx(), 0f)
     val endOffset = Offset(0f, this.center.y)
     drawLine(
-        color = lineStyle.color,
+        color = lineStyle.startLine.color,
         start = startOffset,
         end = endOffset,
-        strokeWidth = lineStyle.width.toPx(),
-        pathEffect = lineStyle.pathEffect
+        strokeWidth = lineStyle.startLine.width.toPx(),
+        pathEffect = lineStyle.startLine.pathEffect
     )
 }
 
@@ -130,10 +132,10 @@ private fun DrawScope.drawEndLineHorizontal(markerSize: Dp, lineStyle: LineStyle
     val startOffset = this.center + Offset(markerSize.div(2).toPx(), 0f)
     val endOffset = Offset(this.size.width, this.center.y)
     drawLine(
-        color = lineStyle.color,
+        color = lineStyle.endLine.color,
         start = startOffset,
         end = endOffset,
-        strokeWidth = lineStyle.width.toPx(),
-        pathEffect = lineStyle.pathEffect
+        strokeWidth = lineStyle.endLine.width.toPx(),
+        pathEffect = lineStyle.endLine.pathEffect
     )
 }

@@ -6,7 +6,45 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.unit.Dp
 
 @Immutable
-data class LineStyle internal constructor(
+data class LineStyle(
+    val startLine: Line,
+    val endLine: Line
+) {
+    companion object {
+        fun solid(
+            color: Color = TimelineDefaults.LineColor,
+            width: Dp = TimelineDefaults.LineWidth
+        ) = LineStyle(
+            startLine = Line(color, width),
+            endLine = Line(color, width)
+        )
+
+        fun dashed(
+            color: Color = TimelineDefaults.LineColor,
+            width: Dp = TimelineDefaults.LineDashWidth,
+            dashLength: Dp = TimelineDefaults.LineDashLength,
+            dashGap: Dp = TimelineDefaults.LineDashGap
+        ) = LineStyle(
+            startLine = Line(
+                color,
+                width,
+                PathEffect.dashPathEffect(
+                    floatArrayOf(dashLength.value, dashGap.value)
+                )
+            ),
+            endLine = Line(
+                color,
+                width,
+                PathEffect.dashPathEffect(
+                    floatArrayOf(dashLength.value, dashGap.value)
+                )
+            )
+        )
+    }
+}
+
+@Immutable
+data class Line internal constructor(
     val color: Color = TimelineDefaults.LineColor,
     val width: Dp = TimelineDefaults.LineWidth,
     val pathEffect: PathEffect? = null
@@ -15,15 +53,17 @@ data class LineStyle internal constructor(
         fun solid(
             color: Color = TimelineDefaults.LineColor,
             width: Dp = TimelineDefaults.LineWidth
-        ) = LineStyle(color, width)
+        ) = Line(color, width)
 
         fun dashed(
             color: Color = TimelineDefaults.LineColor,
-            width: Dp = TimelineDefaults.LineWidth,
+            width: Dp = TimelineDefaults.LineDashWidth,
             dashLength: Dp = TimelineDefaults.LineDashLength,
             dashGap: Dp = TimelineDefaults.LineDashGap
-        ) = LineStyle(
-            color, width, PathEffect.dashPathEffect(
+        ) = Line(
+            color,
+            width,
+            PathEffect.dashPathEffect(
                 floatArrayOf(dashLength.value, dashGap.value)
             )
         )
