@@ -35,6 +35,11 @@ nav:
       - RecyclerView: timelineview/recyclerview.md
   - Compose: timelineview-compose/overview.md
 
+extra:
+  analytics:
+    provider: google
+    property: G-4J5YD5MSVP
+
 markdown_extensions:
   - admonition
   - attr_list
