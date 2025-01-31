@@ -15,6 +15,14 @@
             <enum name="normal" value="0" />
             <enum name="dash" value="1" />
         </attr>
+        <attr name="startLineStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="dashed" value="1"/>
+        </attr>
+        <attr name="endLineStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="dashed" value="1"/>
+        </attr>
         <attr name="lineStyleDashGap" format="dimension" />
         <attr name="lineStyleDashLength" format="dimension" />
         <attr name="lineOrientation" format="enum">
