@@ -10,6 +10,29 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.unit.Dp
 
+/**
+ * A composable that displays a timeline marker with connecting lines.
+ *
+ * @param modifier The modifier to be applied to the timeline
+ * @param lineType The type of line connections (start, middle, end, or single)
+ * @param lineStyle The style configuration for the lines
+ * @param orientation The orientation of the timeline (vertical or horizontal)
+ * @param marker The composable to be used as the timeline marker
+ *
+ * Example usage:
+ * ```
+ * Timeline(
+ *     lineType = LineType.MIDDLE,
+ *     lineStyle = LineStyle.dashed(
+ *         color = MaterialTheme.colorScheme.primary,
+ *         width = 2.dp
+ *     ),
+ *     marker = {
+ *         // Your marker composable
+ *     }
+ * )
+ * ```
+ */
 @Composable
 fun Timeline(
     modifier: Modifier = Modifier,
