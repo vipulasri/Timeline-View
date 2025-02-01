@@ -25,7 +25,7 @@ Please let me know via [email](mailto:me@vipulasri.com), [pull requests](https:/
 ## License
 
 
-    Copyright 2018-2025 Vipul Asri
+    Copyright 2015-2025 Vipul Asri
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
