@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,9 +35,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.vipulasri.timelineview.sample.ui.theme.TimelineTheme
-import com.vipulasri.timelineview.compose.Line
+import com.vipulasri.timelineview.compose.DashedLine
 import com.vipulasri.timelineview.compose.LineStyle
 import com.vipulasri.timelineview.compose.LineType
+import com.vipulasri.timelineview.compose.SolidLine
 import com.vipulasri.timelineview.compose.Timeline
 import com.vipulasri.timelineview.compose.TimelineOrientation
 import com.vipulasri.timelineview.compose.getLineType
@@ -76,7 +78,8 @@ fun ComposeSampleScreen(
             containerColor = Color.White
         ) { contentPadding ->
 
-            val items = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
+            val items =
+                listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
             LazyColumn(
                 modifier = Modifier
@@ -92,7 +95,7 @@ fun ComposeSampleScreen(
                             modifier = Modifier.fillMaxHeight(),
                             lineType = getLineType(index, items.size),
                             orientation = TimelineOrientation.Vertical,
-                            lineStyle = LineStyle.solid(
+                            lineStyle = LineStyle.dashed(
                                 color = Color(0xFF4CAF50),
                                 width = 2.dp
                             ),
@@ -108,6 +111,9 @@ fun ComposeSampleScreen(
                             text = "Item $item",
                             modifier = Modifier.padding(16.dp)
                         )
+                    }
+                    Card {
+
                     }
                 }
             }
@@ -136,25 +142,23 @@ private fun TimelineVerticalPreview() {
                     0 -> {
                         LineStyle.dashed(
                             color = Color(0xFF2196F3),
-                            width = 3.dp,
-                            dashLength = 6.dp,
-                            dashGap = 6.dp
+                            width = 3.dp
                         )
                     }
+
                     1 -> {
                         LineStyle(
-                            startLine = Line.dashed(
+                            startLine = DashedLine(
                                 color = Color(0xFF2196F3),
-                                width = 3.dp,
-                                dashLength = 6.dp,
-                                dashGap = 6.dp
+                                width = 3.dp
                             ),
-                            endLine = Line.solid(
+                            endLine = SolidLine(
                                 color = Color(0xFF4CAF50),
                                 width = 2.dp
                             ),
                         )
                     }
+
                     else -> {
                         LineStyle.solid(
                             color = Color(0xFF4CAF50),
@@ -165,7 +169,7 @@ private fun TimelineVerticalPreview() {
                 marker = {
                     Box(
                         modifier = Modifier
-                            .size(24.dp)
+                            .size(20.dp)
                             .background(Color(0xFF2196F3), CircleShape)
                     )
                 }
@@ -186,10 +190,34 @@ private fun TimelineHorizontalPreview() {
                 modifier = Modifier.width(80.dp),
                 lineType = getLineType(position, totalItems),
                 orientation = TimelineOrientation.Horizontal,
-                lineStyle = LineStyle.solid(
-                    color = Color(0xFF4CAF50),
-                    width = 2.dp
-                ),
+                lineStyle = when (position) {
+                    0 -> {
+                        LineStyle.dashed(
+                            color = Color(0xFF2196F3),
+                            width = 3.dp
+                        )
+                    }
+
+                    1 -> {
+                        LineStyle(
+                            startLine = DashedLine(
+                                color = Color(0xFF2196F3),
+                                width = 3.dp
+                            ),
+                            endLine = SolidLine(
+                                color = Color(0xFF4CAF50),
+                                width = 2.dp
+                            ),
+                        )
+                    }
+
+                    else -> {
+                        LineStyle.solid(
+                            color = Color(0xFF4CAF50),
+                            width = 2.dp
+                        )
+                    }
+                },
                 marker = {
                     Box(
                         modifier = Modifier
