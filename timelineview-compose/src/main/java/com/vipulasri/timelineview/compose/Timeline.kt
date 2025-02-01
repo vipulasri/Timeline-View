@@ -6,6 +6,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.unit.Dp
 
@@ -92,50 +93,142 @@ private fun DrawScope.drawHorizontalLines(
 
 private fun DrawScope.drawStartLine(markerSize: Dp, lineStyle: LineStyle) {
     val line = lineStyle.startLine
-    val startOffset = this.center - Offset(0f, markerSize.div(2).toPx())
-    val endOffset = Offset(this.center.x, 0f)
+    val startOffset = when {
+        line is DashedLine -> {
+            Offset(this.center.x, 0f)
+        }
+
+        else -> {
+            // For solid line, draw normally
+            Offset(this.center.x, 0f)
+        }
+    }
+
+    val endOffset = when {
+        line is DashedLine -> {
+            this.center - Offset(0f, markerSize.div(2).toPx())
+        }
+
+        else -> {
+            // For solid line, end at marker
+            this.center - Offset(0f, markerSize.div(2).toPx())
+        }
+    }
+
     drawLine(
         color = line.color,
         start = startOffset,
         end = endOffset,
         strokeWidth = line.width.toPx(),
-        pathEffect = line.pathEffect
+        pathEffect = getPathEffect(line)
     )
 }
 
 private fun DrawScope.drawEndLine(markerSize: Dp, lineStyle: LineStyle) {
     val line = lineStyle.endLine
-    val startOffset = this.center + Offset(0f, markerSize.div(2).toPx())
-    val endOffset = Offset(this.center.x, this.size.height)
+    val startOffset = when {
+        line is DashedLine -> {
+            // For dashed line, start from bottom minus gap
+            Offset(this.center.x, size.height - (line.dashGap.toPx()))
+        }
+
+        else -> {
+            // For solid line, start from marker
+            this.center + Offset(0f, markerSize.div(2).toPx())
+        }
+    }
+    val endOffset = when {
+        line is DashedLine -> {
+            // For dashed line, draw towards marker
+            this.center + Offset(0f, markerSize.div(2).toPx())
+        }
+
+        else -> {
+            // For solid line, draw to bottom
+            Offset(this.center.x, size.height)
+        }
+    }
+
     drawLine(
         color = line.color,
         start = startOffset,
         end = endOffset,
         strokeWidth = line.width.toPx(),
-        pathEffect = line.pathEffect
+        pathEffect = getPathEffect(line)
     )
 }
 
 private fun DrawScope.drawStartLineHorizontal(markerSize: Dp, lineStyle: LineStyle) {
-    val startOffset = this.center - Offset(markerSize.div(2).toPx(), 0f)
-    val endOffset = Offset(0f, this.center.y)
+    val line = lineStyle.startLine
+    val startOffset = when {
+        line is DashedLine -> {
+            // For dashed line, start from left edge plus gap
+            Offset(0f, this.center.y)
+        }
+
+        else -> {
+            // For solid line, start from left edge
+            Offset(0f, this.center.y)
+        }
+    }
+    val endOffset = when {
+        line is DashedLine -> {
+            // For dashed line, draw towards marker
+            this.center - Offset(markerSize.div(2).toPx(), 0f)
+        }
+
+        else -> {
+            // For solid line, end at marker
+            this.center - Offset(markerSize.div(2).toPx(), 0f)
+        }
+    }
+
     drawLine(
-        color = lineStyle.startLine.color,
+        color = line.color,
         start = startOffset,
         end = endOffset,
-        strokeWidth = lineStyle.startLine.width.toPx(),
-        pathEffect = lineStyle.startLine.pathEffect
+        strokeWidth = line.width.toPx(),
+        pathEffect = getPathEffect(line)
     )
 }
 
 private fun DrawScope.drawEndLineHorizontal(markerSize: Dp, lineStyle: LineStyle) {
-    val startOffset = this.center + Offset(markerSize.div(2).toPx(), 0f)
-    val endOffset = Offset(this.size.width, this.center.y)
+    val line = lineStyle.endLine
+    val startOffset = when {
+        line is DashedLine -> {
+            // For dashed line, start from right edge minus gap
+            Offset(size.width - (line.dashGap.toPx()), this.center.y)
+        }
+
+        else -> {
+            // For solid line, start from marker
+            this.center + Offset(markerSize.div(2).toPx(), 0f)
+        }
+    }
+    val endOffset = when {
+        line is DashedLine -> {
+            // For dashed line, draw towards marker
+            this.center + Offset(markerSize.div(2).toPx(), 0f)
+        }
+
+        else -> {
+            // For solid line, draw to right edge
+            Offset(size.width, this.center.y)
+        }
+    }
+
     drawLine(
-        color = lineStyle.endLine.color,
+        color = line.color,
         start = startOffset,
         end = endOffset,
-        strokeWidth = lineStyle.endLine.width.toPx(),
-        pathEffect = lineStyle.endLine.pathEffect
+        strokeWidth = line.width.toPx(),
+        pathEffect = getPathEffect(line)
     )
+}
+
+private fun DrawScope.getPathEffect(line: Line): PathEffect? = when (line) {
+    is DashedLine -> PathEffect.dashPathEffect(
+        floatArrayOf(line.dashLength.toPx(), line.dashGap.toPx())
+    )
+    else -> null
 }
