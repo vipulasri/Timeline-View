@@ -5,13 +5,25 @@
 
 Timeline View is a powerful library for creating visually appealing timeline-based UIs. It is perfect for use cases such as shipment/order tracking, step progress indicators, etc.
 
-#### Available for :
-* **Android View** (XML-based layouts)
-* **Jetpack Compose**
-
 ![showcase](https://github.com/vipulasri/Timeline-View/blob/master/art/showcase.png)
 
-## Documentation
+## Quick Start
+
+Add the dependency to your app's build.gradle:
+
+#### Android View
+```gradle
+dependencies {
+    implementation("com.github.vipulasri:timelineview:${latest_version}")
+}
+```
+
+#### Jetpack Compose
+```gradle
+dependencies {
+    implementation("com.github.vipulasri:timelineview-compose:${latest_version}")
+}
+```
 
 For comprehensive information about Timeline View, please look at the **[official documentation](https://vipulasri.github.io/Timeline-View)**.
 
