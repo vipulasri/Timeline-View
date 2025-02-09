@@ -5,9 +5,13 @@
 
 Timeline View is a powerful library for creating visually appealing timeline-based UIs. It is perfect for use cases such as shipment/order tracking, step progress indicators, etc.
 
-![showcase](https://github.com/vipulasri/Timeline-View/blob/master/art/showcase.png)
+|                        `Vertical`                         |                        `Horizontal`                         |                        `Dashed`                         |
+|:---------------------------------------------------------:|:-----------------------------------------------------------:|:-------------------------------------------------------:|
+| <img src="docs/assets/timeline-vertical.png" width="200"> | <img src="docs/assets/timeline-horizontal.png" width="200"> | <img src="docs/assets/timeline-dashed.png" width="200"> |
 
 ## Quick Start
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.vipulasri/timelineview.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.vipulasri%22%20AND%20a:%22timelineview%22)
 
 Add the dependency to your app's build.gradle:
 
@@ -25,9 +29,12 @@ dependencies {
 }
 ```
 
-For comprehensive information about Timeline View, please look at the **[official documentation](https://vipulasri.github.io/Timeline-View)**.
+## Documentation
 
-## Who's using Timeline View?
+For comprehensive information about Timeline View, please look at the **[official documentation](https://vipulasri.github.io/Timeline-View)**.
+<br>
+<br>
+### Who's using Timeline View?
 
 [Apps using Timeline-View, via AppBrain Stats](https://www.appbrain.com/stats/libraries/details/timeline_view/timeline-view)
 
