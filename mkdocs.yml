@@ -33,7 +33,9 @@ nav:
   - Android Views:
       - Getting Started: timelineview/overview.md
       - RecyclerView: timelineview/recyclerview.md
-  - Compose: timelineview-compose/overview.md
+  - Compose:
+      - Getting Started: timelineview-compose/overview.md
+      - Usage: timelineview-compose/usage.md
 
 extra:
   analytics:
