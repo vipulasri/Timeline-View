@@ -1,6 +1,6 @@
 # Timeline View
 
-Timeline View is a powerful Android library for creating visually appealing timeline-based UIs. Perfect for:
+Timeline View is a simple and highly customizable Android library for creating visually appealing timeline-based UIs. Perfect for:
 
 * Order tracking
 * Delivery status
