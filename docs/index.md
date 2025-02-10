@@ -8,9 +8,9 @@ Timeline View is a simple and highly customizable Android library for creating v
 * Historical events
 * Process flows
 
-| ![vertical](assets/timeline-vertical.png) | ![vertical](assets/timeline-horizontal.png) |  ![vertical](assets/timeline-dashed.png)   |
-|:-----------------------------------------:|:-------------------------------------------:|:------------------------------------------:|
-|                `Vertical`                 |                `Horizontal`                 |                  `Dashed`                  |
+|                `Vertical`                 |                `Horizontal`                 |                `Dashed`                 |                `Order Tracking`                 |
+|:-----------------------------------------:|:-------------------------------------------:|:---------------------------------------:|:-----------------------------------------------:|
+| ![vertical](assets/timeline-vertical.png) | ![vertical](assets/timeline-horizontal.png) | ![vertical](assets/timeline-dashed.png) | ![vertical](assets/timeline-order-tracking.png) |
 
 ## Features
 - Supports Android Views and Jetpack Compose

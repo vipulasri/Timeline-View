@@ -5,9 +5,9 @@
 
 Timeline View is a simple and highly customizable android library for creating visually appealing timeline-based UIs. It is perfect for use cases such as shipment/order tracking, step progress indicators, etc.
 
-|                        `Vertical`                         |                        `Horizontal`                         |                        `Dashed`                         |
-|:---------------------------------------------------------:|:-----------------------------------------------------------:|:-------------------------------------------------------:|
-| <img src="docs/assets/timeline-vertical.png" width="200"> | <img src="docs/assets/timeline-horizontal.png" width="200"> | <img src="docs/assets/timeline-dashed.png" width="200"> |
+|                        `Vertical`                         |                        `Horizontal`                         |                        `Dashed`                         |                        `Order Tracking`                         |
+|:---------------------------------------------------------:|:-----------------------------------------------------------:|:-------------------------------------------------------:|:---------------------------------------------------------------:|
+| <img src="docs/assets/timeline-vertical.png" width="200"> | <img src="docs/assets/timeline-horizontal.png" width="200"> | <img src="docs/assets/timeline-dashed.png" width="200"> | <img src="docs/assets/timeline-order-tracking.png" width="200"> |
 
 ## Quick Start
 
