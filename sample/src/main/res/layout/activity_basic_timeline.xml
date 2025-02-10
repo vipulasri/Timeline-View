@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.github.vipulasri.timelineview.sample.recyclerview.basic.BasicTimelineActivity">
+    tools:context="com.github.vipulasri.timelineview.sample.recyclerview.simple.SimpleTimelineActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             android:background="@color/colorWhite"
-            app:title="Basic Timeline: RecyclerView " />
+            app:title="Timeline in RecyclerView" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

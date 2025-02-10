@@ -27,4 +27,8 @@ open class BaseActivity : AppCompatActivity() {
     fun setHomeAsUpIndicator(drawable: Drawable) {
         supportActionBar?.setHomeAsUpIndicator(drawable)
     }
+
+    fun setToolbarTitle(title: String) {
+        supportActionBar?.title = title
+    }
 }

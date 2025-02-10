@@ -7,5 +7,5 @@ package com.github.vipulasri.timelineview.sample
 sealed class MainScreenUiEvents
 
 data object ComposeSampleClicked : MainScreenUiEvents()
-data object RecyclerViewSampleClicked : MainScreenUiEvents()
-data object RecyclerViewCustomizationSampleClicked : MainScreenUiEvents()
+data object SimpleRecyclerViewSampleClicked : MainScreenUiEvents()
+data object OrderTrackingRecyclerViewSampleClicked : MainScreenUiEvents()

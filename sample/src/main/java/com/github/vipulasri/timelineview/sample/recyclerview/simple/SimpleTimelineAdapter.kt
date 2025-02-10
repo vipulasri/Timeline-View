@@ -1,4 +1,4 @@
-package com.github.vipulasri.timelineview.sample.recyclerview.basic
+package com.github.vipulasri.timelineview.sample.recyclerview.simple
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,18 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.vipulasri.timelineview.TimelineView
 import com.github.vipulasri.timelineview.sample.R
 import com.github.vipulasri.timelineview.sample.databinding.ItemTimelineBinding
-import com.github.vipulasri.timelineview.sample.extentions.formatDateTime
-import com.github.vipulasri.timelineview.sample.extentions.setVisible
-import com.github.vipulasri.timelineview.sample.model.OrderStatus
-import com.github.vipulasri.timelineview.sample.model.TimeLineModel
 import com.github.vipulasri.timelineview.sample.utils.VectorDrawableUtils
 
 /**
  * Created by Vipul Asri on 13-12-2018.
  */
 
-class BasicTimeLineAdapter(private val feedList: List<TimeLineModel>) :
-    RecyclerView.Adapter<BasicTimeLineAdapter.TimeLineViewHolder>() {
+class SimpleTimelineAdapter(private val feedList: List<String>) :
+    RecyclerView.Adapter<SimpleTimelineAdapter.TimeLineViewHolder>() {
 
     private lateinit var layoutInflater: LayoutInflater
 
@@ -41,7 +37,7 @@ class BasicTimeLineAdapter(private val feedList: List<TimeLineModel>) :
 
     override fun onBindViewHolder(holder: TimeLineViewHolder, position: Int) {
         val timeLineModel = feedList[position]
-        holder.bind(timeLineModel)
+        holder.bind(position, timeLineModel)
     }
 
     override fun getItemCount() = feedList.size
@@ -55,30 +51,24 @@ class BasicTimeLineAdapter(private val feedList: List<TimeLineModel>) :
             binding.timeline.initLine(viewType)
         }
 
-        fun bind(model: TimeLineModel) {
-            when (model.status) {
-                OrderStatus.INACTIVE -> {
-                    setMarker(R.drawable.ic_marker_inactive, R.color.material_grey_500)
+        fun bind(position: Int, model: String) {
+            when (position) {
+                0 -> {
+                    setMarker(R.drawable.ic_marker_inactive, R.color.colorGrey500)
                 }
 
-                OrderStatus.ACTIVE -> {
-                    setMarker(R.drawable.ic_marker_active, R.color.material_grey_500)
+                1 -> {
+                    setMarker(R.drawable.ic_marker_active, R.color.colorGrey500)
                 }
 
                 else -> {
-                    setMarker(R.drawable.ic_marker, R.color.material_grey_500)
+                    setMarker(R.drawable.ic_marker, R.color.colorGrey500)
                 }
             }
 
-            if (model.date.isNotEmpty()) {
-                binding.textTimelineDate.run {
-                    setVisible()
-                    text = model.date.formatDateTime("yyyy-MM-dd HH:mm", "hh:mm a, dd-MMM-yyyy")
-                }
-            } else
-                binding.textTimelineDate.isVisible = false
-
-            binding.textTimelineTitle.text = model.message
+            binding.textTimelineDate.isVisible = false
+            binding.textTimelineTitle.text = model
+            binding.timeline.lineStyle = TimelineView.LineStyle.NORMAL
         }
 
         private fun setMarker(drawableResId: Int, colorFilter: Int) {

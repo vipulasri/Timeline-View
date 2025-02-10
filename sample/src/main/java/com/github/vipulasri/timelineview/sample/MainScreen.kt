@@ -1,13 +1,14 @@
 package com.github.vipulasri.timelineview.sample
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -45,32 +46,55 @@ fun MainScreen(
                 modifier = Modifier
                     .padding(contentPadding)
                     .fillMaxSize()
-                    .padding(16.dp)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                OutlinedButton(
-                    onClick = { onClick(ComposeSampleClicked) },
-                ) {
-                    Text(
-                        text = "Compose Sample"
-                    )
-                }
-                Spacer(modifier = Modifier.height(16.dp))
-                OutlinedButton(
-                    onClick = { onClick(RecyclerViewSampleClicked) },
-                ) {
-                    Text(
-                        text = "RecyclerView Sample"
-                    )
-                }
-                Spacer(modifier = Modifier.height(16.dp))
-                OutlinedButton(
-                    onClick = { onClick(RecyclerViewCustomizationSampleClicked) },
-                ) {
-                    Text(
-                        text = "RecyclerView Customization Sample"
-                    )
-                }
+
+                SampleCard(
+                    title = "Compose Sample",
+                    description = "A simple Compose sample",
+                    onClick = { onClick(ComposeSampleClicked) }
+                )
+
+                SampleCard(
+                    title = "Simple RecyclerView",
+                    description = "A simple RecyclerView sample",
+                    onClick = { onClick(SimpleRecyclerViewSampleClicked) }
+                )
+
+                SampleCard(
+                    title = "Order Tracking RecyclerView",
+                    description = "A order tracking sample with RecyclerView",
+                    onClick = { onClick(OrderTrackingRecyclerViewSampleClicked) }
+                )
             }
+        }
+    }
+}
+
+@Composable
+private fun SampleCard(
+    title: String,
+    description: String,
+    onClick: () -> Unit
+) {
+    OutlinedCard(
+        modifier = Modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.large,
+        onClick = onClick
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleMedium
+            )
+            Text(
+                modifier = Modifier.padding(top = 8.dp),
+                text = description,
+                style = MaterialTheme.typography.bodySmall
+            )
         }
     }
 }

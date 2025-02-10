@@ -51,7 +51,6 @@ dependencies {
     implementation libs.androidx.recyclerview
 
     implementation libs.threeTen
-    implementation libs.spectrum
 
     // compose
     implementation platform(libs.androidx.compose.bom)

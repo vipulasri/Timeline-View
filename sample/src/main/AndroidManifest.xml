@@ -28,8 +28,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".recyclerview.basic.BasicTimelineActivity"
+            android:name=".recyclerview.simple.SimpleTimelineActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".recyclerview.ordertracking.OrderTrackingTimelineActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
 
         <activity
             android:name=".compose.ComposeSampleActivity"
