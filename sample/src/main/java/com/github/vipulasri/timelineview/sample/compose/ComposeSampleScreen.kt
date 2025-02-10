@@ -23,6 +23,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -85,7 +86,7 @@ fun ComposeSampleScreen(
                 modifier = Modifier
                     .padding(contentPadding)
                     .fillMaxSize(),
-                contentPadding = PaddingValues(16.dp)
+                contentPadding = PaddingValues(horizontal = 16.dp)
             ) {
                 itemsIndexed(items) { index, item ->
                     Row(
@@ -103,7 +104,7 @@ fun ComposeSampleScreen(
                                 Box(
                                     modifier = Modifier
                                         .size(24.dp)
-                                        .background(Color(0xFF2196F3), CircleShape)
+                                        .background(MaterialTheme.colorScheme.primary, CircleShape)
                                 )
                             }
                         )
@@ -122,7 +123,7 @@ fun ComposeSampleScreen(
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 private fun ComposeSampleScreenPreview() {
     ComposeSampleScreen(
         onBackClick = { }
@@ -230,77 +231,114 @@ private fun TimelineHorizontalPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun TimelineSingleItemPreview() {
-    Column(Modifier.padding(16.dp)) {
-        Timeline(
-            lineType = LineType.START,
-            lineStyle = LineStyle.dashed(
-                color = Color(0xFF2196F3),
-                dashLength = 4.dp,
-                dashGap = 2.dp
-            ),
-            marker = {
-                Box(
-                    modifier = Modifier
-                        .size(24.dp)
-                        .background(Color(0xFF2196F3), CircleShape)
-                )
-            }
-        )
+    TimelineTheme {
+        Column(Modifier.padding(horizontal = 16.dp)) {
+            Timeline(
+                modifier = Modifier.height(150.dp),
+                lineType = LineType.MIDDLE,
+                lineStyle = LineStyle.dashed(
+                    color = MaterialTheme.colorScheme.primary
+                ),
+                marker = {
+                    Box(
+                        modifier = Modifier
+                            .size(24.dp)
+                            .background(MaterialTheme.colorScheme.primary, CircleShape)
+                    )
+                }
+            )
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun TimelineCustomMarkersPreview() {
-    Column(Modifier.padding(16.dp)) {
-        val totalItems = 4
-        repeat(totalItems) { position ->
-            Timeline(
-                modifier = Modifier.height(100.dp),
-                lineType = getLineType(position, totalItems),
-                lineStyle = LineStyle.dashed(
-                    color = Color(0xFF2196F3),
-                    dashLength = 8.dp,
-                    dashGap = 4.dp
-                )
-            ) {
-                // Custom marker examples
-                when (position) {
-                    0 -> Icon(
-                        imageVector = Icons.Default.Star,
-                        contentDescription = null,
-                        tint = Color(0xFF2196F3),
-                        modifier = Modifier.size(24.dp)
-                    )
+    TimelineTheme {
+        Column(Modifier.padding(horizontal = 16.dp)) {
+            val totalItems = 4
+            repeat(totalItems) { position ->
 
-                    1 -> Box(
-                        modifier = Modifier
-                            .size(50.dp)
-                            .background(Color(0xFF2196F3), RoundedCornerShape(4.dp))
-                    )
+                var modifier = Modifier
+                    .height(100.dp)
 
-                    2 -> Box(
-                        Modifier
-                            .size(24.dp)
-                            .background(Color(0xFF2196F3), CircleShape)
-                    ) {
-                        Text(
-                            modifier = Modifier.align(Alignment.Center),
-                            text = "3",
-                            color = Color.White,
-                            textAlign = TextAlign.Center
-                        )
+                if (position != 1) {
+                    modifier = modifier.then(Modifier.padding(horizontal = 13.dp))
+                }
+
+                Timeline(
+                    modifier = modifier,
+                    lineType = getLineType(position, totalItems),
+                    lineStyle = when (position) {
+                        0 -> {
+                            LineStyle.dashed(
+                                color = Color.Gray,
+                                width = 3.dp
+                            )
+                        }
+
+                        1 -> {
+                            LineStyle(
+                                startLine = DashedLine(
+                                    color = Color.Gray,
+                                    width = 3.dp
+                                ),
+                                endLine = SolidLine(
+                                    color = MaterialTheme.colorScheme.primary,
+                                    width = 3.dp
+                                ),
+                            )
+                        }
+
+                        else -> {
+                            LineStyle.solid(
+                                color = MaterialTheme.colorScheme.primary,
+                                width = 3.dp
+                            )
+                        }
                     }
-
-                    else -> {
-                        Box(
-                            modifier = Modifier
-                                .size(24.dp)
-                                .background(Color(0xFF2196F3), CircleShape)
+                ) {
+                    // Custom marker examples
+                    when (position) {
+                        0 -> Icon(
+                            imageVector = Icons.Default.Star,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(24.dp)
                         )
+
+                        1 -> Box(
+                            modifier = Modifier
+                                .size(50.dp)
+                                .background(
+                                    MaterialTheme.colorScheme.primary,
+                                    RoundedCornerShape(4.dp)
+                                )
+                        )
+
+                        2 -> Box(
+                            Modifier
+                                .size(24.dp)
+                                .background(MaterialTheme.colorScheme.primary, CircleShape)
+                        ) {
+                            Text(
+                                modifier = Modifier.align(Alignment.Center),
+                                text = "3",
+                                color = Color.White,
+                                textAlign = TextAlign.Center
+                            )
+                        }
+
+                        else -> {
+                            Box(
+                                modifier = Modifier
+                                    .size(24.dp)
+                                    .background(MaterialTheme.colorScheme.primary, CircleShape)
+                            )
+                        }
                     }
                 }
             }

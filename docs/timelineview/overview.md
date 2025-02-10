@@ -47,6 +47,8 @@ dependencies {
 | `app:lineWidth`           | `2dp`               | Sets line width                                             |
 | `app:lineOrientation`     | `vertical`          | Sets orientation (`horizontal` or `vertical`)               |
 | `app:linePadding`         | `0dp`               | Sets line padding around marker                             |
-| `app:lineStyle`           | `normal`            | Sets line style (`normal` or `dashed`)                      |
+| `app:lineStyle`           | `normal`            | Sets style to both start and end (`normal` or `dashed`)     |
+| `app:startLineStyle`      | `normal`            | Sets style to start line (`normal` or `dashed`)             |
+| `app:endLineStyle`        | `normal`            | Sets style to end line (`normal` or `dashed`)               |
 | `app:lineStyleDashGap`    | `4dp`               | Sets line dash gap                                          |
 | `app:lineStyleDashLength` | `8dp`               | Sets line dash length                                       |
